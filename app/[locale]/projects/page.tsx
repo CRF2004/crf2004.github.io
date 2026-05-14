@@ -32,6 +32,7 @@ export default function ProjectsPage({
             description={p.description[locale as "en" | "zh"]}
             tags={p.tags}
             locale={locale}
+            links={p.links}
           />
         ))}
       </div>

@@ -1,9 +1,16 @@
+export interface ProjectLinks {
+  demo?: string;
+  repo?: string;
+  docs?: string;
+}
+
 export interface Project {
   slug: string;
   title: { en: string; zh: string };
   description: { en: string; zh: string };
   tags: string[];
   featured: boolean;
+  links?: ProjectLinks;
 }
 
 export const projects: Project[] = [
@@ -19,6 +26,9 @@ export const projects: Project[] = [
     },
     tags: ["Knowledge Graph", "XGBoost", "Neo4j", "Interpretability"],
     featured: true,
+    links: {
+      repo: "https://github.com/CRF2004/Myocardial-Ischemia-Knowledge-graph",
+    },
   },
   {
     slug: "kg-patient-qa",
@@ -32,6 +42,9 @@ export const projects: Project[] = [
     },
     tags: ["RAG", "Neo4j", "NER", "LLM", "Healthcare"],
     featured: true,
+    links: {
+      repo: "https://github.com/CRF2004/KGconsturct_Patientsimulation",
+    },
   },
   {
     slug: "viora",
@@ -42,6 +55,9 @@ export const projects: Project[] = [
     },
     tags: ["Flask", "D3.js", "Health AI", "Conversational AI"],
     featured: true,
+    links: {
+      demo: "https://viora.filegear-sg.me/",
+    },
   },
   {
     slug: "portraiture",
@@ -68,6 +84,9 @@ export const projects: Project[] = [
     },
     tags: ["Python", "React", "API Proxy", "Token Management"],
     featured: false,
+    links: {
+      repo: "https://github.com/CRF2004/ContextOS",
+    },
   },
   {
     slug: "a2a-hub",
@@ -81,6 +100,10 @@ export const projects: Project[] = [
     },
     tags: ["Python", "SSH", "MCP", "Knowledge Management"],
     featured: false,
+    links: {
+      demo: "http://8.134.135.36:8080/",
+      repo: "https://github.com/CRF2004/a2a-knowledge-hub",
+    },
   },
 ];
 

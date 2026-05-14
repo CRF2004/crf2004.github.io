@@ -92,6 +92,7 @@ export default function HomePage({
               description={p.description[locale as "en" | "zh"]}
               tags={p.tags}
               locale={locale}
+              links={p.links}
             />
           ))}
         </div>

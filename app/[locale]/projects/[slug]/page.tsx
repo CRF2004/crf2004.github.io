@@ -1,9 +1,9 @@
 import { use } from "react";
 import { setRequestLocale } from "next-intl/server";
-import { useTranslations } from "next-intl";
 import Link from "next/link";
 import { projects, getProject } from "@/lib/projects";
 import { routing } from "@/lib/routing";
+import { ProjectLinkButtons } from "@/components/ProjectCard";
 import type { Metadata } from "next";
 
 interface Props {
@@ -30,7 +30,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default function ProjectDetailPage({ params }: Props) {
   const { slug, locale } = use(params);
   setRequestLocale(locale);
-  const t = useTranslations("projects");
   const p = getProject(slug);
 
   if (!p) {
@@ -74,10 +73,7 @@ export default function ProjectDetailPage({ params }: Props) {
       </div>
 
       <div className="mt-12 p-6 rounded-2xl bg-zinc-50 border border-zinc-200">
-        <p className="text-sm text-zinc-500">
-          Detailed project description coming soon. For now, check the source
-          code or reach out to discuss this project.
-        </p>
+        <ProjectLinkButtons links={p.links} locale={locale} variant="detail" />
       </div>
     </div>
   );
