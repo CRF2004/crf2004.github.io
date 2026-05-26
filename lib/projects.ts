@@ -105,6 +105,22 @@ export const projects: Project[] = [
       repo: "https://github.com/CRF2004/a2a-knowledge-hub",
     },
   },
+  {
+    slug: "ihd-trajectory",
+    title: {
+      en: "IHD Trajectory Similarity Retrieval",
+      zh: "IHD患者轨迹相似检索系统",
+    },
+    description: {
+      en: "Clinical decision support system for IHD patient trajectory similarity retrieval on MIMIC-IV, featuring cutoff-based time-window retrieval, post-cutoff validation, and 24-48h trend analysis with precomputed k-NN similarity graphs.",
+      zh: "基于MIMIC-IV数据库的IHD患者轨迹相似检索系统，支持截断时间窗检索、截断后轨迹验证、跨截断点一致性分析与24-48h趋势预测，结合预计算k-NN相似图加速在线查询。",
+    },
+    tags: ["Streamlit", "DuckDB", "MIMIC-IV", "Clinical AI", "Similarity Retrieval"],
+    featured: false,
+    links: {
+      repo: "https://github.com/CRF2004/IHD_Trajectory_System",
+    },
+  },
 ];
 
 export function getProject(slug: string): Project | undefined {
