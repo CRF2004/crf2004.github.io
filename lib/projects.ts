@@ -112,12 +112,13 @@ export const projects: Project[] = [
       zh: "IHD患者轨迹相似检索系统",
     },
     description: {
-      en: "Clinical decision support system for IHD patient trajectory similarity retrieval on MIMIC-IV, featuring cutoff-based time-window retrieval, post-cutoff validation, and 24-48h trend analysis with precomputed k-NN similarity graphs.",
-      zh: "基于MIMIC-IV数据库的IHD患者轨迹相似检索系统，支持截断时间窗检索、截断后轨迹验证、跨截断点一致性分析与24-48h趋势预测，结合预计算k-NN相似图加速在线查询。",
+      en: "Clinical decision support system for IHD patient trajectory similarity retrieval on MIMIC-IV, featuring cutoff-based time-window retrieval, post-cutoff validation, and 24-48h trend analysis with precomputed k-NN similarity graphs. Live demo available at career-identifying-equipped-rod.trycloudflare.com (password required — contact author due to MIMIC-IV data restrictions).",
+      zh: "基于MIMIC-IV数据库的IHD患者轨迹相似检索系统，支持截断时间窗检索、截断后轨迹验证、跨截断点一致性分析与24-48h趋势预测，结合预计算k-NN相似图加速在线查询。在线演示：career-identifying-equipped-rod.trycloudflare.com（因MIMIC-IV数据受限，需联系作者获取访问密码）。",
     },
     tags: ["Streamlit", "DuckDB", "MIMIC-IV", "Clinical AI", "Similarity Retrieval"],
     featured: false,
     links: {
+      demo: "https://career-identifying-equipped-rod.trycloudflare.com/",
       repo: "https://github.com/CRF2004/IHD_Trajectory_System",
     },
   },
