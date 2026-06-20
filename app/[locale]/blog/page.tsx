@@ -17,6 +17,19 @@ interface BlogPost {
 
 const posts: BlogPost[] = [
   {
+    slug: "medical-ai-beyond-auc",
+    title: {
+      en: "Why Medical AI Can't Just Look at AUC",
+      zh: "为什么医疗AI不能只看AUC？",
+    },
+    date: "2026-06-20",
+    excerpt: {
+      en: "High AUC doesn't mean clinically sound reasoning. On evidence alignment, matched-control perturbation auditing, and why medical AI needs to move from 'predicting accurately' to 'depending on the right evidence.'",
+      zh: "高AUC不等于推理符合临床证据。关于证据对齐、匹配对照扰动审计，以及医疗AI为什么需要从「预测得准」走向「依赖对的证据」。",
+    },
+    readTime: 8,
+  },
+  {
     slug: "why-interpretable-medical-ai",
     title: {
       en: "Why I'm Building Medical AI That Explains Itself",
