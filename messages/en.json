@@ -65,15 +65,15 @@
     "hospital": {
       "title": "AI Research Institute, Guangdong No. 2 Provincial People's Hospital",
       "role": "Research Intern",
-      "period": "Nov 2024 — Feb 2026",
+      "period": "Nov 2024 — Present",
       "desc_1": "Participated in LLM fine-tuning, question-answering testing, prompt design, data collection and preprocessing, data annotation, and product prototype development.",
       "desc_2": "Conducted in-depth research on the application of 'LLM + Knowledge Graph' in the medical domain."
     },
     "startup": {
       "title": "Yunzhan Zhichuang Technology Co.",
       "role": "Tech Intern",
-      "period": "2025 — 2026",
-      "desc_1": "Affiliated startup of the hospital, working on productizing AI research outputs."
+      "period": "2025 — Present",
+      "desc_1": "AI health application startup, working on productizing AI research outputs."
     },
     "bigdata_assoc": {
       "title": "Big Data Application Association, SCUT",
