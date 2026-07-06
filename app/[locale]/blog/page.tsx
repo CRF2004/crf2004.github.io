@@ -17,6 +17,19 @@ interface BlogPost {
 
 const posts: BlogPost[] = [
   {
+    slug: "parameters-or-retrieval",
+    title: {
+      en: "Parameters or Retrieval? When to Compress Data Into a Model vs. Use It as External Memory",
+      zh: "参数还是检索？数据该压缩进模型，还是作为外部记忆直接推理？",
+    },
+    date: "2026-07-06",
+    excerpt: {
+      en: "Transformers aren't inherently superior to explicit sample databases. A deep dive into when parametric memory wins, when external retrieval wins, and why the best answer is usually both — with evidence from the latest literature across NLP, time series, robotics, and medicine.",
+      zh: "Transformer并非天然优于显式样本库。深入探讨参数化记忆与外部检索各自的优势场景，以及为什么最佳答案通常是两者结合——附跨NLP、时序、机器人、医学的最新文献证据。",
+    },
+    readTime: 15,
+  },
+  {
     slug: "medical-ai-beyond-auc",
     title: {
       en: "Why Medical AI Can't Just Look at AUC",

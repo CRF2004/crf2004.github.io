@@ -2,13 +2,12 @@
 
 Goal: 个人网站 - Next.js 全栈应用（Rongfeng Cheng — Medical AI Researcher）
 Status: active
-Current: 静态网站已构建（out/ 目录），含 about/blog/contact/cv 页面，i18n 支持 (en)
-Next: 明确下一步方向 — 添加新内容页？部署上线？优化现有页面？
+Current: 新blog文章 "Parameters or Retrieval" 已发布（中英文，含文献综述）；Nav 移动端适配完成；Giscus 评论组件已集成
+Next: 安装 Giscus App 启用评论功能（需 GitHub 操作）
 Blockers:
 - none
 
 Open questions:
-- 是否需要添加 blog 文章、project 详情页等新内容？
-- 当前 out/ 静态导出是否需要部署到托管平台？
+- none
 
-Updated: 2026-06-20
+Updated: 2026-07-05

@@ -15,6 +15,7 @@ export function generateStaticParams() {
     "why-interpretable-medical-ai",
     "kg-llm-hospital-lessons",
     "building-viora",
+    "parameters-or-retrieval",
   ];
   const params: { locale: string; slug: string }[] = [];
   for (const locale of routing.locales) {
@@ -75,6 +76,17 @@ const posts: Record<
     content: {
       en: <VioraEn />,
       zh: <VioraZh />,
+    },
+  },
+  "parameters-or-retrieval": {
+    title: {
+      en: "Parameters or Retrieval? When to Compress Data Into a Model vs. Use It as External Memory",
+      zh: "参数还是检索？数据该压缩进模型，还是作为外部记忆直接推理？",
+    },
+    date: "2026-07-06",
+    content: {
+      en: <ParametersOrRetrievalEn />,
+      zh: <ParametersOrRetrievalZh />,
     },
   },
 };
@@ -572,6 +584,717 @@ function MedAIBeyondAUCZh() {
       </p>
       <p>
         因此，医疗AI的可信性不能只靠一个AUC支撑。我们需要的不只是更高的性能指标，也需要能够审计模型证据使用方式的方法。
+      </p>
+    </>
+  );
+}
+
+/* ---- New blog post: Parameters or Retrieval ---- */
+
+function ParametersOrRetrievalEn() {
+  return (
+    <>
+      <p>
+        Here is a question I keep coming back to: <em>When should you compress data into model parameters, and when should you keep it as an external sample database that participates directly in inference?</em>
+      </p>
+      <p>
+        My answer is not a clean either/or. Transformers are not inherently superior to explicit sample databases. In high-dimensional, combinatorial, generalization-heavy tasks, pure sample databases struggle badly. But in retrieval-friendly, similarity-driven tasks with strong local structure, sample databases can actually be more reliable. The best form is usually hybrid: the model handles representation and reasoning, while data provides external memory and calibration.
+      </p>
+
+      <h2>1. Two Fundamentally Different Kinds of Memory</h2>
+
+      <h3>A. Models: Parametric Memory</h3>
+      <p>
+        After training, data no longer exists in its original sample form — it has been compressed into parameters. The model learns a mapping from input to output:
+      </p>
+      <p className="text-center font-mono text-sm bg-zinc-50 py-3 rounded-lg">
+        D → θ, ŷ = f<sub>θ</sub>(x)
+      </p>
+      <p>
+        <strong>Strengths:</strong> learns abstract patterns, generalizes to unseen combinations, fast inference, compresses large datasets into compact parameter structures, learns implicit similarity without hand-crafted distance functions.
+      </p>
+      <p>
+        <strong>Weaknesses:</strong> specific sample details may be lost, knowledge updates are expensive, hard to interpret, can silently absorb dataset biases.
+      </p>
+
+      <h3>B. Sample Databases / Semantic Networks: Non-Parametric Memory</h3>
+      <p>
+        Data is not compressed — it participates directly in inference through retrieval and aggregation:
+      </p>
+      <p className="text-center font-mono text-sm bg-zinc-50 py-3 rounded-lg">
+        ŷ = Aggregate(NearestNeighbors(x, D))
+      </p>
+      <p>
+        <strong>Strengths:</strong> high information fidelity, interpretable (you can see reference samples), new data can be added instantly, excellent for facts, medical cases, waveform templates, and historical examples.
+      </p>
+      <p>
+        <strong>Weaknesses:</strong> &ldquo;similarity&rdquo; is hard to define in high dimensions, retrieval cost can be high, struggles with unseen combinations, tends to stay at &ldquo;finding similar cases&rdquo; rather than &ldquo;understanding generative mechanisms.&rdquo;
+      </p>
+      <p>
+        Work like kNN-LM has already shown that combining neural language models with nearest-neighbor sample databases improves performance — using a pretrained LM&apos;s embedding space to find neighbors, then interpolating the kNN distribution with the original LM distribution. RAG follows the same philosophy: a pretrained model as parametric memory, an external document index as non-parametric memory.
+      </p>
+
+      <h2>2. More Data Doesn&apos;t Automatically Make Sample Databases Better</h2>
+      <p>
+        In low-dimensional, well-structured tasks, sample databases thrive. A few clear features, an easy-to-define distance function, genuinely similar samples mapping to similar outputs — more data means better nearest-neighbor performance.
+      </p>
+      <p>
+        But in high-dimensional tasks like language, images, or physiological waveforms, the core problem shifts:
+      </p>
+      <p className="text-center italic text-zinc-600">
+        What does it even mean for two samples to be &ldquo;similar&rdquo;?
+      </p>
+      <p>
+        Take language: &ldquo;He didn&apos;t dislike the movie&rdquo; vs. &ldquo;He liked the movie&rdquo; — different tokens, similar semantics.
+      </p>
+      <p>
+        Take ECG: two segments might differ in QRS offset, amplitude scaling, lead noise, heart rate, and phase — yet be medically similar. Raw Euclidean distance would call them &ldquo;different.&rdquo;
+      </p>
+      <p>
+        So sample databases don&apos;t just need more data to improve — they need:
+      </p>
+      <p className="text-center font-mono text-sm bg-zinc-50 py-3 rounded-lg">
+        good representation space + good distance function + sufficient coverage
+      </p>
+      <p>
+        And that &ldquo;good representation space&rdquo; often needs to be learned by a model. This is why pure sample databases rarely fully replace Transformers — not because the approach is wrong, but because <strong>similarity in high-dimensional data itself requires learning</strong>.
+      </p>
+
+      <h2>3. Language Prediction: Can Pure Semantic Networks Work?</h2>
+      <p>
+        They can, but it&apos;s hard to beat a strong Transformer.
+      </p>
+      <p>
+        Language prediction isn&apos;t a simple lookup. It requires simultaneously handling: local syntax, long-range dependencies, semantic consistency, world knowledge, style, contextual intent, and probability distributions over multiple possible tokens.
+      </p>
+      <p>
+        A massive sample database can approximate:
+      </p>
+      <p className="text-center font-mono text-sm bg-zinc-50 py-3 rounded-lg">
+        P(w<sub>t+1</sub> | context) ≈ distribution of next words in similar contexts
+      </p>
+      <p>
+        If the database is enormous, many short contexts can find good matches. But long contexts are almost never exactly repeated — the longer the context, the sparser exact matches become. So pure sample databases face a dilemma: short contexts are matchable but information-poor; long contexts are information-rich but hard to match; abstract semantics and compositional reasoning need representation models.
+      </p>
+      <p>
+        Transformers sidestep this by learning a compressed conditional distribution — effectively compressing massive language samples into a composable generative mechanism.
+      </p>
+
+      <div className="my-6 overflow-x-auto">
+        <table className="min-w-full text-sm border-collapse">
+          <thead>
+            <tr className="border-b border-zinc-200">
+              <th className="text-left py-2 pr-4 font-semibold">Approach</th>
+              <th className="text-left py-2 font-semibold">Best for</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr className="border-b border-zinc-100">
+              <td className="py-2 pr-4 font-medium">Pure sample DB</td>
+              <td className="py-2">Paraphrasing, citation, case retrieval, similar Q&A, fact replay</td>
+            </tr>
+            <tr className="border-b border-zinc-100">
+              <td className="py-2 pr-4 font-medium">Pure Transformer</td>
+              <td className="py-2">Generation, generalization, language modeling, compositional semantics</td>
+            </tr>
+            <tr className="border-b border-zinc-100">
+              <td className="py-2 pr-4 font-medium">Transformer + Retrieval</td>
+              <td className="py-2">Knowledge-intensive Q&A, medical Q&A, legal Q&A, research assistants, enterprise KB</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2>4. Waveform Prediction: Transformer vs. Massive Waveform Database</h2>
+      <p>
+        This scenario — given a waveform segment, predict the next segment — gets closer to the ECG intuition: should we train a model to generate the future, or retrieve similar historical futures from a database?
+      </p>
+
+      <h3>Option A: Transformer predicts the next segment</h3>
+      <p>
+        Learns rhythm, morphology, phase changes; adapts to noise; generates plausible unseen morphologies; models long-range dependencies. But may produce &ldquo;averaged&rdquo; morphologies, lacks detail fidelity, has weak interpretability, and may be unstable for out-of-distribution pathological patterns.
+      </p>
+
+      <h3>Option B: Massive waveform database as candidate recommender</h3>
+      <p>
+        Outputs real historical waveform segments; medically interpretable; shows similar cases; effective for templated, periodic signals. But similarity definition is hard; phase, rate, amplitude, and lead differences interfere with retrieval; rare combinations may lack good neighbors; predictions can become &ldquo;historical splicing&rdquo; rather than true individual dynamics.
+      </p>
+
+      <div className="my-6 overflow-x-auto">
+        <table className="min-w-full text-sm border-collapse">
+          <thead>
+            <tr className="border-b border-zinc-200">
+              <th className="text-left py-2 pr-4 font-semibold">Scenario</th>
+              <th className="text-left py-2 font-semibold">Better fit</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr className="border-b border-zinc-100">
+              <td className="py-2 pr-4">Highly regular, repetitive rhythm</td>
+              <td className="py-2">Sample DB / template retrieval</td>
+            </tr>
+            <tr className="border-b border-zinc-100">
+              <td className="py-2 pr-4">Short-term next-beat morphology prediction</td>
+              <td className="py-2">Sample DB + local deformation</td>
+            </tr>
+            <tr className="border-b border-zinc-100">
+              <td className="py-2 pr-4">Trend change prediction</td>
+              <td className="py-2">Transformer / state-space models</td>
+            </tr>
+            <tr className="border-b border-zinc-100">
+              <td className="py-2 pr-4">Large individual historical data</td>
+              <td className="py-2">Personal sample database</td>
+            </tr>
+            <tr className="border-b border-zinc-100">
+              <td className="py-2 pr-4">Cross-population generalization</td>
+              <td className="py-2">Models are more important</td>
+            </tr>
+            <tr className="border-b border-zinc-100">
+              <td className="py-2 pr-4">Medical interpretability needed</td>
+              <td className="py-2">Sample DB as auxiliary</td>
+            </tr>
+            <tr className="border-b border-zinc-100">
+              <td className="py-2 pr-4">Rare conditions</td>
+              <td className="py-2">Hybrid approach is best</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>
+        The strongest approach is likely not either/or, but:
+      </p>
+      <p className="text-center font-mono text-sm bg-zinc-50 py-3 rounded-lg">
+        Transformer encodes current state → retrieves similar waveforms → model reranks/fuses/corrects
+      </p>
+      <p>
+        In other words: <strong>the model understands &ldquo;what state the current waveform is in,&rdquo; and the sample database provides &ldquo;real, referenceable future candidates.&rdquo;</strong>
+      </p>
+
+      <h2>5. A General Decision Framework</h2>
+
+      <div className="my-6 overflow-x-auto">
+        <table className="min-w-full text-sm border-collapse">
+          <thead>
+            <tr className="border-b border-zinc-200">
+              <th className="text-left py-2 pr-4 font-semibold">Task characteristic</th>
+              <th className="text-left py-2 pr-4 font-semibold">Train into model</th>
+              <th className="text-left py-2 font-semibold">External memory</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr className="border-b border-zinc-100">
+              <td className="py-2 pr-4">Needs generalization to new combinations</td>
+              <td className="py-2 pr-4 text-emerald-700 font-medium">Strong</td>
+              <td className="py-2 text-zinc-400">Weak</td>
+            </tr>
+            <tr className="border-b border-zinc-100">
+              <td className="py-2 pr-4">High input dimensionality</td>
+              <td className="py-2 pr-4 text-emerald-700 font-medium">Strong (model reduces dims)</td>
+              <td className="py-2 text-zinc-400">Weak (needs model first)</td>
+            </tr>
+            <tr className="border-b border-zinc-100">
+              <td className="py-2 pr-4">Hard to define distance function</td>
+              <td className="py-2 pr-4 text-emerald-700 font-medium">Strong</td>
+              <td className="py-2 text-zinc-400">Weak</td>
+            </tr>
+            <tr className="border-b border-zinc-100">
+              <td className="py-2 pr-4">Strong local similarity between samples</td>
+              <td className="py-2 pr-4">Usable</td>
+              <td className="py-2 text-emerald-700 font-medium">Strong</td>
+            </tr>
+            <tr className="border-b border-zinc-100">
+              <td className="py-2 pr-4">Outputs must be interpretable & traceable</td>
+              <td className="py-2 pr-4 text-zinc-400">Weaker</td>
+              <td className="py-2 text-emerald-700 font-medium">Strong</td>
+            </tr>
+            <tr className="border-b border-zinc-100">
+              <td className="py-2 pr-4">Knowledge updates frequently</td>
+              <td className="py-2 pr-4 text-zinc-400">Weaker</td>
+              <td className="py-2 text-emerald-700 font-medium">Strong</td>
+            </tr>
+            <tr className="border-b border-zinc-100">
+              <td className="py-2 pr-4">Large data but sparse labels</td>
+              <td className="py-2 pr-4 text-emerald-700 font-medium">Strong (self-supervised)</td>
+              <td className="py-2">Retrieval also usable</td>
+            </tr>
+            <tr className="border-b border-zinc-100">
+              <td className="py-2 pr-4">Factual queries</td>
+              <td className="py-2 pr-4 text-zinc-400">Don&apos;t rely on model alone</td>
+              <td className="py-2 text-emerald-700 font-medium">Strong</td>
+            </tr>
+            <tr className="border-b border-zinc-100">
+              <td className="py-2 pr-4">Generation, prediction, compression</td>
+              <td className="py-2 pr-4 text-emerald-700 font-medium">Strong</td>
+              <td className="py-2">Auxiliary</td>
+            </tr>
+            <tr className="border-b border-zinc-100">
+              <td className="py-2 pr-4">Distribution keeps shifting</td>
+              <td className="py-2 pr-4">Needs continuous training</td>
+              <td className="py-2 text-emerald-700 font-medium">External DB easier to update</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p className="text-center font-medium text-zinc-800">
+        One-sentence summary: <em>When the task requires learning patterns, compressing structure, and handling unseen combinations — train the data into a model. When the task requires preserving facts, cases, evidence, and recent experience — let the data participate directly in inference.</em>
+      </p>
+
+      <h2>6. Three Paradigms</h2>
+
+      <h3>Paradigm 1: Model-Dominant</h3>
+      <p className="text-center font-mono text-sm bg-zinc-50 py-3 rounded-lg">
+        D → θ, x → f<sub>θ</sub>(x)
+      </p>
+      <p>
+        Data only appears during training. Pure Transformers, CNN ECG classifiers, ResNet waveform recognizers, standard supervised learning. Best for stable patterns, repetitive tasks, fast inference needs.
+      </p>
+
+      <h3>Paradigm 2: Data-Dominant</h3>
+      <p className="text-center font-mono text-sm bg-zinc-50 py-3 rounded-lg">
+        x + D → ŷ
+      </p>
+      <p>
+        The &ldquo;model&rdquo; is weak — it only matches, aggregates, and ranks. kNN, case-based reasoning, similar case retrieval, template matching, sample-database waveform prediction. Best when similar samples are highly available, interpretability matters, and tasks have strong local structure.
+      </p>
+
+      <h3>Paradigm 3: Model-Data Synergy</h3>
+      <p className="text-center font-mono text-sm bg-zinc-50 py-3 rounded-lg">
+        x → z<sub>θ</sub>, z<sub>θ</sub> + D → ŷ
+      </p>
+      <p>
+        The model first maps input into a better representation space, then data participates in inference. RAG, kNN-LM, retrieval-augmented time series forecasting, embedding-based similar case retrieval, model prediction + sample database calibration. This is usually the most practical and powerful form.
+      </p>
+
+      <h2>7. What the Literature Says</h2>
+
+      <p>
+        Recent research has made this debate concrete with controlled experiments across domains. Here are the key findings.
+      </p>
+
+      <h3>RAG vs. Fine-Tuning: External Memory Wins on Long-Tail Knowledge</h3>
+      <p>
+        Multiple studies (2024–2026) across low-frequency factual QA, medical Q&A, evidence synthesis, and structured EHR prediction consistently find that RAG outperforms fine-tuning on long-tail entities, dynamically updated knowledge, and evidence-dependent tasks. EHR-RAG (2026) showed an average <strong>10.76% Macro-F1 improvement</strong> over the strongest LLM baselines on long-horizon clinical predictions by retrieving relevant structured history. MedMeta (2026) demonstrated that Golden-RAG significantly outperformed parametric-only models for clinical evidence synthesis.
+      </p>
+
+      <h3>Long-Context LLMs vs. RAG: It&apos;s Nuanced</h3>
+      <p>
+        Some studies (EMNLP Industry 2024) find that with sufficient resources, long-context LLMs can outperform vanilla RAG — though RAG is significantly cheaper. Others show that ultra-long contexts dilute attention, and order-preserving RAG can achieve higher answer quality with fewer tokens. The takeaway: it&apos;s not that &ldquo;longer context is always better,&rdquo; but that <strong>precisely surfacing relevant information to the model&apos;s attention center is what matters</strong> — and that&apos;s exactly the strength of external memory.
+      </p>
+
+      <h3>Time Series & Waveform Forecasting: Retrieval Makes Real Progress</h3>
+      <p>
+        RAFT (ICML 2025) achieved an <strong>86% average win ratio</strong> over contemporary baselines across 10 time-series benchmarks by retrieving similar temporal patterns. RAF extends this to foundation models like Chronos/Moirai, showing larger TS foundation models benefit <em>more</em> from retrieval. RATD (NeurIPS 2024) uses retrieved historical sequences as diffusion denoising references. TimeRAG (2024) boosts LLM-based forecasting by ~2.97% through DTW-retrieved reference sequences.
+      </p>
+      <p>
+        For ECG-like signals with local templates, rhythmic repetition, individual variation, and device differences, these results directly support the idea that external sample databases aren&apos;t just &ldquo;lookup&rdquo; — they can serve as <strong>conditional priors</strong> or <strong>predictive reference trajectories</strong>.
+      </p>
+
+      <h3>Beyond Language and Time Series</h3>
+      <p>
+        Retrieval augmentation has shown gains across diverse domains: tabular anomaly detection (CIKM 2024), robot manipulation and navigation (CVPR 2024, 2025), reinforcement learning via decision transformers, and graph learning (NeurIPS 2024). The pattern is consistent: when tasks require specific instances, past experiences, or structural memory, external retrieval beats pure parametric memory.
+      </p>
+
+      <h2>8. The Deeper Reason: Sample Complexity</h2>
+
+      <p>
+        Sample database methods need data to cover the space: <span className="font-mono text-sm">samples needed ~ O(ε<sup>−d</sup>)</span>, where <em>d</em> is the effective dimension. The higher the dimension, the harder to cover.
+      </p>
+
+      <p>
+        Models reduce effective dimensionality through structural assumptions — attention composes context, semantics map to continuous space, patterns share parameters. A model transforms the problem from &ldquo;remember all cases&rdquo; to &ldquo;learn the generative principles behind those cases.&rdquo;
+      </p>
+
+      <p>
+        But models have one weakness that sample databases don&apos;t: <strong>concreteness</strong>. Models learn compressed patterns; sample databases preserve specific evidence. In medicine, science, law, and finance, you want systems that can say: &ldquo;I referenced these cases, these waveform segments, these papers, these patient trajectories.&rdquo;
+      </p>
+
+      <p>
+        This is the same philosophy behind patient trajectory graphs, dataset fingerprints, and ECG evidence fingerprints: <strong>data isn&apos;t just fuel for training models — it can be structured reference material during inference.</strong>
+      </p>
+
+      <h2>9. Closing Thoughts</h2>
+
+      <p>
+        Transformers will generally outperform pure semantic networks / pure sample databases — especially on high-dimensional, long-context, compositional generalization, and generative prediction tasks. Not because Transformers are magical, but because they learn representation spaces, distance metrics, abstract patterns, and compositional mechanisms.
+      </p>
+
+      <p>
+        <strong>But:</strong> when tasks depend on specific facts, real cases, historical waveforms, and traceable evidence, sample databases have irreplaceable value. More data does make sample databases stronger — but only if similarity is correctly defined. And similarity definition often still requires a learned model.
+      </p>
+
+      <p>
+        The most promising direction is the third path:
+      </p>
+
+      <div className="my-4 p-5 border border-accent/30 rounded-2xl bg-accent/5">
+        <p className="text-center font-semibold text-zinc-900 mb-2">
+          Model learns representation and patterns. Data provides external memory and evidence.
+        </p>
+        <p className="text-center font-mono text-sm text-zinc-600">
+          current waveform → Transformer/encoder representation → retrieve similar historical waveforms → candidate future segments → model fusion/reranking/uncertainty estimation
+        </p>
+      </div>
+
+      <p>
+        This is more valuable — and more research-worthy — than either pure Transformers or pure sample databases alone. And the growing body of literature across language, time series, robotics, and medicine strongly supports this hybrid direction.
+      </p>
+    </>
+  );
+}
+
+function ParametersOrRetrievalZh() {
+  return (
+    <>
+      <p>
+        有一个问题我反复在思考：<em>什么时候应该把数据&ldquo;压缩进模型参数&rdquo;来用，什么时候应该把数据作为&ldquo;外部样本库&rdquo;直接参与推理？</em>
+      </p>
+      <p>
+        我的判断不是简单的二选一。Transformer 并非天然比显式样本库高级——在高维、组合性强、需要泛化的任务里，单纯样本库会非常吃亏；但在可检索、可比对、局部相似性强的任务里，样本库反而可能更可靠。最佳形态通常是混合：模型负责表示和推理，数据负责外部记忆和校准。
+      </p>
+
+      <h2>一、两种本质不同的&ldquo;记忆&rdquo;</h2>
+
+      <h3>A. 模型：参数化记忆</h3>
+      <p>
+        训练完成后，数据不再以原始样本形式存在，而是被压缩到参数里：
+      </p>
+      <p className="text-center font-mono text-sm bg-zinc-50 py-3 rounded-lg">
+        D → θ, ŷ = f<sub>θ</sub>(x)
+      </p>
+      <p>
+        <strong>优势：</strong>能学到抽象规律；能在没见过的组合上泛化；推理速度快；可以把大量数据压缩成较小的参数结构；能学习隐含的相似性，而不是依赖人工定义的距离。
+      </p>
+      <p>
+        <strong>劣势：</strong>具体样本细节可能丢失；更新知识成本高；难解释；容易把训练分布里的偏差也压缩进去。
+      </p>
+
+      <h3>B. 样本库 / 语义网：非参数化记忆</h3>
+      <p>
+        数据不被压缩，而是直接参与推理：
+      </p>
+      <p className="text-center font-mono text-sm bg-zinc-50 py-3 rounded-lg">
+        ŷ = Aggregate(NearestNeighbors(x, D))
+      </p>
+      <p>
+        <strong>优势：</strong>信息保真；可解释，能看到参考样本；新数据可以直接加入库；对事实、病例、波形模板、历史案例等任务很有用。
+      </p>
+      <p>
+        <strong>劣势：</strong>高维空间里&ldquo;相似&rdquo;很难定义；检索成本高；对没见过的组合不擅长；容易停留在&ldquo;找相似案例&rdquo;，而不是&ldquo;理解生成机制&rdquo;。
+      </p>
+      <p>
+        kNN-LM 这类工作已经证明，把神经语言模型和最近邻样本库结合，可以提升语言模型表现——用预训练 LM 的 embedding 空间找近邻，再把 kNN 分布和原 LM 分布插值。RAG 也是类似思想：预训练模型作为参数化记忆，外部文档索引作为非参数化记忆，用检索结果辅助生成。
+      </p>
+
+      <h2>二、数据量上去后，样本库会不会越来越好？</h2>
+      <p>
+        会，但有一个关键限制：<strong>维度灾难</strong>。
+      </p>
+      <p>
+        在低维、结构清晰的任务里，样本库很好。输入是几个明确特征，距离函数容易定义，相似样本真的代表相似输出，任务主要是局部插值——这时数据量越大，最近邻方法会越来越强。
+      </p>
+      <p>
+        但在语言、图像、波形这种高维任务里，问题变成：
+      </p>
+      <p className="text-center italic text-zinc-600">
+        两个样本到底怎么算&ldquo;相似&rdquo;？
+      </p>
+      <p>
+        比如语言：&ldquo;他没有不喜欢这部电影&rdquo;和&ldquo;他喜欢这部电影&rdquo;——表面 token 不一样，但语义相近。
+      </p>
+      <p>
+        比如 ECG：两个片段可能 QRS 稍微偏移、幅度缩放、导联噪声不同、心率略变、病理形态相似但相位不同。用原始欧氏距离可能认为它们&ldquo;不像&rdquo;，但医学意义上它们可能很像。
+      </p>
+      <p>
+        所以样本库变强的前提不是只有&ldquo;数据量大&rdquo;，还需要：
+      </p>
+      <p className="text-center font-mono text-sm bg-zinc-50 py-3 rounded-lg">
+        好的表示空间 + 好的距离函数 + 足够覆盖的数据
+      </p>
+      <p>
+        而这个&ldquo;好的表示空间&rdquo;往往又需要模型学习出来。这就是为什么纯样本库很少完全取代 Transformer——不是因为样本库思路错，而是因为<strong>高维数据里的相似性本身就需要学习</strong>。
+      </p>
+
+      <h2>三、语言预测：纯语义网能不能做？</h2>
+      <p>
+        可以做，但很难超过强 Transformer。
+      </p>
+      <p>
+        语言预测不是简单查表。它需要同时处理：局部语法、长程依赖、语义一致性、世界知识、风格、上下文意图、多种可能 token 的概率分布。
+      </p>
+      <p>
+        一个巨大样本库可以做：
+      </p>
+      <p className="text-center font-mono text-sm bg-zinc-50 py-3 rounded-lg">
+        P(w<sub>t+1</sub> | context) ≈ 相似上下文里的下一个词分布
+      </p>
+      <p>
+        如果库极大，很多短上下文都能找到相似案例。但问题是，长上下文几乎不可能完全重复。上下文越长，精确匹配越稀疏。所以纯样本库容易遇到：短上下文能匹配但信息不足；长上下文信息足但难匹配；抽象语义需要表示模型；组合推理样本库很难直接拼出来。
+      </p>
+      <p>
+        Transformer 的优势在于它不是只找相似样本，而是学到一个压缩后的条件分布，相当于把大量语言样本压缩成一套可组合的生成机制。
+      </p>
+
+      <div className="my-6 overflow-x-auto">
+        <table className="min-w-full text-sm border-collapse">
+          <thead>
+            <tr className="border-b border-zinc-200">
+              <th className="text-left py-2 pr-4 font-semibold">方案</th>
+              <th className="text-left py-2 font-semibold">适合什么</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr className="border-b border-zinc-100">
+              <td className="py-2 pr-4 font-medium">纯样本库</td>
+              <td className="py-2">复述、引用、案例检索、相似问答、事实回放</td>
+            </tr>
+            <tr className="border-b border-zinc-100">
+              <td className="py-2 pr-4 font-medium">纯 Transformer</td>
+              <td className="py-2">生成、泛化、语言建模、组合语义</td>
+            </tr>
+            <tr className="border-b border-zinc-100">
+              <td className="py-2 pr-4 font-medium">Transformer + 检索库</td>
+              <td className="py-2">知识密集问答、医学问答、法律问答、科研助手、企业知识库</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2>四、波形预测：Transformer vs 超大波形库</h2>
+      <p>
+        这个场景更贴近 ECG 的直觉：给定前一段波形，预测下一段波形形状——是用模型生成，还是从库中检索相似历史片段？
+      </p>
+
+      <h3>方案 A：Transformer 预测下一段波形</h3>
+      <p>
+        可以学习节律、形态、相位变化；适应噪声；生成没见过但合理的形态；建模长程依赖。但可能生成&ldquo;平均形态&rdquo;；细节可能不真实；可解释性弱；对分布外病理形态可能不稳。
+      </p>
+
+      <h3>方案 B：超大波形库做候选推荐</h3>
+      <p>
+        输出是真实历史波形片段；医学上更容易解释；可以展示相似病例；对模板化、周期性强的波形很有效。但相似性定义很难；相位、心率、幅度、导联差异会干扰检索；遇到罕见组合时可能找不到好邻居；预测容易变成&ldquo;历史案例拼接&rdquo;，不一定符合当前个体动力学。
+      </p>
+
+      <div className="my-6 overflow-x-auto">
+        <table className="min-w-full text-sm border-collapse">
+          <thead>
+            <tr className="border-b border-zinc-200">
+              <th className="text-left py-2 pr-4 font-semibold">场景</th>
+              <th className="text-left py-2 font-semibold">更适合</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr className="border-b border-zinc-100">
+              <td className="py-2 pr-4">心律高度规则、重复性强</td>
+              <td className="py-2">样本库 / 模板检索</td>
+            </tr>
+            <tr className="border-b border-zinc-100">
+              <td className="py-2 pr-4">需要预测短期下一拍形态</td>
+              <td className="py-2">样本库 + 局部变形可能很强</td>
+            </tr>
+            <tr className="border-b border-zinc-100">
+              <td className="py-2 pr-4">需要预测趋势变化</td>
+              <td className="py-2">Transformer / 状态空间模型更合适</td>
+            </tr>
+            <tr className="border-b border-zinc-100">
+              <td className="py-2 pr-4">有大量个体历史数据</td>
+              <td className="py-2">个体样本库很有价值</td>
+            </tr>
+            <tr className="border-b border-zinc-100">
+              <td className="py-2 pr-4">跨人群泛化</td>
+              <td className="py-2">模型更重要</td>
+            </tr>
+            <tr className="border-b border-zinc-100">
+              <td className="py-2 pr-4">需要医学解释</td>
+              <td className="py-2">样本库辅助更好</td>
+            </tr>
+            <tr className="border-b border-zinc-100">
+              <td className="py-2 pr-4">需要处理罕见情况</td>
+              <td className="py-2">混合方案最好</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>
+        最强的方案大概率不是二选一，而是：
+      </p>
+      <p className="text-center font-mono text-sm bg-zinc-50 py-3 rounded-lg">
+        Transformer 表示当前状态 → 检索相似波形 → 模型重排序/融合/修正
+      </p>
+      <p>
+        也就是：<strong>模型负责&ldquo;理解当前波形处于什么状态&rdquo;，样本库负责&ldquo;给出真实可参考的未来候选&rdquo;。</strong>
+      </p>
+
+      <h2>五、通用判断框架</h2>
+
+      <div className="my-6 overflow-x-auto">
+        <table className="min-w-full text-sm border-collapse">
+          <thead>
+            <tr className="border-b border-zinc-200">
+              <th className="text-left py-2 pr-4 font-semibold">任务特征</th>
+              <th className="text-left py-2 pr-4 font-semibold">训练进模型</th>
+              <th className="text-left py-2 font-semibold">外部记忆直接推理</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr className="border-b border-zinc-100">
+              <td className="py-2 pr-4">需要泛化到新组合</td>
+              <td className="py-2 pr-4 text-emerald-700 font-medium">强</td>
+              <td className="py-2 text-zinc-400">弱</td>
+            </tr>
+            <tr className="border-b border-zinc-100">
+              <td className="py-2 pr-4">输入维度很高</td>
+              <td className="py-2 pr-4 text-emerald-700 font-medium">强（模型先降维）</td>
+              <td className="py-2 text-zinc-400">弱（需要模型先降维）</td>
+            </tr>
+            <tr className="border-b border-zinc-100">
+              <td className="py-2 pr-4">距离函数难定义</td>
+              <td className="py-2 pr-4 text-emerald-700 font-medium">强</td>
+              <td className="py-2 text-zinc-400">弱</td>
+            </tr>
+            <tr className="border-b border-zinc-100">
+              <td className="py-2 pr-4">样本之间局部相似性很强</td>
+              <td className="py-2 pr-4">可用</td>
+              <td className="py-2 text-emerald-700 font-medium">强</td>
+            </tr>
+            <tr className="border-b border-zinc-100">
+              <td className="py-2 pr-4">输出必须可解释、可追溯</td>
+              <td className="py-2 pr-4 text-zinc-400">较弱</td>
+              <td className="py-2 text-emerald-700 font-medium">强</td>
+            </tr>
+            <tr className="border-b border-zinc-100">
+              <td className="py-2 pr-4">知识频繁更新</td>
+              <td className="py-2 pr-4 text-zinc-400">较弱</td>
+              <td className="py-2 text-emerald-700 font-medium">强</td>
+            </tr>
+            <tr className="border-b border-zinc-100">
+              <td className="py-2 pr-4">数据规模大但标签稀缺</td>
+              <td className="py-2 pr-4 text-emerald-700 font-medium">自监督模型强</td>
+              <td className="py-2">检索也可用</td>
+            </tr>
+            <tr className="border-b border-zinc-100">
+              <td className="py-2 pr-4">任务是事实查询</td>
+              <td className="py-2 pr-4 text-zinc-400">不应只靠模型</td>
+              <td className="py-2 text-emerald-700 font-medium">检索强</td>
+            </tr>
+            <tr className="border-b border-zinc-100">
+              <td className="py-2 pr-4">任务是生成、预测、压缩</td>
+              <td className="py-2 pr-4 text-emerald-700 font-medium">强</td>
+              <td className="py-2">辅助</td>
+            </tr>
+            <tr className="border-b border-zinc-100">
+              <td className="py-2 pr-4">分布持续变化</td>
+              <td className="py-2 pr-4">需持续训练</td>
+              <td className="py-2 text-emerald-700 font-medium">外部库更新更方便</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p className="text-center font-medium text-zinc-800">
+        一句话总结：<em>当任务需要学习规律、压缩结构、处理未见组合时，数据应该用于训练模型；当任务需要保留事实、案例、证据、最近经验时，数据应该直接参与推理。</em>
+      </p>
+
+      <h2>六、三种范式</h2>
+
+      <h3>范式一：模型主导</h3>
+      <p className="text-center font-mono text-sm bg-zinc-50 py-3 rounded-lg">
+        D → θ, x → f<sub>θ</sub>(x)
+      </p>
+      <p>
+        数据只在训练阶段出现。纯 Transformer、CNN ECG 分类、ResNet 波形识别、普通监督学习。适合规律稳定、任务重复、需要快速推理的场景。
+      </p>
+
+      <h3>范式二：数据主导</h3>
+      <p className="text-center font-mono text-sm bg-zinc-50 py-3 rounded-lg">
+        x + D → ŷ
+      </p>
+      <p>
+        模型很弱，只负责匹配、聚合、排序。kNN、case-based reasoning、相似病例检索、模板匹配、基于样本库的波形预测。适合相似样本高度可用、解释性重要、任务局部性强的场景。
+      </p>
+
+      <h3>范式三：模型-数据协同</h3>
+      <p className="text-center font-mono text-sm bg-zinc-50 py-3 rounded-lg">
+        x → z<sub>θ</sub>, z<sub>θ</sub> + D → ŷ
+      </p>
+      <p>
+        模型先把输入映射到一个更好的表示空间，再用数据参与推理。RAG、kNN-LM、检索增强时间序列预测、embedding-based 相似病例检索、模型预测 + 样本库校准。这个通常是最现实、也最强的形态。
+      </p>
+
+      <h2>七、文献怎么说</h2>
+
+      <p>
+        近几年有不少研究已经把这个问题做成了比较明确的实验。以下是关键发现。
+      </p>
+
+      <h3>RAG vs Fine-Tuning：外部记忆在长尾知识上持续占优</h3>
+      <p>
+        2024–2026 年的多项研究——跨低频事实 QA、医学 QA、证据综合和结构化 EHR 预测——一致发现：在长尾实体、动态更新知识和依赖证据的任务上，RAG 显著超过 fine-tuning。EHR-RAG（2026）在四个长程临床预测任务上，通过检索相关结构化历史信息，平均 Macro-F1 比最强 LLM baseline 提升 <strong>10.76%</strong>。MedMeta（2026）也证明，Golden-RAG 在临床证据综合上显著超过纯参数化模型。
+      </p>
+
+      <h3>长上下文 LLM vs RAG：结论更复杂</h3>
+      <p>
+        有研究（EMNLP Industry 2024）显示，资源充足时长上下文 LLM 平均表现优于普通 RAG——但 RAG 成本明显更低。也有研究指出，超长上下文会让模型注意力被无关信息稀释，order-preserve RAG 能用更少 token 达到更高答案质量。核心启示：不是&ldquo;上下文越长越好&rdquo;，而是<strong>能不能把相关信息精准放到模型注意力中心</strong>——这正是外部记忆的优势所在。
+      </p>
+
+      <h3>时间序列与波形预测：检索在真正进步</h3>
+      <p>
+        RAFT（ICML 2025）通过检索训练集中相似 temporal pattern，在 10 个 benchmark 上取得 <strong>86% 的平均胜率</strong>。RAF 将其扩展到 Chronos/Moirai 等时序基础模型，发现更大的 TSFM 从检索中受益更多。RATD（NeurIPS 2024）把检索到的历史序列作为 diffusion denoising 参考。TimeRAG（2024）通过 DTW 检索相似参考序列，平均提升原模型预测准确率 2.97%。
+      </p>
+      <p>
+        对 ECG 这类有局部模板、节律重复、个体差异、设备差异的信号，外部样本库不只是&ldquo;查找&rdquo;，而是可以作为<strong>条件先验</strong>或<strong>预测参考轨迹</strong>。
+      </p>
+
+      <h3>超越语言和时序</h3>
+      <p>
+        检索增强在多个领域都展现出增益：表格异常检测（CIKM 2024）、机器人操作与导航（CVPR 2024, 2025）、基于 decision transformer 的强化学习、图学习（NeurIPS 2024）。模式很一致：当任务需要具体实例、过往经验或结构化记忆时，外部检索优于纯参数化记忆。
+      </p>
+
+      <h2>八、深层原因：样本复杂度</h2>
+
+      <p>
+        样本库方法需要数据覆盖空间：<span className="font-mono text-sm">所需样本数 ~ O(ε<sup>−d</sup>)</span>，其中 <em>d</em> 是有效维度。维度越高，样本库越难覆盖空间。
+      </p>
+
+      <p>
+        模型通过结构假设降低有效维度——注意力可以组合上下文，语义可以映射到连续空间，许多模式可以共享参数。模型把问题从&ldquo;记住所有情况&rdquo;变成&ldquo;学习生成这些情况的规律&rdquo;。
+      </p>
+
+      <p>
+        但模型有一个样本库难以替代的弱点：<strong>具体性</strong>。模型学到的是压缩规律，样本库保留的是具体证据。在医学、科研、法律、金融这些场景里，你希望系统回答时能说：&ldquo;我参考了哪些病例、哪些波形片段、哪些文献、哪些患者轨迹。&rdquo;
+      </p>
+
+      <p>
+        这和你之前做的&ldquo;患者轨迹图&rdquo;&ldquo;数据集指纹&rdquo;&ldquo;ECG evidence fingerprint&rdquo;其实是同一个思想：<strong>数据不只是拿来训练模型的燃料，也可以作为推理过程中的结构化参照物。</strong>
+      </p>
+
+      <h2>九、最终判断</h2>
+
+      <p>
+        Transformer 通常会比纯语义网 / 纯样本库强，尤其是在高维、长上下文、组合泛化、生成预测任务里。原因不是 Transformer 神秘，而是它学到了表示空间、距离度量、抽象规律和组合机制。
+      </p>
+
+      <p>
+        <strong>但是：</strong>当任务依赖具体事实、真实案例、历史波形、可追溯证据时，样本库会有模型参数无法替代的价值。数据量越大，样本库确实会变强，但前提是相似性定义正确；而相似性定义往往仍然需要模型来学习。
+      </p>
+
+      <p>
+        最值得探索的是第三种路线：
+      </p>
+
+      <div className="my-4 p-5 border border-accent/30 rounded-2xl bg-accent/5">
+        <p className="text-center font-semibold text-zinc-900 mb-2">
+          模型学习表示与规律，数据提供外部记忆与证据。
+        </p>
+        <p className="text-center font-mono text-sm text-zinc-600">
+          当前波形 → Transformer/encoder 表示 → 检索相似历史波形 → 候选未来片段 → 模型融合/重排序/不确定性估计
+        </p>
+      </div>
+
+      <p>
+        这比单纯 Transformer 或单纯样本库都更有研究价值。而且跨语言、时序、机器人和医学等领域的越来越多文献，正在为这种混合方向提供强有力的支撑。
       </p>
     </>
   );
