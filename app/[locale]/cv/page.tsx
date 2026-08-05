@@ -23,6 +23,12 @@ export default function CVPage({
   setRequestLocale(locale);
   const t = useTranslations("cv");
 
+  const isChinese = locale === "zh";
+  const educationGpa = "GPA: 3.46/4.0";
+  const coursesList = isChinese
+    ? "大模型与生成式AI（93/100）、大语言模型与提示工程（93/100）、机器学习（92/100）、深度学习（88/100）"
+    : "Large Models and Generative AI (93/100), Large Language Models and Prompt Engineering (93/100), Machine Learning (92/100), Deep Learning (88/100)";
+
   const researchExperience = [
     { title: t("re_ecg_title"), meta: t("re_ecg_meta"), desc: t("re_ecg_desc") },
     { title: t("re_dlef_title"), meta: t("re_dlef_meta"), desc: t("re_dlef_desc") },
@@ -40,6 +46,13 @@ export default function CVPage({
       venue: t("pub_bibm_venue"),
       desc: t("pub_bibm_desc"),
     },
+  ];
+
+  const skills = [
+    { cat: "Programming", items: "Python, TypeScript, SQL" },
+    { cat: "AI / ML", items: "PyTorch, representation learning, multimodal learning, XGBoost" },
+    { cat: "Medical AI", items: "ECG analysis, evidence-use auditing, cross-dataset evaluation, clinical LLMs" },
+    { cat: "Web & Data", items: "React, Next.js, Flask, Neo4j, Git, Docker" },
   ];
 
   return (
@@ -72,7 +85,7 @@ export default function CVPage({
         </h2>
         <div className="p-5 rounded-xl border border-zinc-200">
           <p className="font-medium text-zinc-900">{t("education_detail")}</p>
-          <p className="text-sm text-zinc-500 mt-1">{t("education_gpa")}</p>
+          <p className="text-sm text-zinc-500 mt-1">{educationGpa}</p>
         </div>
       </section>
 
@@ -142,18 +155,13 @@ export default function CVPage({
         <h2 className="text-lg font-semibold text-zinc-900 mb-3 uppercase tracking-wider">
           {t("core_courses")}
         </h2>
-        <p className="text-sm text-zinc-600 leading-relaxed">{t("courses_list")}</p>
+        <p className="text-sm text-zinc-600 leading-relaxed">{coursesList}</p>
       </section>
 
       <section className="mb-10">
         <h2 className="text-lg font-semibold text-zinc-900 mb-3 uppercase tracking-wider">Skills</h2>
         <div className="grid sm:grid-cols-2 gap-4">
-          {[
-            { cat: "Programming", items: "Python, TypeScript, SQL" },
-            { cat: "AI / ML", items: "PyTorch, XGBoost, ECG signal processing, representation learning" },
-            { cat: "Medical AI", items: "Evidence-use auditing, multimodal learning, LLM evaluation, RAG" },
-            { cat: "Web & Data", items: "React, Next.js, Flask, Neo4j, Git, Docker" },
-          ].map(({ cat, items }) => (
+          {skills.map(({ cat, items }) => (
             <div key={cat} className="p-4 rounded-xl bg-zinc-50 border border-zinc-200">
               <h3 className="text-sm font-semibold text-zinc-900 mb-1">{cat}</h3>
               <p className="text-sm text-zinc-600">{items}</p>
