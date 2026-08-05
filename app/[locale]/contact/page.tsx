@@ -37,54 +37,24 @@ export default function ContactPage() {
       ) : (
         <form onSubmit={handleSubmit} className="space-y-5">
           <div>
-            <label
-              htmlFor="name"
-              className="block text-sm font-medium text-zinc-700 mb-1.5"
-            >
+            <label htmlFor="name" className="block text-sm font-medium text-zinc-700 mb-1.5">
               {t("name_label")}
             </label>
-            <input
-              id="name"
-              name="name"
-              type="text"
-              required
-              className="w-full px-4 py-2.5 rounded-xl border border-zinc-300 text-zinc-900 focus:outline-none focus:ring-2 focus:ring-accent/20 focus:border-accent transition"
-            />
+            <input id="name" name="name" type="text" required className="w-full px-4 py-2.5 rounded-xl border border-zinc-300 text-zinc-900 focus:outline-none focus:ring-2 focus:ring-accent/20 focus:border-accent transition" />
           </div>
           <div>
-            <label
-              htmlFor="email"
-              className="block text-sm font-medium text-zinc-700 mb-1.5"
-            >
+            <label htmlFor="email" className="block text-sm font-medium text-zinc-700 mb-1.5">
               {t("email_label")}
             </label>
-            <input
-              id="email"
-              name="email"
-              type="email"
-              required
-              className="w-full px-4 py-2.5 rounded-xl border border-zinc-300 text-zinc-900 focus:outline-none focus:ring-2 focus:ring-accent/20 focus:border-accent transition"
-            />
+            <input id="email" name="email" type="email" required className="w-full px-4 py-2.5 rounded-xl border border-zinc-300 text-zinc-900 focus:outline-none focus:ring-2 focus:ring-accent/20 focus:border-accent transition" />
           </div>
           <div>
-            <label
-              htmlFor="message"
-              className="block text-sm font-medium text-zinc-700 mb-1.5"
-            >
+            <label htmlFor="message" className="block text-sm font-medium text-zinc-700 mb-1.5">
               {t("message_label")}
             </label>
-            <textarea
-              id="message"
-              name="message"
-              rows={5}
-              required
-              className="w-full px-4 py-2.5 rounded-xl border border-zinc-300 text-zinc-900 focus:outline-none focus:ring-2 focus:ring-accent/20 focus:border-accent transition resize-none"
-            />
+            <textarea id="message" name="message" rows={5} required className="w-full px-4 py-2.5 rounded-xl border border-zinc-300 text-zinc-900 focus:outline-none focus:ring-2 focus:ring-accent/20 focus:border-accent transition resize-none" />
           </div>
-          <button
-            type="submit"
-            className="px-6 py-3 bg-accent text-white rounded-xl font-medium hover:bg-accent-dark transition-colors"
-          >
+          <button type="submit" className="px-6 py-3 bg-accent text-white rounded-xl font-medium hover:bg-accent-dark transition-colors">
             {t("send")}
           </button>
         </form>
@@ -93,22 +63,20 @@ export default function ContactPage() {
       <div className="mt-10 pt-8 border-t border-zinc-200 text-sm text-zinc-500 space-y-2">
         <p>
           {t("email_me")}{" "}
-          <a
-            href="mailto:eb1287945452@mail.scut.edu.cn"
-            className="text-accent hover:text-accent-dark transition-colors"
-          >
+          <a href="mailto:eb1287945452@mail.scut.edu.cn" className="text-accent hover:text-accent-dark transition-colors">
             eb1287945452@mail.scut.edu.cn
           </a>
         </p>
         <p>
           {t("github")}:{" "}
-          <a
-            href="https://github.com/CRF2004"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-accent hover:text-accent-dark transition-colors"
-          >
+          <a href="https://github.com/CRF2004" target="_blank" rel="noopener noreferrer" className="text-accent hover:text-accent-dark transition-colors">
             CRF2004
+          </a>
+        </p>
+        <p>
+          {t("orcid")}:{" "}
+          <a href="https://orcid.org/0009-0002-3021-9647" target="_blank" rel="noopener noreferrer" className="text-accent hover:text-accent-dark transition-colors">
+            0009-0002-3021-9647
           </a>
         </p>
         <p>{t("location")}</p>
