@@ -17,10 +17,10 @@ export default function AboutPage({
   const t = useTranslations("about");
 
   const skills = [
-    "Python", "Java", "TypeScript", "React", "Next.js",
-    "PyTorch", "XGBoost", "Neo4j", "Flask",
-    "LLM Fine-tuning", "Prompt Engineering", "RAG",
-    "Knowledge Graphs", "Data Analysis",
+    "Python", "TypeScript", "PyTorch", "XGBoost",
+    "ECG Signal Processing", "Representation Learning",
+    "Multimodal Learning", "LLM Evaluation", "RAG",
+    "Knowledge Graphs", "React", "Next.js", "Neo4j",
   ];
 
   return (
@@ -28,26 +28,20 @@ export default function AboutPage({
       <h1 className="text-3xl font-bold text-zinc-900 mb-8">{t("title")}</h1>
 
       <div className="grid md:grid-cols-3 gap-10">
-        {/* Bio */}
         <div className="md:col-span-2 space-y-5">
           <p className="text-zinc-600 leading-relaxed">{t("bio_p1")}</p>
           <p className="text-zinc-600 leading-relaxed">{t("bio_p2")}</p>
           <p className="text-zinc-600 leading-relaxed">{t("bio_p3")}</p>
         </div>
 
-        {/* Sidebar */}
         <div className="space-y-8">
-          {/* Research Interests */}
           <div>
             <h3 className="text-sm font-semibold text-zinc-900 uppercase tracking-wider mb-3">
               {t("research_interests")}
             </h3>
             <ul className="space-y-2">
               {["ri_1", "ri_2", "ri_3", "ri_4"].map((key) => (
-                <li
-                  key={key}
-                  className="text-sm text-zinc-600 flex items-start gap-2"
-                >
+                <li key={key} className="text-sm text-zinc-600 flex items-start gap-2">
                   <span className="text-accent mt-1">•</span>
                   {t(key)}
                 </li>
@@ -55,24 +49,22 @@ export default function AboutPage({
             </ul>
           </div>
 
-          {/* Skills */}
           <div>
             <h3 className="text-sm font-semibold text-zinc-900 uppercase tracking-wider mb-3">
               {t("skills")}
             </h3>
             <div className="flex flex-wrap gap-2">
-              {skills.map((s) => (
+              {skills.map((skill) => (
                 <span
-                  key={s}
+                  key={skill}
                   className="px-2.5 py-1 rounded-full bg-zinc-100 text-zinc-600 text-xs font-medium"
                 >
-                  {s}
+                  {skill}
                 </span>
               ))}
             </div>
           </div>
 
-          {/* Languages */}
           <div>
             <h3 className="text-sm font-semibold text-zinc-900 uppercase tracking-wider mb-3">
               {t("languages")}
