@@ -118,6 +118,8 @@
     "under_review": "Under Review",
     "ongoing": "Ongoing Research",
     "first_author_role": "First Author",
+    "ongoing_collaborations": "Ongoing Collaborative Research",
+    "research_lead_role": "Research Lead",
     "jbhi_title": "Auditing Knowledge-Aligned Evidence Use in Deep Learning Models: A Matched-Control Study in ECG Classification",
     "jbhi_venue": "Under review at IEEE Journal of Biomedical and Health Informatics (JBHI)",
     "jbhi_desc": "A matched-control perturbation audit for testing whether deep ECG models depend on clinically relevant evidence and whether that dependence remains stable across datasets.",

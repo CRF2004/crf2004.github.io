@@ -3,7 +3,7 @@ name: Build CV PDF
 on:
   push:
     branches:
-      - agent/update-research-profile
+      - main
     paths:
       - "cv/rongfeng-cheng-cv.tex"
       - ".github/workflows/build-cv-pdf.yml"
@@ -42,4 +42,4 @@ jobs:
             exit 0
           fi
           git commit -m "Sync generated CV PDF [skip ci]"
-          git push origin HEAD:agent/update-research-profile
+          git push origin "HEAD:${{ github.ref_name }}"

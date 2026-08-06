@@ -45,8 +45,12 @@ export default function PublicationsPage({
       venue: t("bibm_venue"),
       description: t("bibm_desc"),
     },
+  ];
+
+  const ongoingCollaborations = [
     {
       status: t("ongoing"),
+      role: t("research_lead_role"),
       title: t("pathclip_title"),
       venue: t("pathclip_venue"),
       description: t("pathclip_desc"),
@@ -82,6 +86,29 @@ export default function PublicationsPage({
               <p className="text-sm text-zinc-600 mt-3 leading-relaxed">
                 {work.description}
               </p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="mb-12">
+        <h2 className="text-lg font-semibold text-zinc-900 mb-4 uppercase tracking-wider">
+          {t("ongoing_collaborations")}
+        </h2>
+        <div className="space-y-5">
+          {ongoingCollaborations.map((work) => (
+            <article key={work.title} className="p-6 rounded-2xl border border-zinc-200 bg-white">
+              <div className="flex flex-wrap items-center gap-2 mb-3">
+                <span className="px-2.5 py-0.5 rounded-full bg-amber-100 text-amber-700 text-xs font-semibold uppercase tracking-wider">
+                  {work.status}
+                </span>
+                <span className="px-2.5 py-0.5 rounded-full bg-accent/10 text-accent text-xs font-semibold">
+                  {work.role}
+                </span>
+              </div>
+              <h3 className="text-lg font-semibold text-zinc-900 leading-snug">{work.title}</h3>
+              <p className="text-sm text-zinc-500 mt-1">{work.venue}</p>
+              <p className="text-sm text-zinc-600 mt-3 leading-relaxed">{work.description}</p>
             </article>
           ))}
         </div>
