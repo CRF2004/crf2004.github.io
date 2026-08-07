@@ -27,33 +27,34 @@
 \makecvtitle
 \vspace{-1.2em}
 
-\section{Research Profile}
-\cvitem{}{Undergraduate researcher at South China University of Technology studying whether medical AI models use clinically relevant evidence, how their behavior changes across datasets, and how physiological signals can be aligned with language. Two first-author manuscripts are under review at IEEE JBHI and IEEE BIBM 2026.}
+\section{Research Focus}
+\cvitem{}{Research interests center on trustworthy and evidence-grounded medical AI: understanding whether models rely on clinically meaningful evidence, how evidence use changes across datasets, and how physiological signals can be aligned with language. Current work spans ECG model auditing, dataset-label evidence characterization, and ECG--text representation learning. Two first-author manuscripts are under review at IEEE JBHI and IEEE BIBM 2026.}
 
 \section{Education}
 \cventry{2023--2027}{B.S. in Big Data Management and Application}{South China University of Technology (SCUT)}{Guangzhou, China}{}{GPA: 3.46/4.0.\\Selected AI coursework: Large Models and Generative AI (93/100), Large Language Models and Prompt Engineering (93/100), Machine Learning (92/100), and Deep Learning (88/100).}
 
 \section{Research Experience}
-\cventry{Jan 2026--Present}{Evidence-Use Auditing for Deep ECG Models}{Research Lead; First Author}{}{}{\begin{itemize}
-  \item Developed a matched-control perturbation framework to test whether deep ECG classifiers depend on clinically relevant evidence rather than task-correlated shortcuts.
-  \item Evaluated PTB-XL and CODE-15\% across architectures, perturbation doses, clinical evidence windows, and frozen-weight cross-dataset transfer.
-  \item Manuscript under review at \textit{IEEE Journal of Biomedical and Health Informatics} (JBHI).
+\cventry{Jan 2026--Present}{Evidence-Use Auditing for Deep ECG Models}{First Author}{}{}{\begin{itemize}
+  \item Addressed whether high-performing ECG classifiers actually depend on clinically relevant signal evidence rather than task-correlated shortcuts.
+  \item Developed a matched-control perturbation framework that compares clinically targeted interventions against matched control perturbations across evidence windows and perturbation doses.
+  \item Evaluated the framework on PTB-XL and CODE-15\% across model architectures and frozen-weight cross-dataset transfer; manuscript under review at \textit{IEEE Journal of Biomedical and Health Informatics} (JBHI).
 \end{itemize}}
 
-\cventry{Jun 2026--Present}{DLEF: Dataset-Label Evidence Fingerprints}{Research Lead; First Author}{}{}{\begin{itemize}
-  \item Proposed directional and boundary-aware evidence fingerprints to characterize dataset-label evidence structure.
-  \item Studied cross-dataset AUROC degradation across CODE-15\%, PTB-XL, and Chapman-Shaoxing.
-  \item Manuscript under review at IEEE BIBM 2026.
+\cventry{Jun 2026--Present}{DLEF: Dataset-Label Evidence Fingerprints}{First Author}{}{}{\begin{itemize}
+  \item Investigated whether dataset-specific evidence structure can explain why ECG classifiers lose performance when transferred across datasets.
+  \item Proposed directional and boundary-aware evidence fingerprints and designed analyses relating these fingerprints to cross-dataset AUROC degradation.
+  \item Evaluated CODE-15\%, PTB-XL, and Chapman-Shaoxing; manuscript under review at IEEE BIBM 2026.
 \end{itemize}}
 
-\cventry{Jul 2026--Present}{PathCLIP: Knowledge-Aware ECG--Text Representation Learning}{Research Lead}{}{}{\begin{itemize}
-  \item Investigating diagnostic hierarchies, ECG findings, and evidence grounding for ECG--text alignment and zero-shot recognition.
-  \item Designed matched-count, permuted-hierarchy, residual-only, and held-out-label controls; current work shifts from ontology-only supervision toward finding-level evidence alignment.
+\cventry{Jul 2026--Present}{PathCLIP: Evidence-Aware ECG--Text Representation Learning}{Researcher}{}{}{\begin{itemize}
+  \item Investigating how diagnostic knowledge and ECG findings can provide clinically meaningful supervision for ECG--text alignment and zero-shot recognition.
+  \item Designed matched-count, permuted-hierarchy, residual-only, and held-out-label controls to distinguish genuine knowledge gains from additional supervision or representation capacity.
+  \item Current work shifts from ontology-only supervision toward finding-level evidence alignment.
 \end{itemize}}
 
-\section{Publications}
-\cvitem{First author}{\textbf{A Matched-Control Perturbation Audit Framework for Evaluating Evidence Use in Deep Learning Models: An Application to 12-Lead ECG Classification.} Under review at IEEE JBHI.}
-\cvitem{First author}{\textbf{DLEF: Dataset-Label Evidence Fingerprints for Explaining Cross-Dataset Performance in ECG Classification.} Under review at IEEE BIBM 2026.}
+\section{Manuscripts \& Publications}
+\cvitem{First author}{\textbf{R. Cheng et al.} \textbf{A Matched-Control Perturbation Audit Framework for Evaluating Evidence Use in Deep Learning Models: An Application to 12-Lead ECG Classification.} Under review at IEEE JBHI.}
+\cvitem{First author}{\textbf{R. Cheng et al.} \textbf{DLEF: Dataset-Label Evidence Fingerprints for Explaining Cross-Dataset Performance in ECG Classification.} Under review at IEEE BIBM 2026.}
 \cvitem{Co-author}{\textbf{CodeSafetyBench: Evaluating and Improving Ethical Safety in Large Language Model Code Generation.} \textit{iScience}, 2026. \href{https://doi.org/10.1016/j.isci.2026.115073}{doi:10.1016/j.isci.2026.115073}.}
 \cvitem{Co-author}{\textbf{Artificial Intelligence Applications in X-ray Coronary Angiography: A Comprehensive Review of Image Analysis Techniques.} HNNDL 2026. \href{https://doi.org/10.1145/3795892.3795917}{doi:10.1145/3795892.3795917}.}
 \cvitem{Co-author}{\textbf{Artificial Intelligence for Echocardiographic Assessment of Pulmonary Hypertension and Right Heart Function: Advances in Intelligent Diagnosis and Risk Stratification.} HNNDL 2026. \href{https://doi.org/10.1145/3795892.3795918}{doi:10.1145/3795892.3795918}.}
@@ -61,34 +62,36 @@
 \newpage
 \section{Professional Experience}
 \cventry{Nov 2024--Present}{Research Intern}{AI Research Institute, Guangdong No. 2 Provincial People's Hospital}{Guangzhou, China}{}{\begin{itemize}
-  \item Conduct research on medical LLMs, cardiovascular knowledge representation, clinical question answering, and AI product prototyping.
-  \item Contributed to a standardized-patient Q\&A pipeline built from about 8,000 clinical cases, a myocardial-ischemia knowledge graph, patents, software copyrights, and clinical AI prototypes.
+  \item Work on medical LLMs, cardiovascular knowledge representation, clinical question answering, and clinical AI prototyping within a hospital AI research environment.
+  \item Contributed to a standardized-patient Q\&A pipeline built from approximately 8,000 clinical cases, including structured information extraction, knowledge-graph construction, and retrieval components.
+  \item Contributed to a myocardial-ischemia knowledge graph, clinical AI prototypes, one patent application, and software copyrights arising from the institute's research and development work.
 \end{itemize}}
 
 \section{Selected Projects}
+\cvitem{}{\textbf{Clinical NLP \& Knowledge Systems}}
 \cventry{}{KG-Based Standardized Patient Q\&A}{Medical LLM / Knowledge Representation}{}{}{Processed approximately 8,000 cardiovascular case PDFs and built an LLM-based extraction pipeline with named-entity recognition, relation extraction, entity disambiguation, Neo4j storage, and hybrid RAG.}
-\cventry{}{Dingbei Meimei -- Acne \& Facial Health AI Assessment System}{Full-Stack Developer; Assessment-Scale Co-Designer}{}{}{Built the complete front end and back end, including iPad adaptation and the clinical case workflow; co-designed the assessment scales with dermatologists at Guangdong No. 2 Provincial People's Hospital. Delivered the system for the July 2026 launch of the hospital's Refractory Acne Diagnosis and Treatment Center.}
 \cventry{}{Myocardial Ischemia Knowledge Graph}{Project Lead}{}{}{Built a domain knowledge graph with collaborative ontology management, XGBoost-based implicit reasoning, and graph-mapped interpretability analysis.}
+
+\cvitem{}{\textbf{Clinical Data \& Deployed Systems}}
 \cventry{}{IHD Trajectory Similarity Retrieval}{Clinical AI / MIMIC-IV}{}{}{Developed trajectory retrieval and post-cutoff validation for ischemic heart disease ICU stays using time-windowed clinical variables and precomputed k-NN similarity graphs.}
+\cventry{}{Dingbei Meimei -- Acne \& Facial Health AI Assessment System}{Full-Stack Developer; Assessment-Scale Co-Designer}{}{}{Built the complete front end and back end, including iPad adaptation and the clinical case workflow; co-designed the assessment scales with dermatologists at Guangdong No. 2 Provincial People's Hospital. Delivered the system for the July 2026 launch of the hospital's Refractory Acne Diagnosis and Treatment Center.}
 
 \section{Patents \& Intellectual Property}
-\cvlistitem{Method, System, and Electronic Device for Medical Question-Answering Output Assurance -- First Inventor; application \#202610582199.6; filed Apr 2026; preliminary examination passed.}
-\cvlistitem{Knowledge Graph Ontology Intelligent Management System V1.0 -- Software Copyright \#2025SR2454864.}
-\cvlistitem{LLM-Based Cardiovascular Proactive Health Management Intelligent System V1.0 -- Software Copyright \#2025SR2080673.}
+\cvitem{Patent}{\textbf{Method, System, and Electronic Device for Medical Question-Answering Output Assurance} -- First Inventor; application \#202610582199.6; filed Apr 2026; preliminary examination passed.}
+\cvitem{Software IP}{Knowledge Graph Ontology Intelligent Management System V1.0 (\#2025SR2454864); LLM-Based Cardiovascular Proactive Health Management Intelligent System V1.0 (\#2025SR2080673).}
 
 \section{Honors}
 \cvlistitem{First Prize, 2025 Challenge Cup (Jinan University Campus).}
 \cvlistitem{Second Prize, 2025 9th Guangzhou Mathematical Modeling University League.}
 \cvlistitem{Third Prize, 2025 National Mathematical Modeling Contest -- Guangdong Division.}
-\cvlistitem{National Innovation and Entrepreneurship Training Program -- Project Completed.}
 
 \section{Skills}
 \begin{multicols}{2}
-\cvitem{Programming}{Python, TypeScript, SQL}
-\cvitem{AI / ML}{PyTorch, representation learning, multimodal learning, XGBoost}
+\cvitem{Modeling}{PyTorch, XGBoost, representation learning, multimodal learning}
+\cvitem{Evaluation}{Perturbation analysis, matched controls, cross-dataset evaluation}
 \columnbreak
-\cvitem{Medical AI}{ECG analysis, evidence-use auditing, cross-dataset evaluation, clinical LLMs}
-\cvitem{Web / Data}{Next.js, Flask, Neo4j, Git, Docker}
+\cvitem{Biomedical Data}{12-lead ECG, MIMIC-IV / EHR cohorts, clinical NLP, knowledge graphs}
+\cvitem{Engineering}{Python, TypeScript, SQL, Next.js, Flask, Neo4j, Git, Docker}
 \end{multicols}
 \vspace{-0.8em}
 
