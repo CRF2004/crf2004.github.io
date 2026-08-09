@@ -2,7 +2,7 @@ import { use } from "react";
 import { useTranslations } from "next-intl";
 import { setRequestLocale } from "next-intl/server";
 import type { Metadata } from "next";
-import { ExternalLink } from "lucide-react";
+import { ArrowRight, ExternalLink } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "CV",
@@ -22,18 +22,191 @@ export default function CVPage({
   const { locale } = use(params);
   setRequestLocale(locale);
   const t = useTranslations("cv");
-
   const isChinese = locale === "zh";
-  const educationGpa = "GPA: 3.46/4.0";
-  const coursesList = isChinese
-    ? "大模型与生成式AI（93/100）、大语言模型与提示工程（93/100）、机器学习（92/100）、深度学习（88/100）"
-    : "Large Models and Generative AI (93/100), Large Language Models and Prompt Engineering (93/100), Machine Learning (92/100), Deep Learning (88/100)";
 
-  const researchExperience = [
-    { title: t("re_ecg_title"), meta: t("re_ecg_meta"), desc: t("re_ecg_desc") },
-    { title: t("re_dlef_title"), meta: t("re_dlef_meta"), desc: t("re_dlef_desc") },
-    { title: t("re_pathclip_title"), meta: t("re_pathclip_meta"), desc: t("re_pathclip_desc") },
-  ];
+  const copy = isChinese
+    ? {
+        subtitle:
+          "这里不是 PDF 简历的逐项复刻，而是一份研究快照：我当前在研究什么问题、如何验证它们，以及这些工作如何延伸到真实临床系统。完整履历请下载 PDF。",
+        researchFocus: "研究主线",
+        education: "教育背景",
+        educationDetail: "华南理工大学 · 大数据管理与应用 · 管理学学士（2023–2027）",
+        currentResearch: "当前研究",
+        currentResearchIntro:
+          "我的近期工作围绕一个连续问题展开：医疗 AI 模型是否使用了正确证据，这种证据依赖能否跨数据集保持，以及如何把这种约束带入多模态表征学习。",
+        manuscripts: "论文与手稿",
+        manuscriptsNote: "这里仅列最相关的代表性工作；完整成果记录可在 Publications 页面与 ORCID 查看。",
+        clinicalSystems: "从研究到临床系统",
+        clinicalSystemsIntro:
+          "除方法研究外，我也持续参与医院场景中的数据处理、知识表示、检索与临床工作流开发，用来理解模型在真实系统中的约束。",
+        capabilities: "研究能力",
+        capabilitiesIntro:
+          "相比单纯罗列工具，我更希望展示我目前已经形成的研究工作方式：设计可证伪的对照、做跨数据集验证，并把分析落到可运行系统。",
+        courses: "相关课程",
+        selectedRecognition: "精选荣誉与知识产权",
+        languages: "语言",
+        explore: "继续了解",
+        exploreExperience: "研究与实践经历",
+        explorePublications: "论文与研究",
+        exploreProjects: "项目细节",
+        orcidLabel: "ORCID",
+        focusItems: [
+          {
+            title: "可信医疗 AI",
+            desc: "审计模型是否依赖临床相关证据，而不仅仅比较预测性能。",
+          },
+          {
+            title: "ECG 泛化与证据结构",
+            desc: "研究模型行为为何随数据集变化，以及这种变化能否由证据结构解释。",
+          },
+          {
+            title: "ECG–文本表征学习",
+            desc: "探索诊断层级、ECG findings 与 evidence grounding 如何影响多模态对齐。",
+          },
+        ],
+        researchItems: [
+          {
+            title: "深度 ECG 模型证据使用审计",
+            meta: "研究负责人 · 2026年1月 — 至今",
+            label: "核心问题",
+            desc: "高性能 ECG 分类器是否真的依赖临床上正确的证据？我使用匹配对照扰动与冻结权重外部迁移，将目标证据敏感性与一般性脆弱区分开。",
+          },
+          {
+            title: "DLEF：数据集—标签证据指纹",
+            meta: "研究负责人 · 2026年6月 — 至今",
+            label: "核心问题",
+            desc: "跨数据集性能下降能否由更细粒度的证据结构差异解释？DLEF 从 source–target–label 层面刻画方向性与边界差异，而不是把 dataset shift 压缩成单一统计量。",
+          },
+          {
+            title: "PathCLIP：知识增强 ECG–文本表征学习",
+            meta: "研究负责人 · 2026年7月 — 至今",
+            label: "探索中",
+            desc: "目前仍处于方法构想阶段。我在用计数匹配、随机层级、仅残差和留出标签等对照，先判断诊断层级、ECG findings 与 evidence grounding 各自真正贡献了什么，再确定最终方法。",
+          },
+        ],
+        clinicalItems: [
+          {
+            title: "心血管标准化病人问答流水线",
+            desc: "独立开发从约 8,000 份心血管病例 PDF 到可检索知识的处理流水线，包括 LLM 信息抽取、实体消歧、Neo4j 知识表示与混合检索。",
+          },
+          {
+            title: "鼎贝美美痤疮与面部健康评估系统",
+            desc: "负责五人团队中的全栈与临床工作流开发，并支持系统随医院难治性痤疮诊疗中心于 2026 年 7 月首发。",
+          },
+        ],
+        capabilityItems: [
+          {
+            title: "建模",
+            items: "PyTorch · XGBoost · representation learning · multimodal learning",
+          },
+          {
+            title: "评估",
+            items: "matched controls · perturbation analysis · external validation · cross-dataset evaluation",
+          },
+          {
+            title: "生物医学数据",
+            items: "12-lead ECG · MIMIC-IV / EHR cohorts · clinical NLP · knowledge graphs",
+          },
+          {
+            title: "工程",
+            items: "Python · TypeScript · SQL · Next.js · Flask · Neo4j · Git · Docker",
+          },
+        ],
+        coursesList:
+          "大模型与生成式AI（93/100）、大语言模型与提示工程（93/100）、机器学习（92/100）、深度学习（88/100）",
+      }
+    : {
+        subtitle:
+          "Rather than reproducing the PDF CV line by line, this page is a research snapshot: the questions I am currently studying, how I test them, and how that work connects to real clinical systems. Download the PDF for the complete record.",
+        researchFocus: "Research Focus",
+        education: "Education",
+        educationDetail:
+          "South China University of Technology · Big Data Management and Application · Bachelor of Management (2023–2027)",
+        currentResearch: "Current Research",
+        currentResearchIntro:
+          "My recent work follows one connected question: whether medical AI models use the right evidence, whether that evidence dependence remains stable across datasets, and how such constraints can inform multimodal representation learning.",
+        manuscripts: "Manuscripts & Publications",
+        manuscriptsNote:
+          "Only the most relevant work is shown here; see the Publications page and ORCID for the complete record.",
+        clinicalSystems: "From Research to Clinical Systems",
+        clinicalSystemsIntro:
+          "Alongside methodological research, I work on hospital-facing data, knowledge, retrieval, and workflow systems to better understand the constraints that appear when models leave the benchmark setting.",
+        capabilities: "Research Capabilities",
+        capabilitiesIntro:
+          "Rather than listing tools alone, these are the research modes I currently use most: falsifiable controls, cross-dataset validation, biomedical data analysis, and implementation of working systems.",
+        courses: "Selected Coursework",
+        selectedRecognition: "Selected Recognition & IP",
+        languages: "Languages",
+        explore: "Explore Further",
+        exploreExperience: "Research & Experience",
+        explorePublications: "Publications & Research",
+        exploreProjects: "Project Details",
+        orcidLabel: "ORCID",
+        focusItems: [
+          {
+            title: "Trustworthy Medical AI",
+            desc: "Auditing whether models rely on clinically relevant evidence rather than only comparing predictive performance.",
+          },
+          {
+            title: "ECG Generalization & Evidence Structure",
+            desc: "Studying why model behavior changes across datasets and whether evidence structure can explain that change.",
+          },
+          {
+            title: "ECG–Text Representation Learning",
+            desc: "Exploring how diagnostic hierarchies, ECG findings, and evidence grounding affect multimodal alignment.",
+          },
+        ],
+        researchItems: [
+          {
+            title: "Evidence-Use Auditing for Deep ECG Models",
+            meta: "Research Lead · Jan 2026 — Present",
+            label: "Question",
+            desc: "Do high-performing ECG classifiers actually depend on clinically correct evidence? I use matched-control perturbations and frozen-weight external transfer to separate target-evidence sensitivity from generic model fragility.",
+          },
+          {
+            title: "DLEF: Dataset-Label Evidence Fingerprints",
+            meta: "Research Lead · Jun 2026 — Present",
+            label: "Question",
+            desc: "Can cross-dataset performance degradation be explained by finer-grained differences in evidence structure? DLEF characterizes directional and boundary-aware source–target–label shifts instead of reducing dataset shift to one global statistic.",
+          },
+          {
+            title: "PathCLIP: Knowledge-Aware ECG–Text Representation Learning",
+            meta: "Research Lead · Jul 2026 — Present",
+            label: "Exploratory",
+            desc: "This project is still at the method-formulation stage. I am using matched-count, permuted-hierarchy, residual-only, and held-out-label controls to identify what diagnostic hierarchies, ECG findings, and evidence grounding actually contribute before fixing the final method.",
+          },
+        ],
+        clinicalItems: [
+          {
+            title: "Cardiovascular Standardized-Patient Q&A Pipeline",
+            desc: "Solely developed a pipeline from approximately 8,000 cardiovascular case PDFs to retrievable knowledge, including LLM-based information extraction, entity disambiguation, Neo4j knowledge representation, and hybrid retrieval.",
+          },
+          {
+            title: "Dingbei Meimei Acne & Facial-Health Assessment System",
+            desc: "Led full-stack and clinical-workflow development in a five-person team and supported the initial release alongside the hospital's Refractory Acne Diagnosis and Treatment Center in July 2026.",
+          },
+        ],
+        capabilityItems: [
+          {
+            title: "Modeling",
+            items: "PyTorch · XGBoost · representation learning · multimodal learning",
+          },
+          {
+            title: "Evaluation",
+            items: "matched controls · perturbation analysis · external validation · cross-dataset evaluation",
+          },
+          {
+            title: "Biomedical Data",
+            items: "12-lead ECG · MIMIC-IV / EHR cohorts · clinical NLP · knowledge graphs",
+          },
+          {
+            title: "Engineering",
+            items: "Python · TypeScript · SQL · Next.js · Flask · Neo4j · Git · Docker",
+          },
+        ],
+        coursesList:
+          "Large Models and Generative AI (93/100), Large Language Models and Prompt Engineering (93/100), Machine Learning (92/100), Deep Learning (88/100)",
+      };
 
   const firstAuthorPapers = [
     {
@@ -48,57 +221,42 @@ export default function CVPage({
     },
   ];
 
-  const skills = [
-    { cat: "Programming", items: "Python, TypeScript, SQL" },
-    { cat: "AI / ML", items: "PyTorch, representation learning, multimodal learning, XGBoost" },
-    { cat: "Medical AI", items: "ECG analysis, evidence-use auditing, cross-dataset evaluation, clinical LLMs" },
-    { cat: "Web & Data", items: "React, Next.js, Flask, Neo4j, Git, Docker" },
-  ];
-
   return (
     <div className="max-w-3xl mx-auto px-6 py-16 md:py-24">
-      <div className="flex flex-wrap items-center justify-between gap-4 mb-10">
-        <div>
-          <h1 className="text-3xl font-bold text-zinc-900">{t("title")}</h1>
+      <header className="mb-12">
+        <div className="flex flex-wrap items-start justify-between gap-5">
+          <div className="max-w-2xl">
+            <h1 className="text-3xl font-bold text-zinc-900">{t("title")}</h1>
+            <p className="text-sm text-zinc-600 mt-3 leading-relaxed">{copy.subtitle}</p>
+            <a
+              href="https://orcid.org/0009-0002-3021-9647"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1 text-sm text-accent hover:text-accent-dark mt-3"
+            >
+              {copy.orcidLabel}: 0009-0002-3021-9647
+              <ExternalLink className="w-3.5 h-3.5" />
+            </a>
+          </div>
           <a
-            href="https://orcid.org/0009-0002-3021-9647"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-1 text-sm text-accent hover:text-accent-dark mt-2"
+            href="/cv/cheng-rongfeng-cv.pdf"
+            download
+            className="px-5 py-2.5 bg-accent text-white rounded-xl text-sm font-medium hover:bg-accent-dark transition-colors shrink-0"
           >
-            {t("orcid")}
-            <ExternalLink className="w-3.5 h-3.5" />
+            {t("download")}
           </a>
         </div>
-        <a
-          href="/cv/cheng-rongfeng-cv.pdf"
-          download
-          className="px-5 py-2.5 bg-accent text-white rounded-xl text-sm font-medium hover:bg-accent-dark transition-colors"
-        >
-          {t("download")}
-        </a>
-      </div>
+      </header>
 
       <section className="mb-10">
         <h2 className="text-lg font-semibold text-zinc-900 mb-3 uppercase tracking-wider">
-          {t("education")}
+          {copy.researchFocus}
         </h2>
-        <div className="p-5 rounded-xl border border-zinc-200">
-          <p className="font-medium text-zinc-900">{t("education_detail")}</p>
-          <p className="text-sm text-zinc-500 mt-1">{educationGpa}</p>
-        </div>
-      </section>
-
-      <section className="mb-10">
-        <h2 className="text-lg font-semibold text-zinc-900 mb-3 uppercase tracking-wider">
-          {t("research_experience")}
-        </h2>
-        <div className="space-y-3">
-          {researchExperience.map((item) => (
-            <div key={item.title} className="p-5 rounded-xl border border-zinc-200">
-              <h3 className="font-semibold text-zinc-900">{item.title}</h3>
-              <p className="text-xs text-accent mt-1">{item.meta}</p>
-              <p className="text-sm text-zinc-600 mt-2 leading-relaxed">{item.desc}</p>
+        <div className="grid md:grid-cols-3 gap-3">
+          {copy.focusItems.map((item) => (
+            <div key={item.title} className="p-4 rounded-xl bg-zinc-50 border border-zinc-200">
+              <h3 className="text-sm font-semibold text-zinc-900">{item.title}</h3>
+              <p className="text-sm text-zinc-600 mt-1.5 leading-relaxed">{item.desc}</p>
             </div>
           ))}
         </div>
@@ -106,8 +264,56 @@ export default function CVPage({
 
       <section className="mb-10">
         <h2 className="text-lg font-semibold text-zinc-900 mb-3 uppercase tracking-wider">
-          {t("research")}
+          {copy.education}
         </h2>
+        <div className="p-5 rounded-xl border border-zinc-200">
+          <p className="font-medium text-zinc-900">{copy.educationDetail}</p>
+          <p className="text-sm text-zinc-500 mt-1">GPA: 3.46/4.0</p>
+          <p className="text-sm text-zinc-600 mt-3 leading-relaxed">
+            <span className="font-medium text-zinc-800">{copy.courses}: </span>
+            {copy.coursesList}
+          </p>
+        </div>
+      </section>
+
+      <section className="mb-10">
+        <h2 className="text-lg font-semibold text-zinc-900 mb-2 uppercase tracking-wider">
+          {copy.currentResearch}
+        </h2>
+        <p className="text-sm text-zinc-600 leading-relaxed mb-4">{copy.currentResearchIntro}</p>
+        <div className="space-y-3">
+          {copy.researchItems.map((item) => (
+            <article key={item.title} className="p-5 rounded-xl border border-zinc-200">
+              <div className="flex flex-wrap items-center gap-2">
+                <h3 className="font-semibold text-zinc-900">{item.title}</h3>
+                <span className="text-[11px] font-medium text-accent bg-accent/10 px-2 py-0.5 rounded-full">
+                  {item.label}
+                </span>
+              </div>
+              <p className="text-xs text-zinc-500 mt-1">{item.meta}</p>
+              <p className="text-sm text-zinc-600 mt-2 leading-relaxed">{item.desc}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="mb-10">
+        <div className="flex flex-wrap items-end justify-between gap-2 mb-3">
+          <div>
+            <h2 className="text-lg font-semibold text-zinc-900 uppercase tracking-wider">
+              {copy.manuscripts}
+            </h2>
+            <p className="text-sm text-zinc-500 mt-1">{copy.manuscriptsNote}</p>
+          </div>
+          <a
+            href={`/${locale}/publications`}
+            className="inline-flex items-center gap-1 text-sm text-accent hover:text-accent-dark"
+          >
+            {copy.explorePublications}
+            <ArrowRight className="w-3.5 h-3.5" />
+          </a>
+        </div>
+
         <div className="space-y-4">
           {firstAuthorPapers.map((paper) => (
             <div key={paper.title} className="p-5 rounded-xl border-2 border-accent/20 bg-accent/[0.02]">
@@ -152,19 +358,30 @@ export default function CVPage({
       </section>
 
       <section className="mb-10">
-        <h2 className="text-lg font-semibold text-zinc-900 mb-3 uppercase tracking-wider">
-          {t("core_courses")}
+        <h2 className="text-lg font-semibold text-zinc-900 mb-2 uppercase tracking-wider">
+          {copy.clinicalSystems}
         </h2>
-        <p className="text-sm text-zinc-600 leading-relaxed">{coursesList}</p>
+        <p className="text-sm text-zinc-600 leading-relaxed mb-4">{copy.clinicalSystemsIntro}</p>
+        <div className="space-y-3">
+          {copy.clinicalItems.map((item) => (
+            <div key={item.title} className="p-5 rounded-xl border border-zinc-200">
+              <h3 className="text-sm font-semibold text-zinc-900">{item.title}</h3>
+              <p className="text-sm text-zinc-600 mt-2 leading-relaxed">{item.desc}</p>
+            </div>
+          ))}
+        </div>
       </section>
 
       <section className="mb-10">
-        <h2 className="text-lg font-semibold text-zinc-900 mb-3 uppercase tracking-wider">Skills</h2>
+        <h2 className="text-lg font-semibold text-zinc-900 mb-2 uppercase tracking-wider">
+          {copy.capabilities}
+        </h2>
+        <p className="text-sm text-zinc-600 leading-relaxed mb-4">{copy.capabilitiesIntro}</p>
         <div className="grid sm:grid-cols-2 gap-4">
-          {skills.map(({ cat, items }) => (
-            <div key={cat} className="p-4 rounded-xl bg-zinc-50 border border-zinc-200">
-              <h3 className="text-sm font-semibold text-zinc-900 mb-1">{cat}</h3>
-              <p className="text-sm text-zinc-600">{items}</p>
+          {copy.capabilityItems.map((item) => (
+            <div key={item.title} className="p-4 rounded-xl bg-zinc-50 border border-zinc-200">
+              <h3 className="text-sm font-semibold text-zinc-900 mb-1">{item.title}</h3>
+              <p className="text-sm text-zinc-600 leading-relaxed">{item.items}</p>
             </div>
           ))}
         </div>
@@ -172,27 +389,36 @@ export default function CVPage({
 
       <section className="mb-10">
         <h2 className="text-lg font-semibold text-zinc-900 mb-3 uppercase tracking-wider">
-          {t("patents")}
+          {copy.selectedRecognition}
         </h2>
-        <div className="space-y-3">
-          <div className="p-4 rounded-xl border border-zinc-200">
-            <span className="text-xs font-semibold text-accent bg-accent/10 px-2 py-0.5 rounded-full mb-2 inline-block">
-              {t("patent_label")}
-            </span>
-            <p className="text-sm text-zinc-700 mt-1.5">{t("ip_patent_1")}</p>
-            <p className="text-xs text-zinc-400 mt-1">{t("ip_patent_2")}</p>
+        <div className="grid md:grid-cols-2 gap-4">
+          <div className="p-5 rounded-xl border border-zinc-200">
+            <h3 className="text-xs font-semibold text-zinc-400 uppercase tracking-wider mb-2">
+              {t("awards")}
+            </h3>
+            <ul className="space-y-2">
+              {(["award_1", "award_2", "award_3"] as const).map((key) => (
+                <li key={key} className="text-sm text-zinc-600 flex items-start gap-2">
+                  <span className="text-accent mt-1">•</span>
+                  <span>{t(key)}</span>
+                </li>
+              ))}
+            </ul>
           </div>
-          <div className="p-4 rounded-xl border border-zinc-200">
-            <span className="text-xs font-semibold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded-full mb-2 inline-block">
-              {t("copyright_label")}
-            </span>
-            <ul className="mt-1.5 space-y-1">
-              <li className="text-sm text-zinc-700 flex items-start gap-2">
-                <span className="text-emerald-500 mt-1.5">•</span>{t("ip_copyright_1")}
-              </li>
-              <li className="text-sm text-zinc-700 flex items-start gap-2">
-                <span className="text-emerald-500 mt-1.5">•</span>{t("ip_copyright_2")}
-              </li>
+
+          <div className="p-5 rounded-xl border border-zinc-200">
+            <div className="flex flex-wrap gap-2 mb-3">
+              <span className="text-xs font-semibold text-accent bg-accent/10 px-2 py-0.5 rounded-full">
+                {t("patent_label")}
+              </span>
+              <span className="text-xs font-semibold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded-full">
+                {t("copyright_label")}
+              </span>
+            </div>
+            <p className="text-sm text-zinc-700 leading-relaxed">{t("ip_patent_1")}</p>
+            <ul className="mt-2 space-y-1">
+              <li className="text-sm text-zinc-600">• {t("ip_copyright_1")}</li>
+              <li className="text-sm text-zinc-600">• {t("ip_copyright_2")}</li>
             </ul>
           </div>
         </div>
@@ -200,24 +426,45 @@ export default function CVPage({
 
       <section className="mb-10">
         <h2 className="text-lg font-semibold text-zinc-900 mb-3 uppercase tracking-wider">
-          {t("awards")}
+          {copy.languages}
         </h2>
-        <ul className="space-y-2">
-          {(["award_1", "award_2", "award_3", "award_4", "award_5"] as const).map((key) => (
-            <li key={key} className="text-sm text-zinc-600 flex items-start gap-2">
-              <span className="text-accent mt-1">•</span>{t(key)}
-            </li>
-          ))}
-        </ul>
+        <div className="flex flex-wrap gap-3">
+          <span className="px-4 py-2 rounded-xl bg-zinc-50 border border-zinc-200 text-sm text-zinc-700">
+            {isChinese ? "中文（母语）" : "Chinese (native)"}
+          </span>
+          <span className="px-4 py-2 rounded-xl bg-zinc-50 border border-zinc-200 text-sm text-zinc-700">
+            {isChinese ? "粤语（母语）" : "Cantonese (native)"}
+          </span>
+          <span className="px-4 py-2 rounded-xl bg-zinc-50 border border-zinc-200 text-sm text-zinc-700">
+            {isChinese ? "英语：IELTS 6.5 · CET-6 528" : "English: IELTS 6.5 · CET-6 528"}
+          </span>
+        </div>
       </section>
 
-      <section>
-        <h2 className="text-lg font-semibold text-zinc-900 mb-3 uppercase tracking-wider">
-          {t("certificates")}
-        </h2>
-        <div className="flex flex-wrap gap-4">
-          <span className="px-4 py-2 rounded-xl bg-zinc-50 border border-zinc-200 text-sm text-zinc-700">{t("cet6")}</span>
-          <span className="px-4 py-2 rounded-xl bg-zinc-50 border border-zinc-200 text-sm text-zinc-700">{t("ielts")}</span>
+      <section className="pt-6 border-t border-zinc-200">
+        <h2 className="text-sm font-semibold text-zinc-900 mb-3 uppercase tracking-wider">{copy.explore}</h2>
+        <div className="flex flex-wrap gap-x-6 gap-y-2">
+          <a
+            href={`/${locale}/experience`}
+            className="inline-flex items-center gap-1 text-sm text-accent hover:text-accent-dark"
+          >
+            {copy.exploreExperience}
+            <ArrowRight className="w-3.5 h-3.5" />
+          </a>
+          <a
+            href={`/${locale}/publications`}
+            className="inline-flex items-center gap-1 text-sm text-accent hover:text-accent-dark"
+          >
+            {copy.explorePublications}
+            <ArrowRight className="w-3.5 h-3.5" />
+          </a>
+          <a
+            href={`/${locale}/projects`}
+            className="inline-flex items-center gap-1 text-sm text-accent hover:text-accent-dark"
+          >
+            {copy.exploreProjects}
+            <ArrowRight className="w-3.5 h-3.5" />
+          </a>
         </div>
       </section>
     </div>
