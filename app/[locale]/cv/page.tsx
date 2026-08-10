@@ -41,7 +41,7 @@ export default function CVPage({
           "除方法研究外，我也持续参与医院场景中的数据处理、知识表示、检索与临床工作流开发，用来理解模型在真实系统中的约束。",
         capabilities: "研究能力",
         capabilitiesIntro:
-          "相比单纯罗列工具，我更希望展示我目前已经形成的研究工作方式：设计可证伪的对照、做跨数据集验证，并把分析落到可运行系统。",
+          "相比单纯罗列工具，这里概括我目前最常用的研究能力：模型构建、LLM 与知识系统、评估与数据构建，以及把方法落到可运行系统。",
         courses: "相关课程",
         selectedRecognition: "精选荣誉与知识产权",
         languages: "语言",
@@ -97,19 +97,19 @@ export default function CVPage({
         capabilityItems: [
           {
             title: "建模",
-            items: "PyTorch · XGBoost · representation learning · multimodal learning",
+            items: "PyTorch · XGBoost · representation learning · multimodal learning · LLM fine-tuning",
           },
           {
-            title: "评估",
-            items: "matched controls · perturbation analysis · external validation · cross-dataset evaluation",
+            title: "LLM 与知识系统",
+            items: "RAG · graph-based retrieval · knowledge graphs · information extraction",
           },
           {
-            title: "生物医学数据",
-            items: "12-lead ECG · MIMIC-IV / EHR cohorts · clinical NLP · knowledge graphs",
+            title: "评估与数据构建",
+            items: "RAG/retrieval evaluation · perturbation analysis · external validation · annotation protocol design · dataset curation",
           },
           {
             title: "工程",
-            items: "Python · TypeScript · SQL · Next.js · Flask · Neo4j · Git · Docker",
+            items: "Python · TypeScript · SQL · Neo4j · Next.js · Flask · Git · Docker",
           },
         ],
         coursesList:
@@ -133,7 +133,7 @@ export default function CVPage({
           "Alongside methodological research, I work on hospital-facing data, knowledge, retrieval, and workflow systems to better understand the constraints that appear when models leave the benchmark setting.",
         capabilities: "Research Capabilities",
         capabilitiesIntro:
-          "Rather than listing tools alone, these are the research modes I currently use most: falsifiable controls, cross-dataset validation, biomedical data analysis, and implementation of working systems.",
+          "Rather than listing tools alone, these are the research capabilities I use most: modeling, LLM and knowledge systems, evaluation and data curation, and implementation of working systems.",
         courses: "Selected Coursework",
         selectedRecognition: "Selected Recognition & IP",
         languages: "Languages",
@@ -189,19 +189,19 @@ export default function CVPage({
         capabilityItems: [
           {
             title: "Modeling",
-            items: "PyTorch · XGBoost · representation learning · multimodal learning",
+            items: "PyTorch · XGBoost · representation learning · multimodal learning · LLM fine-tuning",
           },
           {
-            title: "Evaluation",
-            items: "matched controls · perturbation analysis · external validation · cross-dataset evaluation",
+            title: "LLM & Knowledge Systems",
+            items: "RAG · graph-based retrieval · knowledge graphs · information extraction",
           },
           {
-            title: "Biomedical Data",
-            items: "12-lead ECG · MIMIC-IV / EHR cohorts · clinical NLP · knowledge graphs",
+            title: "Evaluation & Data Curation",
+            items: "RAG/retrieval evaluation · perturbation analysis · external validation · annotation protocol design · dataset curation",
           },
           {
             title: "Engineering",
-            items: "Python · TypeScript · SQL · Next.js · Flask · Neo4j · Git · Docker",
+            items: "Python · TypeScript · SQL · Neo4j · Next.js · Flask · Git · Docker",
           },
         ],
         coursesList:
