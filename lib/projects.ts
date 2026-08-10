@@ -21,8 +21,8 @@ export const projects: Project[] = [
       zh: "心肌缺血知识图谱",
     },
     description: {
-      en: "SRP research project: built a domain knowledge graph for myocardial ischemia with collaborative ontology management, XGBoost-based implicit reasoning, and graph-mapped interpretability analysis.",
-      zh: "SRP学生科研项目：搭建心肌缺血领域知识图谱，包含协作式本体管理、基于XGBoost的隐式推理与图谱映射可解释性分析。",
+      en: "Led a five-student team in building a myocardial-ischemia knowledge graph; designed the ontology and annotation schema, guidelines, and multi-annotator workflow with adjudication, agreement checks, and quality control, then added XGBoost-based implicit reasoning and graph-mapped interpretability analysis.",
+      zh: "带领五人团队构建心肌缺血知识图谱；设计本体与标注Schema、标注规范及多人协作标注流程，并建立分歧仲裁、一致性评估与质量控制机制，进一步实现基于XGBoost的隐式推理与图谱映射可解释性分析。",
     },
     tags: ["Knowledge Graph", "XGBoost", "Neo4j", "Interpretability"],
     featured: true,
