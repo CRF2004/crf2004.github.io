@@ -41,5 +41,5 @@ jobs:
             echo "PDF is already up to date."
             exit 0
           fi
-          git commit -m "Sync generated CV PDF [skip ci]"
+          git commit -m "Sync generated CV PDF"
           git push origin "HEAD:${{ github.ref_name }}"
