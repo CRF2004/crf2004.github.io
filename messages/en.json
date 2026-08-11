@@ -87,16 +87,18 @@
     },
     "hospital": {
       "title": "AI Research Institute, Guangdong No. 2 Provincial People's Hospital",
-      "role": "Research Intern",
+      "role": "LLM Development Engineer Intern",
       "period": "Nov 2024 — Present",
       "desc_1": "Conduct research on medical LLMs, cardiovascular knowledge representation, clinical question answering, and AI product prototyping with hospital collaborators.",
-      "desc_2": "Contributed to a standardized-patient Q&A pipeline built from about 8,000 clinical cases, a myocardial-ischemia knowledge graph, patents, software copyrights, and clinical AI prototypes."
+      "desc_2": "Contributed to a standardized-patient Q&A pipeline built from about 8,000 clinical cases, a myocardial-ischemia knowledge graph, patents, software copyrights, and clinical AI prototypes.",
+      "desc_3": "Explored knowledge-graph paths as structural scaffolds for generating medical Q&A and reasoning-trace data for fine-tuning, evaluation, and retrieval-augmented generation."
     },
     "startup": {
-      "title": "Yunzhan Zhichuang Technology Co.",
-      "role": "Tech Intern",
-      "period": "2025 — Present",
-      "desc_1": "Work on productizing AI health research outputs and translating prototypes into user-facing applications."
+      "title": "Guangzhou Yunzhan Zhichuang Information Technology Co., Ltd.",
+      "role": "Backend & Algorithm Development Intern",
+      "period": "Jul 2025 — Jan 2026",
+      "desc_1": "Designed a UMLS-grounded schema and normalization pipeline for heterogeneous health-examination data, including LLM-assisted schema evolution and terminology mapping.",
+      "desc_2": "Developed backend workflow logic for the Health Navigation Plan within the company's iTwins product."
     },
     "bigdata_assoc": {
       "title": "Big Data Application Association, SCUT",

@@ -15,6 +15,19 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    slug: "dingbei-xinxin",
+    title: {
+      en: "Dingbei Xinxin / GradioGPT",
+      zh: "叮呗心心 / GradioGPT",
+    },
+    description: {
+      en: "Co-founded and co-developed a proactive cardiovascular health-management platform integrating PPG/ECG data, intelligent consultation, and risk assessment. Led LoRA/DPO model fine-tuning, MQ-RAG, full-stack implementation, and application materials; deployed the initial mini-program at Guangdong Second Provincial General Hospital and now leads version 2.0 development. Supported by national-level innovation projects in 2025 and 2026 and incorporated as a company in August 2026.",
+      zh: "联合创立并开发主动式心血管健康管理平台，整合PPG/ECG数据、智能问诊与风险评估；负责LoRA/DPO模型微调、MQ-RAG、全栈开发及申报材料。初版小程序已在广东省第二人民医院上线，目前负责2.0版本开发。项目于2025年和2026年获国家级大创立项，并于2026年8月实现公司化落地。",
+    },
+    tags: ["Healthcare LLM", "LoRA", "DPO", "MQ-RAG", "PPG/ECG", "Full Stack"],
+    featured: true,
+  },
+  {
     slug: "myocardial-kg",
     title: {
       en: "Myocardial Ischemia Knowledge Graph",
@@ -47,6 +60,19 @@ export const projects: Project[] = [
     },
   },
   {
+    slug: "clinical-data-capsule",
+    title: {
+      en: "Clinical Data Capsule",
+      zh: "临床数据胶囊",
+    },
+    description: {
+      en: "Designed a UMLS-grounded schema and normalization pipeline for heterogeneous health-examination data extracted from multi-institutional PDF reports, standardizing inconsistent field names, JSON structures, and value types. Added an LLM-assisted governance workflow that routes unseen fields to schema extension or terminology mapping.",
+      zh: "面向多家体检机构PDF报告抽取产生的异构数据，设计以UMLS为基础的Schema与标准化流水线，统一字段名称、JSON结构和值类型；并构建LLM辅助的数据治理流程，将未见字段分流至Schema扩展或术语映射。",
+    },
+    tags: ["UMLS", "Schema Design", "Clinical NLP", "Data Harmonization", "LLM"],
+    featured: true,
+  },
+  {
     slug: "viora",
     title: { en: "Viora — AI Health Companion", zh: "Viora — AI健康搭子" },
     description: {
@@ -54,7 +80,7 @@ export const projects: Project[] = [
       zh: "主动式AI身体搭子，通过朋友式聊天主动关心用户，从对话中学习用户节奏，将健康数据编织成身体故事 — Flask + D3.js构建。",
     },
     tags: ["Flask", "D3.js", "Health AI", "Conversational AI"],
-    featured: true,
+    featured: false,
     links: {
       demo: "https://viora.filegear-sg.me/",
     },

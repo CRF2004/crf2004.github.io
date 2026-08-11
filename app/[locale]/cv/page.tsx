@@ -86,8 +86,16 @@ export default function CVPage({
         ],
         clinicalItems: [
           {
+            title: "叮呗心心 / GradioGPT 主动式心血管健康管理平台",
+            desc: "作为联合创始人与核心开发成员，负责模型微调、RAG、全栈开发与申报材料；初版小程序已在广东省第二人民医院上线，目前负责 2.0 版本全栈开发。项目连续获得 2025、2026 年国家级大创立项，并于 2026 年 8 月实现公司化落地。",
+          },
+          {
             title: "心血管标准化病人问答流水线",
             desc: "独立开发从约 8,000 份心血管病例 PDF 到可检索知识的处理流水线，包括 LLM 信息抽取、实体消歧、Neo4j 知识表示与混合检索。",
+          },
+          {
+            title: "临床数据胶囊与 Schema 治理",
+            desc: "面向多家体检机构的异构数据，设计以 UMLS 为基础的 Schema 与标准化流水线，并通过 LLM 辅助将未见字段分流至 Schema 扩展或术语映射。",
           },
           {
             title: "鼎贝美美痤疮与面部健康评估系统",
@@ -101,11 +109,11 @@ export default function CVPage({
           },
           {
             title: "LLM 与知识系统",
-            items: "RAG · graph-based retrieval · knowledge graphs · information extraction",
+            items: "LoRA · DPO · RAG/MQ-RAG · knowledge graphs · information extraction · UMLS",
           },
           {
             title: "评估与数据构建",
-            items: "RAG/retrieval evaluation · perturbation analysis · external validation · annotation protocol design · dataset curation",
+            items: "RAG/retrieval evaluation · perturbation analysis · external validation · schema design · data harmonization",
           },
           {
             title: "工程",
@@ -178,8 +186,16 @@ export default function CVPage({
         ],
         clinicalItems: [
           {
+            title: "Dingbei Xinxin / GradioGPT Cardiovascular Health Platform",
+            desc: "As a co-founder and core developer, led model fine-tuning, RAG, full-stack implementation, and application materials. The initial mini-program is deployed at Guangdong Second Provincial General Hospital; I now lead version 2.0 development. The project received national-level innovation support in 2025 and 2026 and was incorporated as a company in August 2026.",
+          },
+          {
             title: "Cardiovascular Standardized-Patient Q&A Pipeline",
             desc: "Solely developed a pipeline from approximately 8,000 cardiovascular case PDFs to retrievable knowledge, including LLM-based information extraction, entity disambiguation, Neo4j knowledge representation, and hybrid retrieval.",
+          },
+          {
+            title: "Clinical Data Capsule & Schema Governance",
+            desc: "Designed a UMLS-grounded schema and normalization pipeline for heterogeneous health-examination data from multiple institutions, with LLM-assisted governance that routes unseen fields to schema extension or terminology mapping.",
           },
           {
             title: "Dingbei Meimei Acne & Facial-Health Assessment System",
@@ -193,11 +209,11 @@ export default function CVPage({
           },
           {
             title: "LLM & Knowledge Systems",
-            items: "RAG · graph-based retrieval · knowledge graphs · information extraction",
+            items: "LoRA · DPO · RAG/MQ-RAG · knowledge graphs · information extraction · UMLS",
           },
           {
             title: "Evaluation & Data Curation",
-            items: "RAG/retrieval evaluation · perturbation analysis · external validation · annotation protocol design · dataset curation",
+            items: "RAG/retrieval evaluation · perturbation analysis · external validation · schema design · data harmonization",
           },
           {
             title: "Engineering",
@@ -210,14 +226,14 @@ export default function CVPage({
 
   const firstAuthorPapers = [
     {
-      title: t("pub_jbhi_title"),
-      venue: t("pub_jbhi_venue"),
-      desc: t("pub_jbhi_desc"),
-    },
-    {
       title: t("pub_bibm_title"),
       venue: t("pub_bibm_venue"),
       desc: t("pub_bibm_desc"),
+    },
+    {
+      title: t("pub_jbhi_title"),
+      venue: t("pub_jbhi_venue"),
+      desc: t("pub_jbhi_desc"),
     },
   ];
 

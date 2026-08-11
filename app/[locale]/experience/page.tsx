@@ -30,12 +30,6 @@ export default function ExperiencePage({
       period: t("dlef.period"),
       descriptions: [t("dlef.desc_1"), t("dlef.desc_2")],
     },
-    {
-      title: t("pathclip.title"),
-      role: t("pathclip.role"),
-      period: t("pathclip.period"),
-      descriptions: [t("pathclip.desc_1"), t("pathclip.desc_2")],
-    },
   ];
 
   const otherItems = [
@@ -43,13 +37,17 @@ export default function ExperiencePage({
       title: t("hospital.title"),
       role: t("hospital.role"),
       period: t("hospital.period"),
-      descriptions: [t("hospital.desc_1"), t("hospital.desc_2")],
+      descriptions: [
+        t("hospital.desc_1"),
+        t("hospital.desc_2"),
+        t("hospital.desc_3"),
+      ],
     },
     {
       title: t("startup.title"),
       role: t("startup.role"),
       period: t("startup.period"),
-      descriptions: [t("startup.desc_1")],
+      descriptions: [t("startup.desc_1"), t("startup.desc_2")],
     },
     {
       title: t("bigdata_assoc.title"),
