@@ -2,20 +2,26 @@
 
 \moderncvstyle{banking}
 \moderncvcolor{blue}
-\usepackage{academicons}
 \usepackage[scale=0.86,top=1.15cm,bottom=1.25cm]{geometry}
 \usepackage{microtype}
 \usepackage{enumitem}
 \usepackage{multicol}
 \usepackage{xcolor}
+\usepackage{tikz}
 \definecolor{deepblue}{RGB}{24,72,112}
 \colorlet{color1}{deepblue}
 \colorlet{color2}{black!62}
 \setlength{\hintscolumnwidth}{2.55cm}
 \setlist[itemize]{leftmargin=1.25em,itemsep=0.15em,topsep=0.2em,parsep=0pt,partopsep=0pt}
 \renewcommand*{\sectionfont}{\Large\bfseries}
+\newcommand*{\orcidicon}{%
+  \tikz[baseline=-0.55ex]{%
+    \fill[fill={rgb,255:red,166;green,206;blue,57}] (0,0) circle (0.72ex);%
+    \node[white,font=\sffamily\bfseries,inner sep=0pt,scale=0.38] at (0,0) {iD};%
+  }%
+}
 \AtBeginDocument{%
-  \renewcommand*{\orcidsocialsymbol}{{\small\aiOrcid}~}%
+  \renewcommand*{\orcidsocialsymbol}{\orcidicon~}%
   \recomputelengths
 }
 
