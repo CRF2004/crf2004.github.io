@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     template: "%s | Rongfeng Cheng",
   },
   description:
-    "Personal website of Rongfeng Cheng — Medical AI researcher and builder at SCUT, working on interpretable AI for healthcare.",
+    "Rongfeng Cheng studies evidence use, cross-dataset behavior, and ECG-language learning in medical AI.",
 };
 
 export default function RootLayout({

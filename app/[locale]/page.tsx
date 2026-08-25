@@ -4,6 +4,8 @@ import { setRequestLocale } from "next-intl/server";
 import Link from "next/link";
 import { getFeaturedProjects } from "@/lib/projects";
 import ProjectCard from "@/components/ProjectCard";
+import ResearchSignal from "@/components/ResearchSignal";
+import { ArrowRight, FileText } from "lucide-react";
 
 export default function HomePage({
   params,
@@ -17,50 +19,60 @@ export default function HomePage({
   const featured = getFeaturedProjects();
 
   return (
-    <div>
-      {/* Hero */}
-      <section className="max-w-6xl mx-auto px-6 pt-24 pb-16 md:pt-32 md:pb-24">
-        <div className="max-w-3xl">
-          <p className="text-lg text-accent font-medium mb-3">
-            {t("greeting")}
-          </p>
-          <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-zinc-900 mb-4">
-            {t("name")}
-          </h1>
-          <p className="text-xl md:text-2xl text-zinc-500 font-medium mb-6">
-            {t("tagline")}
-          </p>
-          <p className="text-lg text-zinc-600 leading-relaxed mb-8 max-w-2xl">
-            {t("subtitle")}
-          </p>
-          <div className="flex flex-wrap gap-4">
+    <div className="overflow-hidden">
+      <section className="hero-wash relative border-b border-slate-200/70">
+        <div className="mx-auto grid max-w-6xl items-center gap-14 px-6 pb-20 pt-20 md:pb-28 md:pt-28 lg:grid-cols-[1.08fr_0.92fr]">
+          <div>
+            <div className="mb-6 flex items-center gap-3 text-sm font-medium text-sky-700">
+              <span className="h-px w-8 bg-sky-500" />
+              {t("greeting")} {t("name")}
+            </div>
+            <h1 className="max-w-3xl text-4xl font-semibold leading-[1.08] tracking-[-0.045em] text-slate-950 md:text-6xl">
+              {t("headline")}
+            </h1>
+            <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-600">
+              {t("subtitle")}
+            </p>
+            <div className="mt-8 flex flex-wrap gap-3">
             <Link
               href={`/${locale}/projects`}
-              className="px-6 py-3 bg-accent text-white rounded-xl font-medium hover:bg-accent-dark transition-colors"
+              className="group inline-flex items-center gap-2 rounded-full bg-slate-950 px-6 py-3 text-sm font-medium text-white transition hover:bg-sky-800"
             >
               {t("cta_projects")}
+              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
             </Link>
             <Link
               href={`/${locale}/cv`}
-              className="px-6 py-3 border border-zinc-300 text-zinc-700 rounded-xl font-medium hover:bg-zinc-50 transition-colors"
+              className="inline-flex items-center gap-2 rounded-full border border-slate-300 bg-white/70 px-6 py-3 text-sm font-medium text-slate-700 transition hover:border-sky-300 hover:text-sky-800"
             >
+              <FileText className="h-4 w-4" />
               {t("cta_cv")}
             </Link>
           </div>
+            <div className="mt-10 flex flex-wrap gap-x-8 gap-y-4 border-t border-slate-200 pt-6">
+              {(["papers", "clinical", "focus"] as const).map((key) => (
+                <div key={key}>
+                  <p className="font-mono text-lg font-semibold text-slate-900">{t(`proof.${key}.value`)}</p>
+                  <p className="mt-1 text-xs text-slate-500">{t(`proof.${key}.label`)}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+          <ResearchSignal locale={locale} />
         </div>
       </section>
 
-      {/* Highlights */}
-      <section className="bg-zinc-50 border-y border-zinc-200">
-        <div className="max-w-6xl mx-auto px-6 py-16 md:py-20">
-          <div className="grid md:grid-cols-3 gap-8">
+      <section className="border-b border-slate-200 bg-white">
+        <div className="mx-auto max-w-6xl px-6 py-14 md:py-16">
+          <div className="grid gap-8 md:grid-cols-3 md:gap-0">
             {(["health_ai", "knowledge_graphs", "interpretable_ml"] as const).map(
-              (key) => (
-                <div key={key} className="text-center md:text-left">
-                  <h3 className="text-lg font-semibold text-zinc-900 mb-2">
+              (key, index) => (
+                <div key={key} className="relative md:px-8 md:first:pl-0 md:last:pr-0 md:[&:not(:last-child)]:border-r md:[&:not(:last-child)]:border-slate-200">
+                  <span className="font-mono text-xs text-sky-600">0{index + 1}</span>
+                  <h3 className="mt-3 text-base font-semibold text-slate-900">
                     {t(`highlights.${key}.title`)}
                   </h3>
-                  <p className="text-sm text-zinc-600 leading-relaxed">
+                  <p className="mt-2 text-sm leading-6 text-slate-600">
                     {t(`highlights.${key}.description`)}
                   </p>
                 </div>
@@ -70,20 +82,22 @@ export default function HomePage({
         </div>
       </section>
 
-      {/* Featured Projects */}
-      <section className="max-w-6xl mx-auto px-6 py-16 md:py-20">
-        <div className="flex items-center justify-between mb-8">
-          <h2 className="text-2xl font-bold text-zinc-900">
+      <section className="mx-auto max-w-6xl px-6 py-20 md:py-24">
+        <div className="mb-10 flex items-end justify-between gap-4">
+          <div>
+            <p className="mb-2 font-mono text-xs uppercase tracking-[0.2em] text-sky-700">{t("work_label")}</p>
+            <h2 className="text-3xl font-semibold tracking-tight text-slate-950">
             {t("recent_projects")}
-          </h2>
+            </h2>
+          </div>
           <Link
             href={`/${locale}/projects`}
-            className="text-sm font-medium text-accent hover:text-accent-dark transition-colors"
+            className="inline-flex items-center gap-1 text-sm font-medium text-sky-700 hover:text-sky-900"
           >
             {t("read_more")}
           </Link>
         </div>
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid gap-5 md:grid-cols-2">
           {featured.map((p) => (
             <ProjectCard
               key={p.slug}

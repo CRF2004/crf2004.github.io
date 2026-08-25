@@ -5,13 +5,17 @@ export default function Footer({ locale }: { locale: string }) {
   const t = useTranslations("footer");
 
   return (
-    <footer className="border-t border-zinc-200 bg-zinc-50">
-      <div className="max-w-6xl mx-auto px-6 py-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-zinc-500">
-        <p>&copy; {new Date().getFullYear()} Rongfeng Cheng. {t("rights")}</p>
+    <footer className="border-t border-slate-200 bg-slate-950 text-slate-300">
+      <div className="mx-auto flex max-w-6xl flex-col gap-6 px-6 py-10 sm:flex-row sm:items-end sm:justify-between">
+        <div>
+          <p className="text-base font-medium text-white">Rongfeng Cheng</p>
+          <p className="mt-1 text-sm text-slate-400">Medical AI · ECG · Clinical Systems</p>
+          <p className="mt-4 text-xs text-slate-500">&copy; {new Date().getFullYear()} {t("rights")}</p>
+        </div>
         <div className="flex items-center gap-4">
           <Link
             href={`/${locale}/contact`}
-            className="hover:text-zinc-700 transition-colors"
+            className="text-sm hover:text-sky-300 transition-colors"
           >
             Email
           </Link>
@@ -19,12 +23,11 @@ export default function Footer({ locale }: { locale: string }) {
             href="https://github.com/CRF2004"
             target="_blank"
             rel="noopener noreferrer"
-            className="hover:text-zinc-700 transition-colors"
+            className="text-sm hover:text-sky-300 transition-colors"
           >
             GitHub
           </a>
         </div>
-        <p>{t("built_with")}</p>
       </div>
     </footer>
   );

@@ -95,11 +95,15 @@ export default function ProjectCard({
   links,
 }: ProjectCardProps) {
   return (
-    <article className="group p-6 rounded-2xl border border-zinc-200 hover:border-accent/30 hover:shadow-lg hover:shadow-accent/5 transition-all duration-300 bg-white">
+    <article className="group relative overflow-hidden rounded-2xl border border-slate-200 bg-white p-6 transition-all duration-300 hover:-translate-y-1 hover:border-sky-300 hover:shadow-xl hover:shadow-sky-950/5">
+      <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-sky-400/70 to-transparent opacity-0 transition-opacity group-hover:opacity-100" />
       <Link href={`/${locale}/projects/${slug}`} className="block">
-        <h3 className="text-lg font-semibold text-zinc-900 group-hover:text-accent transition-colors mb-2">
+        <div className="mb-4 flex items-start justify-between gap-4">
+        <h3 className="text-lg font-semibold leading-snug text-slate-900 transition-colors group-hover:text-sky-800">
           {title}
         </h3>
+        <span className="text-lg text-slate-300 transition-all group-hover:translate-x-0.5 group-hover:text-sky-600">↗</span>
+        </div>
         <p className="text-sm text-zinc-600 leading-relaxed mb-4 line-clamp-3">
           {description}
         </p>
@@ -108,7 +112,7 @@ export default function ProjectCard({
         {tags.map((tag) => (
           <span
             key={tag}
-            className="px-2.5 py-0.5 rounded-full bg-zinc-100 text-zinc-600 text-xs font-medium"
+            className="rounded-md border border-slate-200 bg-slate-50 px-2 py-0.5 font-mono text-[10px] text-slate-600"
           >
             {tag}
           </span>

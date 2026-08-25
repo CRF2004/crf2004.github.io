@@ -12,14 +12,20 @@
   "home": {
     "greeting": "你好，我是",
     "name": "程荣锋",
-    "tagline": "医疗AI研究者｜可信ECG与多模态学习",
-    "subtitle": "华南理工大学本科生，研究医疗AI模型如何使用临床证据、如何跨数据集泛化，以及如何将生理信号与语言对齐；同时与医院团队合作，将研究原型落地为可用的临床AI系统。",
+    "tagline": "医疗 AI · ECG · 临床系统",
+    "headline": "我研究医疗 AI 到底学到了什么。",
+    "subtitle": "我审计医疗 AI 使用的证据，追踪模型行为如何随数据集变化，并与医院团队共同开发 ECG—语言系统。",
     "cta_projects": "查看项目",
     "cta_cv": "查看简历",
+    "proof": {
+      "papers": { "value": "2", "label": "篇一作论文在审" },
+      "clinical": { "value": "8,000+", "label": "份病例完成检索化处理" },
+      "focus": { "value": "ECG × LLM", "label": "当前研究交叉点" }
+    },
     "highlights": {
       "health_ai": {
         "title": "可信医疗AI",
-        "description": "不只比较预测性能，还审计临床模型是否真正依赖正确证据，而非数据捷径。"
+        "description": "审计模型预测背后的临床证据，并检验这种证据依赖能否跨数据集保持。"
       },
       "knowledge_graphs": {
         "title": "ECG表征学习",
@@ -27,9 +33,10 @@
       },
       "interpretable_ml": {
         "title": "临床AI系统",
-        "description": "将研究原型转化为可用工具，包括医学问答、知识系统和院后健康管理产品。"
+        "description": "与临床团队共同开发医学问答、知识系统和院后健康管理工具。"
       }
     },
+    "work_label": "代表性工作",
     "recent_projects": "精选项目",
     "latest_blog": "最新博客",
     "read_more": "阅读更多 →"

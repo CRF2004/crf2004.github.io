@@ -3,11 +3,52 @@
 @plugin "@tailwindcss/typography";
 
 @theme inline {
-  --color-accent: #2563eb;
-  --color-accent-light: #3b82f6;
-  --color-accent-dark: #1d4ed8;
+  --color-accent: #0369a1;
+  --color-accent-light: #0ea5e9;
+  --color-accent-dark: #075985;
 }
 
 body {
   font-family: var(--font-sans), system-ui, sans-serif;
+  background: #f8fafc;
+  color: #0f172a;
+}
+
+::selection {
+  background: #bae6fd;
+  color: #082f49;
+}
+
+.hero-wash {
+  background:
+    radial-gradient(circle at 78% 20%, rgb(186 230 253 / 0.5), transparent 28rem),
+    linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+}
+
+.signal-grid {
+  background-image:
+    linear-gradient(rgb(56 189 248 / 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(56 189 248 / 0.08) 1px, transparent 1px);
+  background-size: 28px 28px;
+  mask-image: linear-gradient(to bottom, black, transparent 95%);
+}
+
+.signal-panel::after {
+  content: "";
+  position: absolute;
+  width: 15rem;
+  height: 15rem;
+  right: -7rem;
+  bottom: -8rem;
+  border-radius: 999px;
+  background: rgb(14 165 233 / 0.18);
+  filter: blur(40px);
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  scrollbar-width: none;
 }

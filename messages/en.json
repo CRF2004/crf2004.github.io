@@ -12,14 +12,20 @@
   "home": {
     "greeting": "Hi, I'm",
     "name": "Rongfeng Cheng",
-    "tagline": "Medical AI Researcher | Trustworthy ECG & Multimodal Learning",
-    "subtitle": "Undergraduate at South China University of Technology, studying how medical AI models use clinical evidence, generalize across datasets, and align physiological signals with language. I also build deployable clinical AI systems with hospital collaborators.",
+    "tagline": "Medical AI · ECG · Clinical Systems",
+    "headline": "I study what medical AI actually learns.",
+    "subtitle": "I audit the evidence used by medical AI, trace how model behavior changes across datasets, and build ECG–language systems with hospital collaborators.",
     "cta_projects": "View Projects",
     "cta_cv": "View CV",
+    "proof": {
+      "papers": { "value": "2", "label": "first-author manuscripts under review" },
+      "clinical": { "value": "8,000+", "label": "clinical cases processed for retrieval" },
+      "focus": { "value": "ECG × LLM", "label": "current research focus" }
+    },
     "highlights": {
       "health_ai": {
         "title": "Trustworthy Medical AI",
-        "description": "Auditing whether clinical models rely on the right evidence rather than only reporting predictive performance."
+        "description": "Auditing the clinical evidence behind model predictions and testing whether that evidence transfers across datasets."
       },
       "knowledge_graphs": {
         "title": "ECG Representation Learning",
@@ -27,9 +33,10 @@
       },
       "interpretable_ml": {
         "title": "Clinical AI Systems",
-        "description": "Turning research prototypes into usable clinical tools, including medical question answering, knowledge systems, and post-discharge health management."
+        "description": "Building medical question-answering, knowledge, and post-discharge health systems with clinical teams."
       }
     },
+    "work_label": "Selected work",
     "recent_projects": "Featured Projects",
     "latest_blog": "Latest from the Blog",
     "read_more": "Read more →"
