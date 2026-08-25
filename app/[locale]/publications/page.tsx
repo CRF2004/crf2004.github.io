@@ -10,16 +10,11 @@ export const metadata: Metadata = {
 
 const coauthoredPapers = [
   {
+    key: "coauth_2",
+  },
+  {
     key: "coauth_1",
     href: "https://doi.org/10.1016/j.isci.2026.115073",
-  },
-  {
-    key: "coauth_2",
-    href: "https://doi.org/10.1145/3795892.3795917",
-  },
-  {
-    key: "coauth_3",
-    href: "https://doi.org/10.1145/3795892.3795918",
   },
 ] as const;
 
@@ -136,15 +131,17 @@ export default function PublicationsPage({
                 <span className="text-zinc-300 mt-1.5 shrink-0">•</span>
                 <span>
                   {t(paper.key)}{" "}
-                  <a
-                    href={paper.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex text-zinc-400 hover:text-accent transition-colors"
-                    aria-label="Open publication"
-                  >
-                    <ExternalLink className="w-3 h-3" />
-                  </a>
+                  {"href" in paper && (
+                    <a
+                      href={paper.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex text-zinc-400 hover:text-accent transition-colors"
+                      aria-label="Open publication"
+                    >
+                      <ExternalLink className="w-3 h-3" />
+                    </a>
+                  )}
                 </span>
               </li>
             ))}
