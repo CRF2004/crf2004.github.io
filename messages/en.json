@@ -10,31 +10,17 @@
     "contact": "Contact"
   },
   "home": {
-    "greeting": "Hi, I'm",
     "name": "Rongfeng Cheng",
-    "tagline": "Medical AI · ECG · Clinical Systems",
-    "headline": "I study what medical AI actually learns.",
-    "subtitle": "I audit the evidence used by medical AI, trace how model behavior changes across datasets, and build ECG–language systems with hospital collaborators.",
+    "role": "Undergraduate researcher in medical artificial intelligence",
+    "affiliation": "South China University of Technology · Guangdong Second Provincial General Hospital",
+    "subtitle": "I work on medical artificial intelligence, with current projects in trustworthy evaluation, ECG representation learning, and medical language models. I am particularly interested in how models use clinical evidence and how their behavior changes across datasets.",
     "cta_projects": "View Projects",
     "cta_cv": "View CV",
-    "proof": {
-      "papers": { "value": "2", "label": "first-author manuscripts under review" },
-      "clinical": { "value": "8,000+", "label": "clinical cases processed for retrieval" },
-      "focus": { "value": "ECG × LLM", "label": "current research focus" }
-    },
-    "highlights": {
-      "health_ai": {
-        "title": "Trustworthy Medical AI",
-        "description": "Auditing the clinical evidence behind model predictions and testing whether that evidence transfers across datasets."
-      },
-      "knowledge_graphs": {
-        "title": "ECG Representation Learning",
-        "description": "Studying cross-dataset generalization, ECG–text alignment, and physiologically grounded representations for multimodal models."
-      },
-      "interpretable_ml": {
-        "title": "Clinical AI Systems",
-        "description": "Building medical question-answering, knowledge, and post-discharge health systems with clinical teams."
-      }
+    "currently": "Currently",
+    "current": {
+      "revision": { "title": "Nature Communications major revision", "detail": "Leading the revision-stage experiments as sixth author." },
+      "review": { "title": "Two first-author manuscripts under review", "detail": "Evidence-use auditing and cross-dataset ECG evaluation." },
+      "ongoing": { "title": "ECG–language representation learning", "detail": "Studying evidence grounding and controlled multimodal evaluation." }
     },
     "work_label": "Selected work",
     "recent_projects": "Featured Projects",

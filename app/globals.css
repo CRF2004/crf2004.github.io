@@ -25,24 +25,24 @@ body {
     linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
 }
 
-.signal-grid {
-  background-image:
-    linear-gradient(rgb(56 189 248 / 0.08) 1px, transparent 1px),
-    linear-gradient(90deg, rgb(56 189 248 / 0.08) 1px, transparent 1px);
-  background-size: 28px 28px;
-  mask-image: linear-gradient(to bottom, black, transparent 95%);
+.academic-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 999px;
+  background: rgb(255 255 255 / 0.7);
+  padding: 0.625rem 1rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #475569;
+  transition: border-color 150ms, color 150ms, background 150ms;
 }
 
-.signal-panel::after {
-  content: "";
-  position: absolute;
-  width: 15rem;
-  height: 15rem;
-  right: -7rem;
-  bottom: -8rem;
-  border-radius: 999px;
-  background: rgb(14 165 233 / 0.18);
-  filter: blur(40px);
+.academic-link:hover {
+  border-color: #7dd3fc;
+  background: white;
+  color: #075985;
 }
 
 .no-scrollbar::-webkit-scrollbar {
