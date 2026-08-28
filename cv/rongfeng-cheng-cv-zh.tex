@@ -1,0 +1,142 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[left=1.55cm,right=1.55cm,top=1.25cm,bottom=1.3cm]{geometry}
+\usepackage{xeCJK,fontspec}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage{titlesec}
+\usepackage{hyperref}
+\usepackage{microtype}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+
+\setmainfont{Times New Roman}
+\setCJKmainfont{SimSun}
+\setCJKsansfont{SimHei}
+\newCJKfontfamily\heiti{SimHei}
+
+\definecolor{navy}{HTML}{173F5F}
+\definecolor{ink}{HTML}{20242A}
+\definecolor{muted}{HTML}{59636E}
+\definecolor{rule}{HTML}{9FB3C6}
+\definecolor{pale}{HTML}{F2F5F7}
+\hypersetup{colorlinks=true,urlcolor=navy,linkcolor=navy}
+\color{ink}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+\linespread{1.06}
+\setlist[itemize]{leftmargin=1.35em,itemsep=0.12em,topsep=0.18em,parsep=0pt,partopsep=0pt,label=\textcolor{navy}{\small$\bullet$}}
+\pagenumbering{gobble}
+
+\titleformat{\section}{\heiti\bfseries\color{navy}\fontsize{12.5}{14}\selectfont}{}{0pt}{}[\vspace{0.12em}\color{rule}\titlerule]
+\titlespacing*{\section}{0pt}{0.78em}{0.48em}
+
+\newcommand{\daterow}[3]{%
+  \begin{tabularx}{\textwidth}{@{}X>{\raggedleft\arraybackslash}p{3.25cm}@{}}
+    {\heiti\bfseries #1} & {\color{muted}#2}\\[-0.05em]
+    \multicolumn{2}{@{}l@{}}{{\color{muted}#3}}
+  \end{tabularx}\vspace{0.08em}
+}
+
+\newcommand{\project}[4]{%
+  \begin{tabularx}{\textwidth}{@{}X>{\raggedleft\arraybackslash}p{3.25cm}@{}}
+    {\heiti\bfseries #1} & {\color{muted}#2}\\[-0.08em]
+    \multicolumn{2}{@{}l@{}}{{\color{muted}#3}}
+  \end{tabularx}
+  #4\vspace{0.26em}
+}
+
+\newcommand{\pub}[2]{\hangindent=1.5em\hangafter=1 {\heiti\bfseries #1}\quad #2\par\vspace{0.2em}}
+
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+\fancyfoot[C]{\color{muted}\fontsize{8}{9}\selectfont 程荣锋｜中文学术简历}
+
+\begin{document}
+
+% ---------- 紧凑型中文导师初筛页眉 ----------
+\begin{tabularx}{\textwidth}{@{}X>{\raggedleft\arraybackslash}p{10.8cm}@{}}
+  {\heiti\bfseries\color{navy}\fontsize{24}{26}\selectfont 程荣锋} &
+  {\heiti\bfseries\fontsize{11.5}{13}\selectfont 医疗人工智能｜可靠性评估｜多模态学习}\\[0.3em]
+  {\color{muted}华南理工大学本科生} &
+  广州｜\href{mailto:eb1287945452@mail.scut.edu.cn}{eb1287945452@mail.scut.edu.cn}｜\href{https://crf2004.github.io/en}{个人主页}\\
+  {\color{muted}预计 2027 年 6 月毕业} &
+  ORCID: 0009-0002-3021-9647
+\end{tabularx}
+\vspace{0.35em}
+{\color{navy}\rule{\textwidth}{1.1pt}}
+
+\section{基本情况与科研概况}
+\begin{tabularx}{\textwidth}{@{}>{\heiti\bfseries}p{2.05cm}X>{\heiti\bfseries}p{1.8cm}X@{}}
+本科专业 & 大数据管理与应用 & 成绩 & GPA 3.46/4.0；均分 85.18/100\\
+英语能力 & \multicolumn{3}{l}{IELTS 6.5；CET-6 528}\\
+科研产出 & \multicolumn{3}{l}{2 项第一作者研究在审；1 篇参与大修；1 篇已发表论文；1 项第一发明人专利}\\
+研究兴趣 & \multicolumn{3}{l}{可靠且循证的医疗人工智能；外部验证与分布偏移；ECG 表示学习；多模态医疗模型}\\
+\end{tabularx}
+
+\section{教育背景}
+\daterow{华南理工大学｜管理学学士}{2023.09--2027.06}{大数据管理与应用；累计 GPA 3.46/4.0，平均成绩 85.18/100（截至第六学期）}
+核心课程：大模型与生成式人工智能（93）、大语言模型与提示工程（93）、机器学习（92）、深度学习（88）。
+
+\section{核心科研经历}
+\project{DLEF：数据集--标签证据指纹}{2026.06--至今}{第一作者｜指导：张浩彬、程伟彬｜IEEE BIBM 2026 在审}{
+\begin{itemize}
+  \item \textbf{本人工作：}提出研究问题并主导研究设计、代码实现、实验分析与论文撰写；构建方向性证据指纹，刻画数据集--标签层面的迁移风险。
+  \item \textbf{主要结果：}在 CODE-15\%、PTB-XL、Chapman-Shaoxing 三个数据集上验证；DLEF 距离与标签级外部 AUROC 下降显著相关（108 个点 Spearman $r=0.843$；聚合后 $r=0.892$）。
+  \item \textbf{研究意义：}将“模型跨数据集性能下降”进一步拆解为可解释的标签级证据差异，为迁移风险审计提供可复核指标。
+\end{itemize}}
+
+\project{深度心电模型的证据使用审计}{2026.01--至今}{第一作者｜指导：张浩彬、程伟彬｜IEEE JBHI 在审}{
+\begin{itemize}
+  \item \textbf{本人工作：}从早期负结果中提出审计问题，主导 matched-control 扰动框架、临床证据单元、算子比较、冻结权重外部迁移及论文写作。
+  \item \textbf{主要结果：}在 CODE-15\% 与 PTB-XL 上评估 5 类诊断和 3 种原始信号模型；15 个模型--诊断组合中仅 6 个获得证据支持，并对各个审计结论进行了根因分析。
+  \item \textbf{研究意义：}模型对证据的依赖往往跨数据集迁移稳定；仅扰动目标区域可能产生误导；matched controls 和算子选择能够改变证据使用结论，外部性能良好也不等于模型依赖预设临床证据。
+\end{itemize}}
+
+\project{PathCLIP：面向证据的 ECG--文本表示学习}{2026--至今}{第一作者研究｜进行中}{
+围绕 ECG--文本对齐与零样本识别，设计 matched-count、层级置乱、残差单独输入和未见标签等对照，探索从“审计模型使用了什么证据”进一步走向“训练模型学习可靠证据”。}
+
+\section{其他研究与产品实践}
+\project{叮呗心心 / GradioGPT：主动式心血管健康管理大模型}{2025--至今}{联合创始人、核心开发者；2026.08 起任负责人}{
+负责模型微调、RAG 与全栈实现，将 PPG/ECG、智能问诊和风险评估整合为主动健康管理流程；初版已在广东省第二人民医院部署。项目获 2025、2026 年国家级大学生创新训练计划支持。}
+
+\project{心肌缺血知识图谱构建与应用}{2025}{华南理工大学学生研究计划｜项目负责人｜指导：董训德}{
+带领 5 人跨学科团队，负责问题拆解、团队组织、本体与标注体系设计、质量控制及构建本体维护平台；实现 XGBoost 隐式推理与图谱映射解释分析。}
+
+\newpage
+\section{论文与研究成果}
+\pub{[1] 在审｜第一作者}{\textbf{R. Cheng et al.} ``DLEF: Dataset-Label Evidence Fingerprints for Explaining Cross-Dataset Performance in ECG Classification.'' \textit{IEEE BIBM 2026}.}
+\pub{[2] 在审｜第一作者}{\textbf{R. Cheng et al.} ``A Matched-Control Perturbation Audit Framework for Evaluating Evidence Use in Deep Learning Models: An Application to 12-Lead ECG Classification.'' \textit{IEEE JBHI}.}
+\pub{[3] 大修｜第六作者}{``Implicit Medical Ethical Deficits in Large Language Models: A Benchmarking and Alignment Study.'' \textit{Nature Communications} 在投；负责审稿回复阶段的主要实验。}
+\pub{[4] 已发表｜共同作者}{J. He, S. Qin, H. Zou, et al., \textbf{R. Cheng}, H. Zhang, and W. Cheng. ``CodeSafetyBench: Evaluating and Improving Ethical Safety in Large Language Model Code Generation.'' \textit{iScience}, 2026. \href{https://doi.org/10.1016/j.isci.2026.115073}{doi:10.1016/j.isci.2026.115073}.}
+
+\section{科研与工程实习}
+\project{广东省第二人民医院人工智能研究所｜大模型开发工程师实习生}{2024.11--至今}{医疗数据、知识系统与临床产品研发}{
+\begin{itemize}
+  \item 基于约 8,000 份心血管病例 PDF 开发标准化患者问答数据流水线，覆盖 LLM 信息抽取、实体消歧、Neo4j 知识表示与混合检索。
+  \item 探索将知识图谱路径作为结构支架，生成用于微调、评测及 RAG 的医学问答与推理轨迹数据。
+  \item 负责 5 人“叮呗美美”团队的全栈与临床流程开发，产品在医院难治性痤疮诊疗中心成立时完成首发。
+\end{itemize}}
+
+\project{广州云展智创信息科技有限公司｜后端与算法开发实习生}{2025.07--2026.01}{医疗数据标准化与健康管理产品}{
+面向多机构体检报告设计以 UMLS 为基础的数据模式与标准化流水线，涵盖 LLM 辅助模式演进和医学术语映射；开发 iTwins“健康领航模块”的后端工作流。}
+
+\section{专利、软件著作权与奖项}
+\begin{itemize}
+  \item \textbf{发明专利：}一种医疗问答输出保障方法、系统及电子设备；第一发明人；申请号 202610582199.6；2026.04 申请，已通过初步审查。
+  \item \textbf{发明专利：}一种基于多模态数据融合的痤疮中西医辅助评估方法及系统；第一发明人；2026.07 已提交申请，审查文件待下发。
+  \item \textbf{软件著作权：}知识图谱本体智能管理系统 V1.0（2025SR2454864）；基于大模型的心血管主动健康管理智能系统 V1.0（2025SR2080673）。
+  \item \textbf{竞赛奖项：}2025 年“互联网+”校赛金奖；2025 年第九届广州数学建模高校联赛二等奖；2025 年全国大学生数学建模竞赛广东赛区三等奖。
+\end{itemize}
+
+\section{技术能力}
+\begin{tabularx}{\textwidth}{@{}>{\heiti\bfseries}p{2.2cm}X@{}}
+建模与评估 & PyTorch、XGBoost、表示学习、多模态学习、大模型微调、优化、扰动分析、外部验证\\
+知识系统 & LoRA、DPO、RAG/MQ-RAG、知识图谱、信息抽取、UMLS\\
+工程开发 & Python、TypeScript、SQL、Neo4j、Next.js、Flask、Git、Docker\\
+\end{tabularx}
+
+\end{document}

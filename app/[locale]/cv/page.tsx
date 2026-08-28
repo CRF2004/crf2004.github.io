@@ -254,7 +254,7 @@ export default function CVPage({
             </a>
           </div>
           <a
-            href="/cv/cheng-rongfeng-cv.pdf"
+            href={isChinese ? "/cv/cheng-rongfeng-cv-zh.pdf" : "/cv/cheng-rongfeng-cv.pdf"}
             download
             className="px-5 py-2.5 bg-accent text-white rounded-xl text-sm font-medium hover:bg-accent-dark transition-colors shrink-0"
           >
