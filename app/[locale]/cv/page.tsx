@@ -26,7 +26,7 @@ export default function CVPage({
   const copy = isChinese
     ? {
         subtitle:
-          "这里不是 PDF 简历的逐项复刻，而是一份研究快照：我当前在研究什么问题、如何验证它们，以及这些工作如何延伸到真实临床系统。完整履历请下载 PDF。",
+          "研究方向涵盖医疗 AI 证据审计、跨数据集泛化与 ECG–文本表征学习，并延伸到真实临床数据和系统开发。完整履历见 PDF。",
         researchFocus: "研究主线",
         education: "教育背景",
         educationDetail: "华南理工大学 · 大数据管理与应用 · 管理学学士（2023–2027）",
@@ -34,13 +34,13 @@ export default function CVPage({
         currentResearchIntro:
           "我的近期工作围绕一个连续问题展开：医疗 AI 模型是否使用了正确证据，这种证据依赖能否跨数据集保持，以及如何把这种约束带入多模态表征学习。",
         manuscripts: "论文与手稿",
-        manuscriptsNote: "这里仅列最相关的代表性工作；完整成果记录可在 Publications 页面与 ORCID 查看。",
+        manuscriptsNote: "完整成果记录见 Publications 页面与 ORCID。",
         clinicalSystems: "从研究到临床系统",
         clinicalSystemsIntro:
           "除方法研究外，我也持续参与医院场景中的数据处理、知识表示、检索与临床工作流开发，用来理解模型在真实系统中的约束。",
         capabilities: "研究能力",
         capabilitiesIntro:
-          "相比单纯罗列工具，这里概括我目前最常用的研究能力：模型构建、LLM 与知识系统、评估与数据构建，以及把方法落到可运行系统。",
+          "常用研究能力包括模型构建、LLM 与知识系统、评估与数据构建，以及可运行系统实现。",
         courses: "相关课程",
         selectedRecognition: "精选荣誉与知识产权",
         languages: "语言",
@@ -52,7 +52,7 @@ export default function CVPage({
         focusItems: [
           {
             title: "可信医疗 AI",
-            desc: "审计模型是否依赖临床相关证据，而不仅仅比较预测性能。",
+            desc: "结合预测性能与证据使用审计，判断模型是否依赖临床相关证据。",
           },
           {
             title: "ECG 泛化与证据结构",
@@ -74,10 +74,10 @@ export default function CVPage({
             title: "DLEF：数据集—标签证据指纹",
             meta: "研究负责人 · 2026年6月 — 至今",
             label: "核心问题",
-            desc: "跨数据集性能下降能否由更细粒度的证据结构差异解释？DLEF 从 source–target–label 层面刻画方向性与边界差异，而不是把 dataset shift 压缩成单一统计量。",
+            desc: "跨数据集性能下降能否由更细粒度的证据结构差异解释？DLEF 从 source–target–label 层面刻画方向性与边界差异，保留单一全局统计量无法表达的迁移信息。",
           },
           {
-            title: "PathCLIP：知识增强 ECG–文本表征学习",
+            title: "PathCLIP: Evidence-Aware ECG–Text Representation Learning",
             meta: "研究负责人 · 2026年7月 — 至今",
             label: "探索中",
             desc: "目前仍处于方法构想阶段。我在用计数匹配、随机层级、仅残差和留出标签等对照，先判断诊断层级、ECG findings 与 evidence grounding 各自真正贡献了什么，再确定最终方法。",
@@ -98,7 +98,7 @@ export default function CVPage({
           },
           {
             title: "鼎贝美美痤疮与面部健康评估系统",
-            desc: "负责五人团队中的全栈与临床工作流开发，并支持系统随医院难治性痤疮诊疗中心于 2026 年 7 月首发。",
+            desc: "负责五人团队中的全栈与临床工作流开发；系统于 2026 年 7 月随医院难治性痤疮诊疗中心成立完成首发。",
           },
         ],
         capabilityItems: [
@@ -124,7 +124,7 @@ export default function CVPage({
       }
     : {
         subtitle:
-          "Rather than reproducing the PDF CV line by line, this page is a research snapshot: the questions I am currently studying, how I test them, and how that work connects to real clinical systems. Download the PDF for the complete record.",
+          "My research spans evidence auditing for medical AI, cross-dataset generalization, and ECG–text representation learning, with extensions to real clinical data and system development. See the PDF for the complete record.",
         researchFocus: "Research Focus",
         education: "Education",
         educationDetail:
@@ -134,13 +134,13 @@ export default function CVPage({
           "My recent work follows one connected question: whether medical AI models use the right evidence, whether that evidence dependence remains stable across datasets, and how such constraints can inform multimodal representation learning.",
         manuscripts: "Manuscripts & Publications",
         manuscriptsNote:
-          "Only the most relevant work is shown here; see the Publications page and ORCID for the complete record.",
+          "See the Publications page and ORCID for the complete record.",
         clinicalSystems: "From Research to Clinical Systems",
         clinicalSystemsIntro:
           "Alongside methodological research, I work on hospital-facing data, knowledge, retrieval, and workflow systems to better understand the constraints that appear when models leave the benchmark setting.",
         capabilities: "Research Capabilities",
         capabilitiesIntro:
-          "Rather than listing tools alone, these are the research capabilities I use most: modeling, LLM and knowledge systems, evaluation and data curation, and implementation of working systems.",
+          "Core capabilities include modeling, LLM and knowledge systems, evaluation and data curation, and implementation of working systems.",
         courses: "Selected Coursework",
         selectedRecognition: "Selected Recognition & IP",
         languages: "Languages",
@@ -152,7 +152,7 @@ export default function CVPage({
         focusItems: [
           {
             title: "Trustworthy Medical AI",
-            desc: "Auditing whether models rely on clinically relevant evidence rather than only comparing predictive performance.",
+            desc: "Combining predictive evaluation with evidence-use audits to test whether models rely on clinically relevant evidence.",
           },
           {
             title: "ECG Generalization & Evidence Structure",
@@ -174,10 +174,10 @@ export default function CVPage({
             title: "DLEF: Dataset-Label Evidence Fingerprints",
             meta: "Research Lead · Jun 2026 — Present",
             label: "Question",
-            desc: "Can cross-dataset performance degradation be explained by finer-grained differences in evidence structure? DLEF characterizes directional and boundary-aware source–target–label shifts instead of reducing dataset shift to one global statistic.",
+            desc: "Can cross-dataset performance degradation be explained by finer-grained differences in evidence structure? DLEF characterizes directional and boundary-aware source–target–label shifts that a single global statistic cannot capture.",
           },
           {
-            title: "PathCLIP: Knowledge-Aware ECG–Text Representation Learning",
+            title: "PathCLIP: Evidence-Aware ECG–Text Representation Learning",
             meta: "Research Lead · Jul 2026 — Present",
             label: "Exploratory",
             desc: "This project is still at the method-formulation stage. I am using matched-count, permuted-hierarchy, residual-only, and held-out-label controls to identify what diagnostic hierarchies, ECG findings, and evidence grounding actually contribute before fixing the final method.",
