@@ -116,7 +116,7 @@ export default function CVPage({
           },
           {
             title: "工程",
-            items: "Python · TypeScript · SQL · Neo4j · Next.js · Flask · Git · Docker",
+            items: "Python · TypeScript · SQL · Neo4j · Flask · Git",
           },
         ],
         coursesList:
@@ -216,7 +216,7 @@ export default function CVPage({
           },
           {
             title: "Engineering",
-            items: "Python · TypeScript · SQL · Neo4j · Next.js · Flask · Git · Docker",
+            items: "Python · TypeScript · SQL · Neo4j · Flask · Git",
           },
         ],
         coursesList:
