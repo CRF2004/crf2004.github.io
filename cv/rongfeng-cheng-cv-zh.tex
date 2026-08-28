@@ -43,18 +43,18 @@
 \titlespacing*{\section}{0pt}{0.78em}{0.48em}
 
 \newcommand{\daterow}[3]{%
-  \begin{tabularx}{\textwidth}{@{}X>{\raggedleft\arraybackslash}p{3.25cm}@{}}
-    {\heiti\bfseries #1} & {\color{muted}#2}\\[0.04em]
-    \multicolumn{2}{@{}l@{}}{{\color{muted}#3}}
-  \end{tabularx}\par\vspace{0.14em}
+  \noindent
+  \begin{minipage}[t]{0.77\textwidth}\vspace{0pt}{\heiti\bfseries #1}\end{minipage}\hfill
+  \begin{minipage}[t]{0.21\textwidth}\vspace{0pt}\raggedleft{\color{muted}#2}\end{minipage}\par
+  \vspace{0.06em}{\color{muted}#3}\par\vspace{0.16em}
 }
 
 \newcommand{\project}[4]{%
-  \begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}X>{\raggedleft\arraybackslash}p{3.25cm}@{}}
-    {\heiti\bfseries #1} & {\color{muted}#2}
-  \end{tabularx}\par\vspace{-0.42em}
-  {\color{muted}#3}\par\vspace{0.04em}
-  {#4}\par\vspace{0.82em}
+  \noindent
+  \begin{minipage}[t]{0.79\textwidth}\vspace{0pt}\raggedright{\heiti\bfseries #1}\end{minipage}\hfill
+  \begin{minipage}[t]{0.19\textwidth}\vspace{0pt}\raggedleft{\color{muted}#2}\end{minipage}\par
+  \vspace{0.06em}{\color{muted}#3}\par
+  \vspace{0.08em}{#4}\par\vspace{0.78em}
 }
 
 \newcommand{\pub}[2]{\hangindent=1.5em\hangafter=1 {\heiti\bfseries #1}\quad #2\par\vspace{0.28em}}
@@ -113,6 +113,7 @@
 \project{PathCLIP: Evidence-Aware ECG--Text Representation Learning}{2026--至今}{第一作者研究｜进行中}{
 围绕 ECG--文本对齐与零样本识别，设计 matched-count、层级置乱、残差单独输入和未见标签等对照，探索从“审计模型使用了什么证据”进一步走向“训练模型学习可靠证据”。}
 
+\newpage
 \section{其他研究与产品实践}
 \project{叮呗心心 / GradioGPT：主动式心血管健康管理大模型}{2025--至今}{联合创始人、核心开发者；2026.08 起任负责人}{
 负责模型微调、RAG 与全栈实现，将 PPG/ECG、智能问诊和风险评估整合为主动健康管理流程；初版已在广东省第二人民医院部署。项目获 2025、2026 年国家级大学生创新训练计划支持。}
@@ -120,7 +121,6 @@
 \project{心肌缺血知识图谱构建与应用}{2025}{华南理工大学学生研究计划｜项目负责人｜指导：董训德}{
 带领 5 人跨学科团队，负责问题拆解、团队组织、本体与标注体系设计、质量控制及构建本体维护平台；实现 XGBoost 隐式推理与图谱映射解释分析。}
 
-\newpage
 \section{论文与研究成果}
 \pub{[1] 在审｜第一作者}{\textbf{R. Cheng et al.} ``DLEF: Dataset-Label Evidence Fingerprints for Explaining Cross-Dataset Performance in ECG Classification.'' \textit{IEEE BIBM 2026}.}
 \pub{[2] 在审｜第一作者}{\textbf{R. Cheng et al.} ``A Matched-Control Perturbation Audit Framework for Evaluating Evidence Use in Deep Learning Models: An Application to 12-Lead ECG Classification.'' \textit{IEEE JBHI}.}
