@@ -112,7 +112,7 @@ export default function CVPage({
           },
           {
             title: "评估与数据构建",
-            items: "RAG/retrieval evaluation · perturbation analysis · external validation · schema design · data harmonization",
+            items: "RAG/retrieval evaluation · perturbation analysis · external validation · schema design",
           },
           {
             title: "工程",
@@ -212,7 +212,7 @@ export default function CVPage({
           },
           {
             title: "Evaluation & Data Curation",
-            items: "RAG/retrieval evaluation · perturbation analysis · external validation · schema design · data harmonization",
+            items: "RAG/retrieval evaluation · perturbation analysis · external validation · schema design",
           },
           {
             title: "Engineering",
