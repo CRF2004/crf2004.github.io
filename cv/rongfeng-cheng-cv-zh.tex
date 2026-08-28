@@ -10,11 +10,20 @@
 \usepackage{microtype}
 \usepackage{fancyhdr}
 \usepackage{lastpage}
+\usepackage{fontawesome5}
+\usepackage{tikz}
 
 \setmainfont{Times New Roman}
 \setCJKmainfont{SimSun}
 \setCJKsansfont{SimHei}
 \newCJKfontfamily\heiti{SimHei}
+
+\newcommand*{\orcidicon}{%
+  \tikz[baseline=-0.55ex]{%
+    \fill[fill={rgb,255:red,166;green,206;blue,57}] (0,0) circle (0.72ex);%
+    \node[white,font=\sffamily\bfseries,inner sep=0pt,scale=0.38] at (0,0) {iD};%
+  }%
+}
 
 \definecolor{navy}{HTML}{173F5F}
 \definecolor{ink}{HTML}{20242A}
@@ -40,7 +49,7 @@
 }
 
 \newcommand{\project}[4]{%
-  \begin{tabularx}{\textwidth}{@{}X>{\raggedleft\arraybackslash}p{3.25cm}@{}}
+  \begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}X>{\raggedleft\arraybackslash}p{3.25cm}@{}}
     {\heiti\bfseries #1} & {\color{muted}#2}\\[-0.08em]
     \multicolumn{2}{@{}l@{}}{{\color{muted}#3}}
   \end{tabularx}
@@ -58,13 +67,16 @@
 \begin{document}
 
 % ---------- 紧凑型中文导师初筛页眉 ----------
-\begin{tabularx}{\textwidth}{@{}X>{\raggedleft\arraybackslash}p{10.8cm}@{}}
+\begin{tabularx}{\textwidth}{@{}X>{\raggedleft\arraybackslash}p{11.8cm}@{}}
   {\heiti\bfseries\color{navy}\fontsize{24}{26}\selectfont 程荣锋} &
   {\heiti\bfseries\fontsize{11.5}{13}\selectfont 医疗人工智能｜可靠性评估｜多模态学习}\\[0.3em]
   {\color{muted}华南理工大学本科生} &
-  广州｜\href{mailto:eb1287945452@mail.scut.edu.cn}{eb1287945452@mail.scut.edu.cn}｜\href{https://crf2004.github.io/en}{个人主页}\\
+  {\fontsize{8.2}{9.5}\selectfont
+  \href{mailto:eb1287945452@mail.scut.edu.cn}{\faIcon{envelope}\ eb1287945452@mail.scut.edu.cn}\quad
+  \href{https://crf2004.github.io/zh}{\faIcon{globe}\ crf2004.github.io/zh}\quad
+  \href{https://orcid.org/0009-0002-3021-9647}{\orcidicon\ 0009-0002-3021-9647}}\\
   {\color{muted}预计 2027 年 6 月毕业} &
-  ORCID: 0009-0002-3021-9647
+  {\small\faIcon{map-marker-alt}\ Guangzhou, China}
 \end{tabularx}
 \vspace{0.35em}
 {\color{navy}\rule{\textwidth}{1.1pt}}
@@ -82,21 +94,21 @@
 核心课程：大模型与生成式人工智能（93）、大语言模型与提示工程（93）、机器学习（92）、深度学习（88）。
 
 \section{核心科研经历}
-\project{DLEF：数据集--标签证据指纹}{2026.06--至今}{第一作者｜指导：张浩彬、程伟彬｜IEEE BIBM 2026 在审}{
+\project{DLEF: Dataset-Label Evidence Fingerprints for Explaining Cross-Dataset Performance in ECG Classification}{2026.06--至今}{第一作者｜指导：张浩彬、程伟彬｜IEEE BIBM 2026 在审}{
 \begin{itemize}
   \item \textbf{本人工作：}提出研究问题并主导研究设计、代码实现、实验分析与论文撰写；构建方向性证据指纹，刻画数据集--标签层面的迁移风险。
   \item \textbf{主要结果：}在 CODE-15\%、PTB-XL、Chapman-Shaoxing 三个数据集上验证；DLEF 距离与标签级外部 AUROC 下降显著相关（108 个点 Spearman $r=0.843$；聚合后 $r=0.892$）。
   \item \textbf{研究意义：}将“模型跨数据集性能下降”进一步拆解为可解释的标签级证据差异，为迁移风险审计提供可复核指标。
 \end{itemize}}
 
-\project{深度心电模型的证据使用审计}{2026.01--至今}{第一作者｜指导：张浩彬、程伟彬｜IEEE JBHI 在审}{
+\project{A Matched-Control Perturbation Audit Framework for Evaluating Evidence Use in Deep Learning Models: An Application to 12-Lead ECG Classification}{2026.01--至今}{第一作者｜指导：张浩彬、程伟彬｜IEEE JBHI 在审}{
 \begin{itemize}
   \item \textbf{本人工作：}从早期负结果中提出审计问题，主导 matched-control 扰动框架、临床证据单元、算子比较、冻结权重外部迁移及论文写作。
   \item \textbf{主要结果：}在 CODE-15\% 与 PTB-XL 上评估 5 类诊断和 3 种原始信号模型；15 个模型--诊断组合中仅 6 个获得证据支持，并对各个审计结论进行了根因分析。
   \item \textbf{研究意义：}模型对证据的依赖往往跨数据集迁移稳定；仅扰动目标区域可能产生误导；matched controls 和算子选择能够改变证据使用结论，外部性能良好也不等于模型依赖预设临床证据。
 \end{itemize}}
 
-\project{PathCLIP：面向证据的 ECG--文本表示学习}{2026--至今}{第一作者研究｜进行中}{
+\project{PathCLIP: Evidence-Aware ECG--Text Representation Learning}{2026--至今}{第一作者研究｜进行中}{
 围绕 ECG--文本对齐与零样本识别，设计 matched-count、层级置乱、残差单独输入和未见标签等对照，探索从“审计模型使用了什么证据”进一步走向“训练模型学习可靠证据”。}
 
 \section{其他研究与产品实践}
