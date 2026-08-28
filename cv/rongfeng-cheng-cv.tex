@@ -33,6 +33,14 @@
 \social[orcid]{0009-0002-3021-9647}
 
 \newcommand{\hospitalaffiliation}{Institute of Healthcare Artificial Intelligence Application, Guangdong Second Provincial General Hospital}
+\newcommand{\researchentry}[4]{%
+  \noindent\begin{minipage}[t]{\textwidth}\vspace{0pt}
+  \begin{minipage}[t]{0.78\textwidth}\vspace{0pt}\raggedright\textbf{#2}\end{minipage}\hfill
+  \begin{minipage}[t]{0.20\textwidth}\vspace{0pt}\raggedleft\textit{#1}\end{minipage}\par
+  \if\relax\detokenize{#3}\relax\else\vspace{0.12em}\textit{#3}\par\fi
+  \vspace{0.12em}#4\par\vspace{0.48em}
+  \end{minipage}\par
+}
 
 \begin{document}
 \makecvtitle
@@ -62,23 +70,23 @@
 
 \section{Research \& Project Experience}
 \noindent\textit{\hospitalaffiliation}\par
-\cventry{Jun 2026--Present}{}{DLEF: Dataset-Label Evidence Fingerprints}{}{}{Advisors: Haobin Zhang and Weibin Cheng.\begin{itemize}
+\researchentry{Jun 2026--Present}{DLEF: Dataset-Label Evidence Fingerprints for Explaining Cross-Dataset Performance in ECG Classification}{}{Advisors: Haobin Zhang and Weibin Cheng.\begin{itemize}
   \item Led study design, implementation, experiments, analysis, and manuscript preparation; proposed directional evidence fingerprints for characterizing dataset-label transfer risk.
-  \item Across CODE-15\%, PTB-XL, and Chapman-Shaoxing, DLEF distance was associated with label-level external AUROC degradation (Spearman $r=0.843$ across 108 points; $r=0.892$ after source-target-label aggregation). See Manuscript [1].
+  \item Across CODE-15\%, PTB-XL, and Chapman-Shaoxing, DLEF distance was associated with label-level external AUROC degradation (Spearman $r=0.843$ across 108 points; $r=0.892$ after source-target-label aggregation).
 \end{itemize}}
 
-\cventry{Jan 2026--Present}{}{Evidence-Use Auditing for Deep ECG Models}{}{}{Advisors: Haobin Zhang and Weibin Cheng.\begin{itemize}
+\researchentry{Jan 2026--Present}{A Matched-Control Perturbation Audit Framework for Evaluating Evidence Use in Deep Learning Models: An Application to 12-Lead ECG Classification}{}{Advisors: Haobin Zhang and Weibin Cheng.\begin{itemize}
   \item Led study design, implementation, experiments, analysis, and manuscript preparation; developed a matched-control perturbation audit spanning clinically defined evidence units, operator comparisons, and frozen-weight external transfer.
-  \item Evaluated five diagnoses and three raw-signal models on CODE-15\% and PTB-XL; the audit classified 6 of 15 model-diagnosis pairs as evidence-supported and showed that matched controls or operator choice can overturn target-only conclusions. See Manuscript [2].
+  \item Evaluated five diagnoses and three raw-signal models on CODE-15\% and PTB-XL; the audit classified 6 of 15 model-diagnosis pairs as evidence-supported and showed that matched controls or operator choice can overturn target-only conclusions.
 \end{itemize}}
 
-\cventry{2025--Present}{Co-founder \& Core Developer; Director since Aug 2026}{Dingbei Xinxin / GradioGPT: Proactive Cardiovascular Health Management LLM}{}{}{\begin{itemize}
+\researchentry{2025--Present}{Dingbei Xinxin / GradioGPT: Proactive Cardiovascular Health Management LLM}{Co-founder \& Core Developer}{\begin{itemize}
   \item Co-developed a cardiovascular health-management platform integrating PPG/ECG data, intelligent consultation, risk assessment, and proactive health workflows.
   \item Led model fine-tuning, RAG, and full-stack implementation using LoRA, DPO, MQ-RAG, and chain-of-thought methods; also prepared grant and competition application materials.
   \item Deployed the initial mini-program at Guangdong Second Provincial General Hospital and currently leads full-stack development of version 2.0; supported by national-level innovation-program projects in 2025 and 2026 and incorporated as Yujian Future Mind Technology (Zhongshan) Co., Ltd. in Aug 2026.
 \end{itemize}}
 
-\cventry{2025}{Project Lead, SCUT Student Research Program}{Myocardial Ischemia Knowledge Graph}{}{}{Advisor: Xunde Dong. Led a five-student interdisciplinary team; designed the ontology, annotation schema, guidelines, and quality-control workflow; built a multi-annotator platform with adjudication and agreement checks; and implemented XGBoost-based implicit reasoning with graph-mapped interpretability analysis.}
+\researchentry{2025}{Myocardial Ischemia Knowledge Graph}{Project Lead, SCUT Student Research Program}{Advisor: Xunde Dong. Led a five-student interdisciplinary team; designed the ontology, annotation schema, guidelines, and quality-control workflow; built a multi-annotator platform with adjudication and agreement checks; and implemented XGBoost-based implicit reasoning with graph-mapped interpretability analysis.}
 
 \section{Honors \& Awards}
 \cvitem{2025}{Campus Gold Award, Internet+ Competition -- Dingbei Xinxin cardiovascular health-management project.}

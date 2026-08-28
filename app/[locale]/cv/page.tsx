@@ -165,13 +165,13 @@ export default function CVPage({
         ],
         researchItems: [
           {
-            title: "Evidence-Use Auditing for Deep ECG Models",
+            title: "A Matched-Control Perturbation Audit Framework for Evaluating Evidence Use in Deep Learning Models: An Application to 12-Lead ECG Classification",
             meta: "Research Lead · Jan 2026 — Present",
             label: "Question",
             desc: "Do high-performing ECG classifiers actually depend on clinically correct evidence? I use matched-control perturbations and frozen-weight external transfer to separate target-evidence sensitivity from generic model fragility.",
           },
           {
-            title: "DLEF: Dataset-Label Evidence Fingerprints",
+            title: "DLEF: Dataset-Label Evidence Fingerprints for Explaining Cross-Dataset Performance in ECG Classification",
             meta: "Research Lead · Jun 2026 — Present",
             label: "Question",
             desc: "Can cross-dataset performance degradation be explained by finer-grained differences in evidence structure? DLEF characterizes directional and boundary-aware source–target–label shifts that a single global statistic cannot capture.",
