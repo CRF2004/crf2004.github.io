@@ -10,7 +10,7 @@ interface ProjectCardProps {
   links?: ProjectLinks;
 }
 
-type ProjectLinkKind = keyof ProjectLinks;
+type ProjectLinkKind = "demo" | "repo" | "docs";
 
 interface ProjectLinkButtonsProps {
   links?: ProjectLinks;
@@ -61,12 +61,29 @@ export function ProjectLinkButtons({
     if (href) items.push({ kind, href });
   }
 
-  if (items.length === 0) return null;
+  const demos = links?.demos ?? [];
+
+  if (items.length === 0 && demos.length === 0) return null;
 
   const primaryKind = items[0]?.kind;
 
   return (
     <div className={LINK_STYLES[variant].wrapper}>
+      {demos.map((demo, index) => (
+        <a
+          key={demo.href}
+          href={demo.href}
+          target="_blank"
+          rel="noopener noreferrer"
+          className={
+            index === 0
+              ? LINK_STYLES[variant].primary
+              : LINK_STYLES[variant].secondary
+          }
+        >
+          {demo.label[locale as "en" | "zh"]}
+        </a>
+      ))}
       {items.map(({ kind, href }) => (
         <a
           key={kind}
@@ -74,7 +91,7 @@ export function ProjectLinkButtons({
           target="_blank"
           rel="noopener noreferrer"
           className={
-            kind === primaryKind
+            demos.length === 0 && kind === primaryKind
               ? LINK_STYLES[variant].primary
               : LINK_STYLES[variant].secondary
           }
