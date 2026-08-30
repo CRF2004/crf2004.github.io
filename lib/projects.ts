@@ -30,6 +30,19 @@ export const projects: Project[] = [
     },
     tags: ["Healthcare LLM", "LoRA", "DPO", "MQ-RAG", "PPG/ECG", "Full Stack"],
     featured: true,
+  },
+  {
+    slug: "afha",
+    title: {
+      en: "AFHA — Acne & Facial Health AI Assessment System",
+      zh: "AFHA — 痤疮与面部健康 AI 智能评估系统",
+    },
+    description: {
+      en: "A hospital-oriented clinical screening and health-assessment prototype connecting patient consent and questionnaires, VISIA image and spreadsheet uploads, parallel metric analysis, and AI-assisted report generation. The workflow produces reviewable HTML/PDF reports, QR-code delivery, and audit artifacts while keeping each case traceable through a shared case ID.",
+      zh: "面向医院门诊与现场体验场景的临床辅助筛查和健康评估原型，串联知情同意、患者问卷、VISIA图像与数据表上传、并行指标分析及AI辅助报告生成；通过统一case ID保持全流程可追溯，并生成可复核的HTML/PDF报告、二维码和审计产物。",
+    },
+    tags: ["Clinical Workflow", "VISIA", "React", "TypeScript", "AI Reports"],
+    featured: true,
     links: {
       demos: [
         {
