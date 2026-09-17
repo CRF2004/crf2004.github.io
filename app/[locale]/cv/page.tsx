@@ -85,8 +85,8 @@ export default function CVPage({
         ],
         clinicalItems: [
           {
-            title: "叮呗心心 / GradioGPT 主动式心血管健康管理平台",
-            desc: "作为联合创始人与核心开发成员，负责模型微调、RAG、全栈开发与申报材料；初版小程序已在广东省第二人民医院上线，目前负责 2.0 版本全栈开发。项目连续获得 2025、2026 年国家级大创立项，并于 2026 年 8 月实现公司化落地。",
+            title: "叮呗心心 / CardioGPT 心血管主动健康大模型",
+            desc: "作为联合创始人与核心开发成员，负责模型微调、RAG、全栈开发与申报材料；初版小程序已在广东省第二人民医院上线，2026 年 8 月起任开发负责人，负责 2.0 版本开发。项目连续获得 2025、2026 年国家级大创立项，并于 2026 年 8 月实现公司化落地。",
           },
           {
             title: "心血管标准化病人问答流水线",
@@ -185,8 +185,8 @@ export default function CVPage({
         ],
         clinicalItems: [
           {
-            title: "Dingbei Xinxin / GradioGPT Cardiovascular Health Platform",
-            desc: "As a co-founder and core developer, led model fine-tuning, RAG, full-stack implementation, and application materials. The initial mini-program is deployed at Guangdong Second Provincial General Hospital; I now lead version 2.0 development. The project received national-level innovation support in 2025 and 2026 and was incorporated as a company in August 2026.",
+            title: "Dingbei Xinxin / CardioGPT Cardiovascular Proactive Health LLM",
+            desc: "As a co-founder and core developer, I led model fine-tuning, RAG, full-stack implementation, and application materials. The initial mini-program is deployed at Guangdong Second Provincial General Hospital; since August 2026, I have served as development lead for version 2.0. The project received national-level innovation support in 2025 and 2026 and was incorporated as a company in August 2026.",
           },
           {
             title: "Cardiovascular Standardized-Patient Q&A Pipeline",

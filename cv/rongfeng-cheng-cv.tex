@@ -49,38 +49,41 @@
 \section{Education}
 \cventry{2023--2027}{Bachelor of Management in Big Data Management and Application}{South China University of Technology (SCUT)}{Guangzhou, China}{}{Cumulative GPA: 3.46/4.0; average score: 85.18/100 (through Semester 6).\\Selected AI coursework: Large Models and Generative AI (93/100), Large Language Models and Prompt Engineering (93/100), Machine Learning (92/100), and Deep Learning (88/100).}
 
-\section{Internship Experience}
+\section{Selected Achievements \& Deployed Work}
+\cvitem{Published}{Co-authored a study on ethical safety in LLM code generation, published in \textbf{\textit{iScience}} (2026).}
+\cvitem{IP}{First inventor on one patent application that passed preliminary examination and another submitted patent application; awarded two software copyrights.}
+\cvitem{Clinical Deployment}{Co-developed Dingbei Xinxin, deployed at Guangdong Second Provincial General Hospital; led the five-person Dingbei Meimei engineering and clinical-workflow team through its hospital launch.}
+\cvitem{Awards}{Campus Gold, Internet+ Competition; Second Prize, Guangzhou Mathematical Modeling University League; Third Prize, CUMCM Guangdong Division.}
+
+\section{Research Experience}
+\noindent\textit{\hospitalaffiliation}\par
+\researchentry{Jun 2026--Present}{DLEF: Explaining Why ECG Models Fail Across Hospitals}{First author; submitted to \textbf{IEEE BIBM 2026}}{\begin{itemize}
+  \item \textbf{Problem:} Aggregate performance scores show that a model degrades at a new hospital, but do not identify which diagnostic labels or evidence distributions drive the failure.
+  \item \textbf{Contribution:} Formulated the question and led study design, implementation, experiments, analysis, and writing; developed directional dataset-label ``evidence fingerprints.''
+  \item \textbf{Finding:} Greater fingerprint mismatch predicted larger external AUROC degradation (Spearman $r=0.843$ across 108 comparisons; $r=0.892$ after aggregation), enabling label-level transfer-risk screening.
+\end{itemize}}
+
+\researchentry{Jan 2026--Present}{Matched-Control Perturbation Auditing: Does an ECG Model Use Clinical Evidence?}{First author; submitted to \textbf{IEEE JBHI}}{\begin{itemize}
+  \item \textbf{Problem:} Accurate models may rely on spurious cues, while target-only perturbations can confuse generic signal damage with genuine use of clinical evidence.
+  \item \textbf{Contribution:} Developed and led a matched-control audit covering clinically defined evidence units, perturbation operators, and frozen-weight external validation.
+  \item \textbf{Finding:} Only 6 of 15 model-diagnosis pairs were evidence-supported; matched controls or operator choice changed several conclusions, showing that strong external performance alone does not establish clinically intended evidence use.
+\end{itemize}}
+
+\section{Internship \& Product Leadership}
 \cventry{Nov 2024--Present}{LLM Development Engineer Intern}{AI Research Institute, Guangdong Second Provincial General Hospital}{}{}{\begin{itemize}
   \item Developed a standardized-patient Q\&A pipeline from approximately 8,000 cardiovascular case PDFs, covering LLM-based information extraction, entity disambiguation, Neo4j knowledge representation, and hybrid retrieval.
   \item Explored knowledge-graph paths as structural scaffolds for generating medical question--answer and reasoning-trace data for model fine-tuning, evaluation, and retrieval-augmented generation.
   \item Led full-stack and clinical-workflow development for the five-person Dingbei Meimei acne and facial-health assessment team; supported its initial release when the hospital's Refractory Acne Diagnosis and Treatment Center opened in July 2026.
 \end{itemize}}
 
+\newpage
 \cventry{Jul 2025--Jan 2026}{Backend \& Algorithm Development Intern}{Guangzhou Yunzhan Zhichuang Information Technology Co., Ltd.}{}{}{\begin{itemize}
   \item Designed a UMLS-grounded schema and normalization pipeline for heterogeneous health-examination data extracted from multi-institutional reports, including LLM-assisted schema evolution and terminology mapping.
   \item Developed backend workflow logic for the Health Navigation Plan within the company's iTwins product.
 \end{itemize}}
 
-\section{Manuscripts \& Publications}
-\cvitem{Under Review [1]}{\textbf{R. Cheng et al.} ``DLEF: Dataset-Label Evidence Fingerprints for Explaining Cross-Dataset Performance in ECG Classification.'' \textit{IEEE BIBM 2026}. First author.}
-\cvitem{Under Review [2]}{\textbf{R. Cheng et al.} ``A Matched-Control Perturbation Audit Framework for Evaluating Evidence Use in Deep Learning Models: An Application to 12-Lead ECG Classification.'' \textit{IEEE JBHI}. First author.}
-\cvitem{Major Revision [3]}{``Implicit Medical Ethical Deficits in Large Language Models: A Benchmarking and Alignment Study.'' Submitted to \textit{Nature Communications}. Sixth author; leading the revision-stage experiments for the response to reviewers.}
-\cvitem{Ongoing}{\textbf{PathCLIP: Evidence-Aware ECG--Text Representation Learning.} Ongoing first-author study of ECG--text alignment and zero-shot recognition with matched-count, permuted-hierarchy, residual-only, and held-out-label controls.}
-\cvitem{Apr 2026 [4]}{J. He, S. Qin, H. Zou, F. Jing, W. Liu, C. Li, Q. Wang, Z. Hu, K. Song, Z. Xu, Q. Luo, Y. Cheng, \textbf{R. Cheng}, H. Zhang, and W. Cheng. ``CodeSafetyBench: Evaluating and Improving Ethical Safety in Large Language Model Code Generation.'' \textit{iScience}. \href{https://doi.org/10.1016/j.isci.2026.115073}{doi:10.1016/j.isci.2026.115073}.}
-
-\section{Research \& Project Experience}
-\noindent\textit{\hospitalaffiliation}\par
-\researchentry{Jun 2026--Present}{DLEF: Dataset-Label Evidence Fingerprints for Explaining Cross-Dataset Performance in ECG Classification}{}{Advisors: Haobin Zhang and Weibin Cheng.\begin{itemize}
-  \item Led study design, implementation, experiments, analysis, and manuscript preparation; proposed directional evidence fingerprints for characterizing dataset-label transfer risk.
-  \item Across CODE-15\%, PTB-XL, and Chapman-Shaoxing, DLEF distance was associated with label-level external AUROC degradation (Spearman $r=0.843$ across 108 points; $r=0.892$ after source-target-label aggregation).
-\end{itemize}}
-
-\researchentry{Jan 2026--Present}{A Matched-Control Perturbation Audit Framework for Evaluating Evidence Use in Deep Learning Models: An Application to 12-Lead ECG Classification}{}{Advisors: Haobin Zhang and Weibin Cheng.\begin{itemize}
-  \item Led study design, implementation, experiments, analysis, and manuscript preparation; developed a matched-control perturbation audit spanning clinically defined evidence units, operator comparisons, and frozen-weight external transfer.
-  \item Evaluated five diagnoses and three raw-signal models on CODE-15\% and PTB-XL; the audit classified 6 of 15 model-diagnosis pairs as evidence-supported and showed that matched controls or operator choice can overturn target-only conclusions.
-\end{itemize}}
-
-\researchentry{2025--Present}{Dingbei Xinxin / GradioGPT: Proactive Cardiovascular Health Management LLM}{Co-founder \& Core Developer}{\begin{itemize}
+\section{Products \& Team Projects}
+\researchentry{2025--Present}{Dingbei Xinxin / CardioGPT: Cardiovascular Proactive Health LLM}{Co-founder \& Core Developer; Development Lead since Aug 2026}{\begin{itemize}
   \item Co-developed a cardiovascular health-management platform integrating PPG/ECG data, intelligent consultation, risk assessment, and proactive health workflows.
   \item Led model fine-tuning, RAG, and full-stack implementation using LoRA, DPO, MQ-RAG, and chain-of-thought methods; also prepared grant and competition application materials.
   \item Deployed the initial mini-program at Guangdong Second Provincial General Hospital and currently leads full-stack development of version 2.0; supported by national-level innovation-program projects in 2025 and 2026 and incorporated as Yujian Future Mind Technology (Zhongshan) Co., Ltd. in Aug 2026.
@@ -88,10 +91,12 @@
 
 \researchentry{2025}{Myocardial Ischemia Knowledge Graph}{Project Lead, SCUT Student Research Program}{Advisor: Xunde Dong. Led a five-student interdisciplinary team; designed the ontology, annotation schema, guidelines, and quality-control workflow; built a multi-annotator platform with adjudication and agreement checks; and implemented XGBoost-based implicit reasoning with graph-mapped interpretability analysis.}
 
-\section{Honors \& Awards}
-\cvitem{2025}{Campus Gold Award, Internet+ Competition -- Dingbei Xinxin cardiovascular health-management project.}
-\cvitem{2025}{Second Prize, 9th Guangzhou Mathematical Modeling University League -- fruit classification with ConvNeXt.}
-\cvitem{2025}{Third Prize, China Undergraduate Mathematical Contest in Modeling, Guangdong Division -- nonlinear programming, genetic algorithms, and particle-swarm optimization.}
+\section{Publications \& Manuscripts}
+\cvitem{Published [1]}{J. He, S. Qin, H. Zou, et al., \textbf{R. Cheng}, H. Zhang, and W. Cheng. ``CodeSafetyBench: Evaluating and Improving Ethical Safety in Large Language Model Code Generation.'' \textbf{\textit{iScience}}, 2026. \href{https://doi.org/10.1016/j.isci.2026.115073}{doi:10.1016/j.isci.2026.115073}.}
+\cvitem{Revised [2]}{``Implicit Medical Ethical Deficits in Large Language Models: A Benchmarking and Alignment Study.'' \textbf{\textit{Nature Communications}}; led the revision-stage experiments for the response to reviewers.}
+\cvitem{Under Review [3]}{\textbf{R. Cheng et al.} ``DLEF: Dataset-Label Evidence Fingerprints for Explaining Cross-Dataset Performance in ECG Classification.'' \textbf{\textit{IEEE BIBM 2026}}. First author.}
+\cvitem{Under Review [4]}{\textbf{R. Cheng et al.} ``A Matched-Control Perturbation Audit Framework for Evaluating Evidence Use in Deep Learning Models: An Application to 12-Lead ECG Classification.'' \textbf{\textit{IEEE JBHI}}. First author.}
+\cvitem{Ongoing}{\textbf{PathCLIP: Evidence-Aware ECG--Text Representation Learning.} ECG--text alignment and zero-shot recognition with matched-count, permuted-hierarchy, residual-only, and held-out-label controls.}
 
 \section{Patents \& Software IP}
 \cvitem{Patent}{\textbf{Method, System, and Electronic Device for Medical Question-Answering Output Assurance} -- First Inventor; application \#202610582199.6; filed Apr 2026; preliminary examination passed.}
@@ -101,11 +106,12 @@
 % Keep the Skills taxonomy aligned with the web CV.
 \section{Skills}
 \begin{multicols}{2}
-\cvitem{Modeling}{PyTorch, XGBoost, representation learning, multimodal learning, LLM fine-tuning, optimization}
+\cvitem{Programming \& Frameworks}{Python, PyTorch, scikit-learn, TypeScript, SQL}
+\cvitem{Modeling Methods}{XGBoost, representation learning, multimodal learning, LLM fine-tuning, optimization}
 \cvitem{LLM \& Knowledge Systems}{LoRA, DPO, RAG/MQ-RAG, knowledge graphs, information extraction, UMLS}
 \columnbreak
 \cvitem{Evaluation \& Data Curation}{RAG/retrieval evaluation, perturbation analysis, external validation, schema design}
-\cvitem{Engineering}{Python, TypeScript, SQL, Neo4j, Flask, Git}
+\cvitem{Engineering}{Neo4j, Next.js, Flask, Git, Docker}
 \end{multicols}
 \vspace{-0.8em}
 

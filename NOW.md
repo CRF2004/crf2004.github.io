@@ -9,7 +9,7 @@ Blockers:
 
 ## Resume context
 
-- Dingbei Xinxin / GradioGPT is a proactive cardiovascular health-management product using PPG/ECG, LoRA, DPO, MQ-RAG, and chain-of-thought methods. Rongfeng Cheng is a co-founder and core member responsible for model fine-tuning, RAG, full-stack development, and application materials. The initial mini-program is deployed at Guangdong Second Provincial General Hospital; version 2.0 is in development with Rongfeng leading full-stack work.
+- Dingbei Xinxin / CardioGPT is a cardiovascular proactive health LLM using PPG/ECG, LoRA, DPO, MQ-RAG, and chain-of-thought methods. Rongfeng Cheng is a co-founder and core developer responsible for model fine-tuning, RAG, full-stack development, and application materials, and has served as development lead since August 2026. The initial mini-program is deployed at Guangdong Second Provincial General Hospital; version 2.0 is in development.
 - The project received national-level College Student Innovation and Entrepreneurship Training Program support in 2025 and 2026, a 2025 Internet+ university-level Gold Award, and 2025 university-level Challenge Cup project approval. Exact official project and competition names remain to be confirmed before final CV wording.
 - Yujian Future Mind Technology (Zhongshan) Co., Ltd. was incorporated on 2026-08-03. Rongfeng is a co-founder and board director, serving from incorporation to present.
 - Guangzhou Yunzhan Zhichuang Information Technology Co., Ltd. internship: Jul 2025--Jan 2026, Backend & Algorithm Development Intern. Work included the Clinical Data Capsule and backend logic for the iTwins Health Navigation Plan. No verified outcome metrics are available.

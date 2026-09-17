@@ -21,12 +21,12 @@ export const projects: Project[] = [
   {
     slug: "dingbei-xinxin",
     title: {
-      en: "Dingbei Xinxin / GradioGPT",
-      zh: "叮呗心心 / GradioGPT",
+      en: "Dingbei Xinxin / CardioGPT",
+      zh: "叮呗心心 / CardioGPT",
     },
     description: {
-      en: "Co-founded and co-developed a proactive cardiovascular health-management platform integrating PPG/ECG data, intelligent consultation, and risk assessment. Led LoRA/DPO model fine-tuning, MQ-RAG, full-stack implementation, and application materials; deployed the initial mini-program at Guangdong Second Provincial General Hospital and now leads version 2.0 development. Supported by national-level innovation projects in 2025 and 2026 and incorporated as a company in August 2026.",
-      zh: "联合创立并开发主动式心血管健康管理平台，整合PPG/ECG数据、智能问诊与风险评估；负责LoRA/DPO模型微调、MQ-RAG、全栈开发及申报材料。初版小程序已在广东省第二人民医院上线，目前负责2.0版本开发。项目于2025年和2026年获国家级大创立项，并于2026年8月实现公司化落地。",
+      en: "Co-founded and co-developed CardioGPT, a cardiovascular proactive health LLM integrating PPG/ECG data, intelligent consultation, and risk assessment. Led LoRA/DPO model fine-tuning, MQ-RAG, full-stack implementation, and application materials; deployed the initial mini-program at Guangdong Second Provincial General Hospital and has served as development lead for version 2.0 since August 2026. Supported by national-level innovation projects in 2025 and 2026 and incorporated as a company in August 2026.",
+      zh: "联合创立并开发心血管主动健康大模型 CardioGPT，整合 PPG/ECG 数据、智能问诊与风险评估；负责 LoRA/DPO 模型微调、MQ-RAG、全栈开发及申报材料。初版小程序已在广东省第二人民医院上线，2026 年 8 月起任开发负责人，负责 2.0 版本开发。项目于 2025 年和 2026 年获国家级大创立项，并于 2026 年 8 月实现公司化落地。",
     },
     tags: ["Healthcare LLM", "LoRA", "DPO", "MQ-RAG", "PPG/ECG", "Full Stack"],
     featured: true,

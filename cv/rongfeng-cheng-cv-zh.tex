@@ -81,50 +81,47 @@
 \vspace{0.35em}
 {\color{navy}\rule{\textwidth}{1.1pt}}
 
-\section{基本情况与科研概况}
-\begin{tabularx}{\textwidth}{@{}>{\heiti\bfseries}p{2.05cm}X@{}}
-本科专业 & 大数据管理与应用\\
-成绩 & GPA 3.46/4.0；均分 85.18/100\\
-英语能力 & IELTS 6.5；CET-6 528\\
-科研产出 & 2 项第一作者研究在审；1 篇参与大修；1 篇已发表论文；1 项第一发明人专利\\
-研究兴趣 & 可靠且循证的医疗人工智能；外部验证与分布偏移；ECG 表示学习；多模态医疗模型\\
-\end{tabularx}
-
 \section{教育背景}
 \daterow{华南理工大学｜大数据管理与应用}{2023.09--2027.06}{管理学学士；GPA 3.46/4.0，平均成绩 85.18/100（截至第六学期）}
 核心课程：大模型与生成式人工智能（93）、大语言模型与提示工程（93）、机器学习（92）、深度学习（88）。
 
+\section{已获成果与落地实践}
+\begin{itemize}
+  \item \textbf{论文发表：}参与大模型代码伦理安全评测研究，成果发表于 \textbf{\textit{iScience}}（2026）。
+  \item \textbf{知识产权：}第一发明人发明专利 1 项已通过初步审查；另有 1 项第一发明人专利已提交；获软件著作权 2 项。
+  \item \textbf{临床落地：}联合开发“叮呗心心”心血管健康管理平台，初版已在广东省第二人民医院部署；负责 5 人“叮呗美美”团队的全栈与临床流程开发，产品已完成医院首发。
+  \item \textbf{竞赛与项目：}获“互联网+”校赛金奖、广州数学建模高校联赛二等奖、全国大学生数学建模竞赛广东赛区三等奖；连续两年获国家级大学生创新训练计划支持。
+\end{itemize}
+
 \section{核心科研经历}
-\project{DLEF: Dataset-Label Evidence Fingerprints for Explaining Cross-Dataset Performance in ECG Classification}{2026.06--至今}{第一作者｜指导：张浩彬、程伟彬｜IEEE BIBM 2026 在审}{
+\project{DLEF: Dataset-Label Evidence Fingerprints for Explaining Cross-Dataset Performance in ECG Classification}{2026.06--至今}{第一作者｜指导：张浩彬、程伟彬｜投稿 \textbf{IEEE BIBM 2026}}{
 \begin{itemize}
-  \item \textbf{本人工作：}提出研究问题并主导研究设计、代码实现、实验分析与论文撰写；构建方向性证据指纹，刻画数据集--标签层面的迁移风险。
-  \item \textbf{主要结果：}在 CODE-15\%、PTB-XL、Chapman-Shaoxing 三个数据集上验证；DLEF 距离与标签级外部 AUROC 下降显著相关（108 个点 Spearman $r=0.843$；聚合后 $r=0.892$）。
-  \item \textbf{研究意义：}将“模型跨数据集性能下降”进一步拆解为可解释的标签级证据差异，为迁移风险审计提供可复核指标。
+  \item \textbf{问题：}不同中心虽使用相同诊断标签，模型区分阳性与阴性病例所依赖的心电证据仍可能改变；常用性能指标只能显示外部性能下降，难以解释原因。
+  \item \textbf{方法：}提出并主导 DLEF 框架：沿节律、传导、QRS 形态、导联特异性 QRS 与复极等证据轴施加受控扰动，以标准化正负贡献差构建数据集--标签指纹，并用方向性距离衡量源端判别证据在目标数据中的保留程度。
+  \item \textbf{结果：}在三个公开数据集、六个诊断标签上，DLEF 距离与标签级外部 AUROC 下降密切相关（Spearman $r=0.843$），且优于患病率差异、内部性能与嵌入分布等基线，可在部署前定位高风险标签与迁移方向。
 \end{itemize}}
 
-\project{A Matched-Control Perturbation Audit Framework for Evaluating Evidence Use in Deep Learning Models: An Application to 12-Lead ECG Classification}{2026.01--至今}{第一作者｜指导：张浩彬、程伟彬｜IEEE JBHI 在审}{
+\project{A Matched-Control Perturbation Audit Framework for Evaluating Evidence Use in Deep Learning Models: An Application to 12-Lead ECG Classification}{2026.01--至今}{第一作者｜指导：张浩彬、程伟彬｜投稿 \textbf{IEEE JBHI}}{
 \begin{itemize}
-  \item \textbf{本人工作：}从早期负结果中提出审计问题，主导 matched-control 扰动框架、临床证据单元、算子比较、冻结权重外部迁移及论文写作。
-  \item \textbf{主要结果：}在 CODE-15\% 与 PTB-XL 上评估 5 类诊断和 3 种原始信号模型；15 个模型--诊断组合中仅 6 个获得证据支持，并对各个审计结论进行了根因分析。
-  \item \textbf{研究意义：}模型对证据的依赖往往跨数据集迁移稳定；仅扰动目标区域可能产生误导；matched controls 和算子选择能够改变证据使用结论，外部性能良好也不等于模型依赖预设临床证据。
+  \item \textbf{问题：}模型即使依赖不符合医学知识、或在数据集偏移下不稳定的证据，仍可能获得较高判别性能，因此需要直接审计预测是否由领域相关证据支撑。
+  \item \textbf{方法：}提出并主导匹配对照扰动审计：用领域知识定义目标证据及匹配对照，要求目标效应超过最强对照，同时比较扰动算子，并通过冻结权重外部迁移检验证据使用的跨数据集稳定性。
+  \item \textbf{结果：}匹配对照推翻了 1AVB 的仅目标区域结论，算子选择改变了 AFIB 与 CRBBB 的判断，外部迁移进一步识别出不稳定的证据依赖；框架由此将证据使用主张划分为可信、受限或不支持。
 \end{itemize}}
 
-\project{PathCLIP: Evidence-Aware ECG--Text Representation Learning}{2026--至今}{第一作者研究｜进行中}{
-围绕 ECG--文本对齐与零样本识别，设计 matched-count、层级置乱、残差单独输入和未见标签等对照，探索从“审计模型使用了什么证据”进一步走向“训练模型学习可靠证据”。}
-
-\section{其他研究与产品实践}
-\project{叮呗心心 / GradioGPT：主动式心血管健康管理大模型}{2025--至今}{公司联合创始人、核心开发者}{
-负责模型微调、RAG 与全栈实现，将 PPG/ECG、智能问诊和风险评估整合为主动健康管理流程；初版已在广东省第二人民医院部署。项目获 2025、2026 年国家级大学生创新训练计划支持。}
+\section{产品与团队实践}
+\project{叮呗心心 / CardioGPT：心血管主动健康大模型}{2025--至今}{联合创始人、核心开发者；2026.08 起任开发负责人}{
+负责模型微调、RAG 与全栈实现，将 PPG/ECG、智能问诊和风险评估整合为主动健康管理流程；初版已在广东省第二人民医院部署，现负责 2.0 版本开发。项目连续两年获国家级大学生创新训练计划支持，并于 2026.08 进入公司化运营。}
 
 \project{心肌缺血知识图谱构建与应用}{2025}{华南理工大学学生研究计划｜项目负责人｜指导：董训德}{
 带领 5 人跨学科团队，负责问题拆解、团队组织、本体与标注体系设计、质量控制及构建本体维护平台；实现 XGBoost 隐式推理与图谱映射解释分析。}
 
 \newpage
 \section{论文与研究成果}
-\pub{[1] 在审｜第一作者}{\textbf{R. Cheng et al.} ``DLEF: Dataset-Label Evidence Fingerprints for Explaining Cross-Dataset Performance in ECG Classification.'' \textit{IEEE BIBM 2026}.}
-\pub{[2] 在审｜第一作者}{\textbf{R. Cheng et al.} ``A Matched-Control Perturbation Audit Framework for Evaluating Evidence Use in Deep Learning Models: An Application to 12-Lead ECG Classification.'' \textit{IEEE JBHI}.}
-\pub{[3] 大修｜第六作者}{``Implicit Medical Ethical Deficits in Large Language Models: A Benchmarking and Alignment Study.'' \textit{Nature Communications} 在投；负责审稿回复阶段的主要实验。}
-\pub{[4] 已发表｜共同作者}{J. He, S. Qin, H. Zou, et al., \textbf{R. Cheng}, H. Zhang, and W. Cheng. ``CodeSafetyBench: Evaluating and Improving Ethical Safety in Large Language Model Code Generation.'' \textit{iScience}, 2026. \href{https://doi.org/10.1016/j.isci.2026.115073}{doi:10.1016/j.isci.2026.115073}.}
+\pub{[1] 已发表}{J. He, S. Qin, H. Zou, et al., \textbf{R. Cheng}, H. Zhang, and W. Cheng. ``CodeSafetyBench: Evaluating and Improving Ethical Safety in Large Language Model Code Generation.'' \textbf{\textit{iScience}}, 2026. \href{https://doi.org/10.1016/j.isci.2026.115073}{doi:10.1016/j.isci.2026.115073}.}
+\pub{[2] 已返修}{``Implicit Medical Ethical Deficits in Large Language Models: A Benchmarking and Alignment Study.'' \textbf{\textit{Nature Communications}}；负责审稿回复阶段的主要实验。}
+\pub{[3] 第一作者｜在审}{\textbf{R. Cheng et al.} ``DLEF: Dataset-Label Evidence Fingerprints for Explaining Cross-Dataset Performance in ECG Classification.'' \textbf{\textit{IEEE BIBM 2026}}.}
+\pub{[4] 第一作者｜在审}{\textbf{R. Cheng et al.} ``A Matched-Control Perturbation Audit Framework for Evaluating Evidence Use in Deep Learning Models: An Application to 12-Lead ECG Classification.'' \textbf{\textit{IEEE JBHI}}.}
+\pub{[5] 进行中}{\textbf{PathCLIP: Evidence-Aware ECG--Text Representation Learning.} 面向 ECG--文本对齐与零样本识别，设计匹配数量、层级置乱、残差单独输入与未见标签等对照。}
 
 \section{科研与工程实习}
 \project{广东省第二人民医院人工智能研究所｜大模型开发工程师实习生}{2024.11--至今}{医疗数据、知识系统与临床产品研发}{
@@ -147,10 +144,11 @@
 
 \section{技术能力}
 \begin{tabularx}{\textwidth}{@{}>{\heiti\bfseries}p{3.1cm}X@{}}
-建模 & PyTorch、XGBoost、表示学习、多模态学习、大模型微调、优化\\
+编程与框架 & Python、PyTorch、scikit-learn、TypeScript、SQL\\
+建模方法 & XGBoost、表示学习、多模态学习、大模型微调、优化\\
 大模型与知识系统 & LoRA、DPO、RAG/MQ-RAG、知识图谱、信息抽取、UMLS\\
 评估与数据整理 & RAG/检索评估、扰动分析、外部验证、模式设计\\
-工程开发 & Python、TypeScript、SQL、Neo4j、Flask、Git\\
+工程开发 & Neo4j、Next.js、Flask、Git、Docker\\
 \end{tabularx}
 
 \end{document}
