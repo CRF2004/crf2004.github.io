@@ -14,9 +14,14 @@
 \usepackage{tikz}
 
 \setmainfont{Times New Roman}
-\setCJKmainfont{SimSun}
-\setCJKsansfont{SimHei}
-\newCJKfontfamily\heiti{SimHei}
+\IfFontExistsTF{SimSun}{\setCJKmainfont{SimSun}}{\setCJKmainfont{FandolSong-Regular}}
+\IfFontExistsTF{SimHei}{
+  \setCJKsansfont{SimHei}
+  \newCJKfontfamily\heiti{SimHei}
+}{
+  \setCJKsansfont{FandolHei-Regular}
+  \newCJKfontfamily\heiti{FandolHei-Regular}
+}
 
 \newcommand*{\orcidicon}{%
   \tikz[baseline=-0.55ex]{%
@@ -88,7 +93,7 @@
 \section{已获成果与落地实践}
 \begin{itemize}
   \item \textbf{论文发表：}参与大模型代码伦理安全评测研究，成果发表于 \textbf{\textit{iScience}}（2026）。
-  \item \textbf{知识产权：}第一发明人发明专利 1 项已通过初步审查；另有 1 项第一发明人专利已提交；获软件著作权 2 项。
+  \item \textbf{知识产权：}第一发明人专利申请 2 项；软件著作权 2 项。
   \item \textbf{临床落地：}联合开发“叮呗心心”心血管健康管理平台，初版已在广东省第二人民医院部署；负责 5 人“叮呗美美”团队的全栈与临床流程开发，产品已完成医院首发。
   \item \textbf{竞赛与项目：}获“互联网+”校赛金奖、广州数学建模高校联赛二等奖、全国大学生数学建模竞赛广东赛区三等奖；连续两年获国家级大学生创新训练计划支持。
 \end{itemize}
