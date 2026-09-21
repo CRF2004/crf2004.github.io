@@ -13,7 +13,7 @@
 \usepackage{fontawesome5}
 \usepackage{tikz}
 
-\setmainfont{Times New Roman}
+\IfFontExistsTF{Times New Roman}{\setmainfont{Times New Roman}}{\setmainfont{TeX Gyre Termes}}
 \IfFontExistsTF{SimSun}{\setCJKmainfont{SimSun}}{\setCJKmainfont{FandolSong-Regular}}
 \IfFontExistsTF{SimHei}{
   \setCJKsansfont{SimHei}
@@ -138,14 +138,6 @@
 
 \project{广州云展智创信息科技有限公司｜后端与算法开发实习生}{2025.07--2026.01}{医疗数据标准化与健康管理产品}{
 面向多机构体检报告设计以 UMLS 为基础的数据模式与标准化流水线，涵盖 LLM 辅助模式演进和医学术语映射；开发 iTwins“健康领航模块”的后端工作流。}
-
-\section{专利、软件著作权与奖项}
-\begin{itemize}
-  \item \textbf{发明专利：}一种医疗问答输出保障方法、系统及电子设备；第一发明人；申请号 202610582199.6；2026.04 申请，已通过初步审查。
-  \item \textbf{发明专利：}一种基于多模态数据融合的痤疮中西医辅助评估方法及系统；第一发明人；2026.07 已提交申请，审查文件待下发。
-  \item \textbf{软件著作权：}知识图谱本体智能管理系统 V1.0（2025SR2454864）；基于大模型的心血管主动健康管理智能系统 V1.0（2025SR2080673）。
-  \item \textbf{竞赛奖项：}2025 年“互联网+”校赛金奖；2025 年第九届广州数学建模高校联赛二等奖；2025 年全国大学生数学建模竞赛广东赛区三等奖。
-\end{itemize}
 
 \section{技术能力}
 \begin{tabularx}{\textwidth}{@{}>{\heiti\bfseries}p{3.1cm}X@{}}
