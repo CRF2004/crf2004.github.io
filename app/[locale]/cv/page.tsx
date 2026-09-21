@@ -66,7 +66,7 @@ export default function CVPage({
         researchItems: [
           {
             title: "深度 ECG 模型证据使用审计",
-            meta: "研究负责人 · 2026年1月 — 至今",
+            meta: "研究负责人 · 2026年6月 — 至今",
             label: "核心问题",
             desc: "高性能 ECG 分类器是否真的依赖临床上正确的证据？我使用匹配对照扰动与冻结权重外部迁移，将目标证据敏感性与一般性脆弱区分开。",
           },
@@ -166,7 +166,7 @@ export default function CVPage({
         researchItems: [
           {
             title: "A Matched-Control Perturbation Audit Framework for Evaluating Evidence Use in Deep Learning Models: An Application to 12-Lead ECG Classification",
-            meta: "Research Lead · Jan 2026 — Present",
+            meta: "Research Lead · Jun 2026 — Present",
             label: "Question",
             desc: "Do high-performing ECG classifiers actually depend on clinically correct evidence? I use matched-control perturbations and frozen-weight external transfer to separate target-evidence sensitivity from generic model fragility.",
           },

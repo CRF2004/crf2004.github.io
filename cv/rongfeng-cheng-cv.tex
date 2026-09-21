@@ -47,7 +47,7 @@
 \vspace{-1.2em}
 
 \section{Education}
-\cventry{2023--2027}{Bachelor of Management in Big Data Management and Application}{South China University of Technology (SCUT)}{Guangzhou, China}{}{Cumulative GPA: 3.46/4.0; average score: 85.18/100 (through Semester 6).\\Selected AI coursework: Large Models and Generative AI (93/100), Large Language Models and Prompt Engineering (93/100), Machine Learning (92/100), and Deep Learning (88/100).}
+\cventry{Sep 2023--Jun 2027}{Bachelor of Management in Big Data Management and Application}{South China University of Technology (SCUT)}{Guangzhou, China}{}{Cumulative GPA: 3.46/4.0; average score: 85.18/100 (through Semester 6).\\Selected AI coursework: Large Models and Generative AI (93/100), Large Language Models and Prompt Engineering (93/100), Machine Learning (92/100), and Deep Learning (88/100).}
 
 \section{Selected Achievements \& Deployed Work}
 \cvitem{Published}{Co-authored a study on ethical safety in LLM code generation, published in \textbf{\textit{iScience}} (2026).}
@@ -57,18 +57,19 @@
 
 \section{Research Experience}
 \noindent\textit{\hospitalaffiliation}\par
-\researchentry{Jun 2026--Present}{DLEF: Explaining Why ECG Models Fail Across Hospitals}{First author; submitted to \textbf{IEEE BIBM 2026}}{\begin{itemize}
-  \item \textbf{Problem:} Aggregate performance scores show that a model degrades at a new hospital, but do not identify which diagnostic labels or evidence distributions drive the failure.
-  \item \textbf{Contribution:} Formulated the question and conducted study design, implementation, experiments, analysis, and writing; developed directional dataset-label ``evidence fingerprints.''
-  \item \textbf{Finding:} Greater fingerprint mismatch predicted larger external AUROC degradation (Spearman $r=0.843$ across 108 comparisons; $r=0.892$ after aggregation), enabling label-level transfer-risk screening.
+\researchentry{Jun 2026--Present}{DLEF: Dataset-Label Evidence Fingerprints for Explaining Cross-Dataset Performance in ECG Classification}{First author; submitted to \textbf{IEEE BIBM 2026}}{\begin{itemize}
+  \item \textbf{Problem:} Nominally identical diagnostic labels can rely on different ECG evidence across centers; standard performance metrics reveal external degradation without explaining its source.
+  \item \textbf{Method:} Proposed and led DLEF, which applies controlled perturbations along rhythm, conduction, QRS morphology, lead-specific QRS, and repolarization axes to form dataset-label fingerprints and directional source-target distances.
+  \item \textbf{Finding:} Across three public datasets and six diagnoses, DLEF distance closely tracked label-level external AUROC degradation (Spearman $r=0.843$) and outperformed prevalence, internal-performance, and embedding-shift baselines.
 \end{itemize}}
 
-\researchentry{Jun 2026--Present}{Matched-Control Perturbation Auditing: Does an ECG Model Use Clinical Evidence?}{First author; revision in progress at \textbf{IEEE JBHI}}{\begin{itemize}
-  \item \textbf{Problem:} Accurate models may rely on spurious cues, while target-only perturbations can confuse generic signal damage with genuine use of clinical evidence.
-  \item \textbf{Contribution:} Developed and led a matched-control audit covering clinically defined evidence units, perturbation operators, and frozen-weight external validation.
-  \item \textbf{Finding:} Only 6 of 15 model-diagnosis pairs were evidence-supported; matched controls or operator choice changed several conclusions, showing that strong external performance alone does not establish clinically intended evidence use.
+\researchentry{Jun 2026--Present}{A Matched-Control Perturbation Audit Framework for Evaluating Evidence Use in Deep Learning Models: An Application to 12-Lead ECG Classification}{First author; revision in progress at \textbf{IEEE JBHI}}{\begin{itemize}
+  \item \textbf{Problem:} Models can achieve strong discrimination while relying on evidence that conflicts with medical knowledge or becomes unstable under dataset shift.
+  \item \textbf{Method:} Proposed and led an audit using domain-defined evidence units and matched controls, operator comparisons, and frozen-weight external transfer to test whether target effects exceed the strongest control and remain stable across datasets.
+  \item \textbf{Finding:} Matched controls overturned the target-only 1AVB conclusion, operator choice changed AFIB and CRBBB verdicts, and external transfer exposed unstable evidence dependence; claims were classified as credible, limited, or unsupported.
 \end{itemize}}
 
+\newpage
 \section{Internship \& Product Leadership}
 \cventry{Nov 2024--Present}{LLM Development Engineer Intern}{AI Research Institute, Guangdong Second Provincial General Hospital}{}{}{\begin{itemize}
   \item Developed a standardized-patient Q\&A pipeline from approximately 8,000 cardiovascular case PDFs, covering LLM-based information extraction, entity disambiguation, Neo4j knowledge representation, and hybrid retrieval.
@@ -76,7 +77,6 @@
   \item Led full-stack and clinical-workflow development for the five-person Dingbei Meimei acne and facial-health assessment team; supported its initial release when the hospital's Refractory Acne Diagnosis and Treatment Center opened in July 2026.
 \end{itemize}}
 
-\newpage
 \cventry{Jul 2025--Jan 2026}{Backend \& Algorithm Development Intern}{Guangzhou Yunzhan Zhichuang Information Technology Co., Ltd.}{}{}{\begin{itemize}
   \item Designed a UMLS-grounded schema and normalization pipeline for heterogeneous health-examination data extracted from multi-institutional reports, including LLM-assisted schema evolution and terminology mapping.
   \item Developed backend workflow logic for the Health Navigation Plan within the company's iTwins product.

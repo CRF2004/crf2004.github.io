@@ -30,7 +30,7 @@
   "about": {
     "title": "About Me",
     "bio_p1": "I am an undergraduate at South China University of Technology (SCUT), majoring in Big Data Management and Application. My current research focuses on trustworthy medical AI, especially how ECG models use clinical evidence, how their behavior changes across datasets, and how physiological signals can be aligned with language.",
-    "bio_p2": "Since January 2026, I have led a line of ECG research spanning matched-control evidence-use auditing, dataset-label evidence fingerprints, and knowledge-aware ECG–text representation learning. One first-author manuscript is in revision at IEEE JBHI, and another is under review at BIBM 2026.",
+    "bio_p2": "Since June 2026, I have led a line of ECG research spanning matched-control evidence-use auditing, dataset-label evidence fingerprints, and knowledge-aware ECG–text representation learning. One first-author manuscript is in revision at IEEE JBHI, and another is under review at BIBM 2026.",
     "bio_p3": "I also work at the AI Research Institute of Guangdong No. 2 Provincial People's Hospital, where I have contributed to medical LLMs, cardiovascular knowledge representation, clinical question answering, and deployable health-AI prototypes. Earlier projects include a standardized-patient system built from about 8,000 clinical cases and a myocardial-ischemia knowledge graph with interpretable machine-learning components.",
     "research_interests": "Research Interests",
     "ri_1": "Trustworthy and interpretable medical AI",
@@ -150,7 +150,7 @@
     "courses_list": "Python Data Analysis, Data Structures & Algorithms, Deep Learning, Optimization Methods, Mathematical Modeling, Big Data System Planning, Data Governance",
     "research_experience": "Research Experience",
     "re_ecg_title": "Evidence-Use Auditing for Deep ECG Models",
-    "re_ecg_meta": "Research Lead · Jan 2026 — Present",
+    "re_ecg_meta": "Research Lead · Jun 2026 — Present",
     "re_ecg_desc": "Designed a matched-control perturbation audit for clinically grounded evidence use across ECG datasets and model architectures.",
     "re_dlef_title": "DLEF: Dataset-Label Evidence Fingerprints",
     "re_dlef_meta": "Research Lead · Jun 2026 — Present",
