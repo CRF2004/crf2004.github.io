@@ -30,7 +30,7 @@
   "about": {
     "title": "关于我",
     "bio_p1": "我是华南理工大学大数据管理与应用专业本科生。目前主要研究可信医疗AI，尤其关注ECG模型如何使用临床证据、模型行为如何随数据集变化，以及生理信号如何与语言进行可靠对齐。",
-    "bio_p2": "自2026年1月起，我围绕ECG开展了一条连续研究线，包括匹配对照证据使用审计、数据集—标签证据指纹，以及知识增强的ECG—文本表征学习。目前有两篇第一作者论文分别在IEEE JBHI和BIBM 2026审稿中。",
+    "bio_p2": "自2026年1月起，我围绕ECG开展了一条连续研究线，包括匹配对照证据使用审计、数据集—标签证据指纹，以及知识增强的ECG—文本表征学习。目前一篇第一作者论文在IEEE JBHI返修中，另一篇在BIBM 2026审稿中。",
     "bio_p3": "我也在广东省第二人民医院人工智能研究所参与医学大模型、心血管知识表示、临床问答与医疗AI产品研究。此前工作包括基于约8000份临床病例构建标准化病人问答系统，以及包含可解释机器学习模块的心肌缺血知识图谱。",
     "research_interests": "研究方向",
     "ri_1": "可信与可解释医疗AI",
@@ -60,9 +60,9 @@
     "ecg_audit": {
       "title": "深度ECG模型证据使用审计",
       "role": "研究负责人 · 第一作者",
-      "period": "2026年1月21日 — 至今",
+      "period": "2026年6月 — 至今",
       "desc_1": "提出匹配对照扰动框架，用于审计深度ECG分类模型是否真正依赖临床相关证据，而非任务相关的数据捷径。",
-      "desc_2": "在PTB-XL与CODE-15%上开展跨数据集、跨架构、跨扰动剂量和临床证据窗口验证；论文在IEEE JBHI审稿中。"
+      "desc_2": "在PTB-XL与CODE-15%上开展跨数据集、跨架构、跨扰动剂量和临床证据窗口验证；论文在IEEE JBHI返修中。"
     },
     "dlef": {
       "title": "DLEF：数据集—标签证据指纹",
@@ -116,7 +116,7 @@
     "ongoing_collaborations": "进行中的合作研究",
     "research_lead_role": "研究负责人",
     "jbhi_title": "A Matched-Control Perturbation Audit Framework for Evaluating Evidence Use in Deep Learning Models: An Application to 12-Lead ECG Classification",
-    "jbhi_venue": "IEEE Journal of Biomedical and Health Informatics（JBHI）审稿中",
+    "jbhi_venue": "IEEE Journal of Biomedical and Health Informatics（JBHI）返修中",
     "jbhi_desc": "通过匹配对照扰动审计深度ECG模型是否依赖临床相关证据，以及这种依赖能否跨数据集保持稳定。",
     "bibm_title": "DLEF: Dataset-Label Evidence Fingerprints for Explaining Cross-Dataset Performance in ECG Classification",
     "bibm_venue": "IEEE BIBM 2026审稿中",
@@ -162,7 +162,7 @@
     "pub_under_review": "审稿中",
     "pub_first_author": "第一作者",
     "pub_jbhi_title": "A Matched-Control Perturbation Audit Framework for Evaluating Evidence Use in Deep Learning Models: An Application to 12-Lead ECG Classification",
-    "pub_jbhi_venue": "IEEE Journal of Biomedical and Health Informatics（JBHI）审稿中",
+    "pub_jbhi_venue": "IEEE Journal of Biomedical and Health Informatics（JBHI）返修中",
     "pub_jbhi_desc": "对12导联ECG分类中的临床相关证据使用及其跨数据集稳定性进行匹配对照扰动审计。",
     "pub_bibm_title": "DLEF: Dataset-Label Evidence Fingerprints for Explaining Cross-Dataset Performance in ECG Classification",
     "pub_bibm_venue": "IEEE BIBM 2026审稿中",

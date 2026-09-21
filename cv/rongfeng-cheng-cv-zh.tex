@@ -94,19 +94,19 @@
 \begin{itemize}
   \item \textbf{论文发表：}参与大模型代码伦理安全评测研究，成果发表于 \textbf{\textit{iScience}}（2026）。
   \item \textbf{知识产权：}第一发明人专利申请 2 项；软件著作权 2 项。
-  \item \textbf{临床落地：}联合开发“叮呗心心”心血管健康管理平台，初版已在广东省第二人民医院部署；负责 5 人“叮呗美美”团队的全栈与临床流程开发，产品已完成医院首发。
-  \item \textbf{竞赛与项目：}获“互联网+”校赛金奖、广州数学建模高校联赛二等奖、全国大学生数学建模竞赛广东赛区三等奖；连续两年获国家级大学生创新训练计划支持。
+  \item \textbf{临床落地：}联合开发“叮呗心心”心血管健康管理平台，初版已在广东省第二人民医院部署；负责 5 人“叮呗美美”团队的全栈与临床流程开发，产品已完成医院首发；负责健康管理产品数据层研发，构建多源体检数据的标准化模式、字段治理与医学术语映射流程。
+  \item \textbf{竞赛与项目：}获“互联网+”校赛金奖、广州数学建模高校联赛二等奖、全国大学生数学建模竞赛广东赛区三等奖；连续两年获国家级大学生创新训练计划支持；华南理工大学 SRP 学生科研训练项目（负责人）已结项。
 \end{itemize}
 
 \section{核心科研经历}
 \project{DLEF: Dataset-Label Evidence Fingerprints for Explaining Cross-Dataset Performance in ECG Classification}{2026.06--至今}{第一作者｜指导：张浩彬、程伟彬｜投稿 \textbf{IEEE BIBM 2026}}{
 \begin{itemize}
   \item \textbf{问题：}不同中心虽使用相同诊断标签，模型区分阳性与阴性病例所依赖的心电证据仍可能改变；常用性能指标只能显示外部性能下降，难以解释原因。
-  \item \textbf{方法：}提出并主导 DLEF 框架：沿节律、传导、QRS 形态、导联特异性 QRS 与复极等证据轴施加受控扰动，以标准化正负贡献差构建数据集--标签指纹，并用方向性距离衡量源端判别证据在目标数据中的保留程度。
+  \item \textbf{方法：}提出 DLEF 框架：沿节律、传导、QRS 形态、导联特异性 QRS 与复极等证据轴施加受控扰动，以标准化正负贡献差构建数据集--标签指纹，并用方向性距离衡量源端判别证据在目标数据中的保留程度。
   \item \textbf{结果：}在三个公开数据集、六个诊断标签上，DLEF 距离与标签级外部 AUROC 下降密切相关（Spearman $r=0.843$），且优于患病率差异、内部性能与嵌入分布等基线，可在部署前定位高风险标签与迁移方向。
 \end{itemize}}
 
-\project{A Matched-Control Perturbation Audit Framework for Evaluating Evidence Use in Deep Learning Models: An Application to 12-Lead ECG Classification}{2026.01--至今}{第一作者｜指导：张浩彬、程伟彬｜投稿 \textbf{IEEE JBHI}}{
+\project{A Matched-Control Perturbation Audit Framework for Evaluating Evidence Use in Deep Learning Models: An Application to 12-Lead ECG Classification}{2026.06--至今}{第一作者｜指导：张浩彬、程伟彬｜\textbf{IEEE JBHI} 返修中}{
 \begin{itemize}
   \item \textbf{问题：}模型即使依赖不符合医学知识、或在数据集偏移下不稳定的证据，仍可能获得较高判别性能，因此需要直接审计预测是否由领域相关证据支撑。
   \item \textbf{方法：}提出并主导匹配对照扰动审计：用领域知识定义目标证据及匹配对照，要求目标效应超过最强对照，同时比较扰动算子，并通过冻结权重外部迁移检验证据使用的跨数据集稳定性。
@@ -125,7 +125,7 @@
 \pub{[1] 已发表}{J. He, S. Qin, H. Zou, et al., \textbf{R. Cheng}, H. Zhang, and W. Cheng. ``CodeSafetyBench: Evaluating and Improving Ethical Safety in Large Language Model Code Generation.'' \textbf{\textit{iScience}}, 2026. \href{https://doi.org/10.1016/j.isci.2026.115073}{doi:10.1016/j.isci.2026.115073}.}
 \pub{[2] 已返修}{``Implicit Medical Ethical Deficits in Large Language Models: A Benchmarking and Alignment Study.'' \textbf{\textit{Nature Communications}}；负责审稿回复阶段的主要实验。}
 \pub{[3] 第一作者｜在审}{\textbf{R. Cheng et al.} ``DLEF: Dataset-Label Evidence Fingerprints for Explaining Cross-Dataset Performance in ECG Classification.'' \textbf{\textit{IEEE BIBM 2026}}.}
-\pub{[4] 第一作者｜在审}{\textbf{R. Cheng et al.} ``A Matched-Control Perturbation Audit Framework for Evaluating Evidence Use in Deep Learning Models: An Application to 12-Lead ECG Classification.'' \textbf{\textit{IEEE JBHI}}.}
+\pub{[4] 第一作者｜返修中}{\textbf{R. Cheng et al.} ``A Matched-Control Perturbation Audit Framework for Evaluating Evidence Use in Deep Learning Models: An Application to 12-Lead ECG Classification.'' \textbf{\textit{IEEE JBHI}}.}
 \pub{[5] 进行中}{\textbf{PathCLIP: Evidence-Aware ECG--Text Representation Learning.} 面向 ECG--文本对齐与零样本识别，设计匹配数量、层级置乱、残差单独输入与未见标签等对照。}
 
 \section{科研与工程实习}

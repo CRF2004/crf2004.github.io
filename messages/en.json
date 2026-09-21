@@ -30,7 +30,7 @@
   "about": {
     "title": "About Me",
     "bio_p1": "I am an undergraduate at South China University of Technology (SCUT), majoring in Big Data Management and Application. My current research focuses on trustworthy medical AI, especially how ECG models use clinical evidence, how their behavior changes across datasets, and how physiological signals can be aligned with language.",
-    "bio_p2": "Since January 2026, I have led a line of ECG research spanning matched-control evidence-use auditing, dataset-label evidence fingerprints, and knowledge-aware ECG–text representation learning. Two first-author manuscripts are currently under review at IEEE JBHI and BIBM 2026.",
+    "bio_p2": "Since January 2026, I have led a line of ECG research spanning matched-control evidence-use auditing, dataset-label evidence fingerprints, and knowledge-aware ECG–text representation learning. One first-author manuscript is in revision at IEEE JBHI, and another is under review at BIBM 2026.",
     "bio_p3": "I also work at the AI Research Institute of Guangdong No. 2 Provincial People's Hospital, where I have contributed to medical LLMs, cardiovascular knowledge representation, clinical question answering, and deployable health-AI prototypes. Earlier projects include a standardized-patient system built from about 8,000 clinical cases and a myocardial-ischemia knowledge graph with interpretable machine-learning components.",
     "research_interests": "Research Interests",
     "ri_1": "Trustworthy and interpretable medical AI",
@@ -60,9 +60,9 @@
     "ecg_audit": {
       "title": "Evidence-Use Auditing for Deep ECG Models",
       "role": "Research Lead · First Author",
-      "period": "Jan 21, 2026 — Present",
+      "period": "Jun 2026 — Present",
       "desc_1": "Developed a matched-control perturbation framework to audit whether deep ECG classifiers rely on clinically relevant evidence rather than task-correlated shortcuts.",
-      "desc_2": "Evaluated evidence use across PTB-XL and CODE-15%, multiple architectures, perturbation doses, and clinically defined evidence windows; manuscript under review at IEEE JBHI."
+      "desc_2": "Evaluated evidence use across PTB-XL and CODE-15%, multiple architectures, perturbation doses, and clinically defined evidence windows; manuscript in revision at IEEE JBHI."
     },
     "dlef": {
       "title": "DLEF: Dataset-Label Evidence Fingerprints",
@@ -116,7 +116,7 @@
     "ongoing_collaborations": "Ongoing Collaborative Research",
     "research_lead_role": "Research Lead",
     "jbhi_title": "A Matched-Control Perturbation Audit Framework for Evaluating Evidence Use in Deep Learning Models: An Application to 12-Lead ECG Classification",
-    "jbhi_venue": "Under review at IEEE Journal of Biomedical and Health Informatics (JBHI)",
+    "jbhi_venue": "Revision in progress at IEEE Journal of Biomedical and Health Informatics (JBHI)",
     "jbhi_desc": "A matched-control perturbation audit for testing whether deep ECG models depend on clinically relevant evidence and whether that dependence remains stable across datasets.",
     "bibm_title": "DLEF: Dataset-Label Evidence Fingerprints for Explaining Cross-Dataset Performance in ECG Classification",
     "bibm_venue": "Under review at IEEE BIBM 2026",
@@ -162,7 +162,7 @@
     "pub_under_review": "Under Review",
     "pub_first_author": "First Author",
     "pub_jbhi_title": "A Matched-Control Perturbation Audit Framework for Evaluating Evidence Use in Deep Learning Models: An Application to 12-Lead ECG Classification",
-    "pub_jbhi_venue": "Under review at IEEE Journal of Biomedical and Health Informatics (JBHI)",
+    "pub_jbhi_venue": "Revision in progress at IEEE Journal of Biomedical and Health Informatics (JBHI)",
     "pub_jbhi_desc": "Matched-control perturbation audit of clinically relevant evidence use and cross-dataset stability in 12-lead ECG classification.",
     "pub_bibm_title": "DLEF: Dataset-Label Evidence Fingerprints for Explaining Cross-Dataset Performance in ECG Classification",
     "pub_bibm_venue": "Under review at IEEE BIBM 2026",
