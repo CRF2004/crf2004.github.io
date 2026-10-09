@@ -225,14 +225,14 @@ export default function CVPage({
 
   const firstAuthorPapers = [
     {
-      title: t("pub_bibm_title"),
-      venue: t("pub_bibm_venue"),
-      desc: t("pub_bibm_desc"),
-    },
-    {
       title: t("pub_jbhi_title"),
       venue: t("pub_jbhi_venue"),
       desc: t("pub_jbhi_desc"),
+    },
+    {
+      title: t("pub_bibm_title"),
+      venue: t("pub_bibm_venue"),
+      desc: t("pub_bibm_desc"),
     },
   ];
 

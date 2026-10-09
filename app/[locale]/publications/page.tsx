@@ -29,16 +29,16 @@ export default function PublicationsPage({
 
   const firstAuthorWorks = [
     {
-      status: t("in_preparation"),
-      title: t("bibm_title"),
-      venue: t("bibm_venue"),
-      description: t("bibm_desc"),
-    },
-    {
       status: t("under_review"),
       title: t("jbhi_title"),
       venue: t("jbhi_venue"),
       description: t("jbhi_desc"),
+    },
+    {
+      status: t("in_preparation"),
+      title: t("bibm_title"),
+      venue: t("bibm_venue"),
+      description: t("bibm_desc"),
     },
   ];
 

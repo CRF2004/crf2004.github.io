@@ -57,16 +57,16 @@
 
 \section{Research Experience}
 \noindent\textit{\hospitalaffiliation}\par
-\researchentry{Jun 2026--Present}{DLEF: Dataset-Label Evidence Fingerprints for Explaining Cross-Dataset Performance in ECG Classification}{First author; Manuscript in Preparation}{\begin{itemize}
-  \item \textbf{Problem:} Nominally identical diagnostic labels can rely on different ECG evidence across centers; standard performance metrics reveal external degradation without explaining its source.
-  \item \textbf{Method:} Proposed and led DLEF, which applies controlled perturbations along rhythm, conduction, QRS morphology, lead-specific QRS, and repolarization axes to form dataset-label fingerprints and directional source-target distances.
-  \item \textbf{Finding:} Across three public datasets and six diagnoses, DLEF distance closely tracked label-level external AUROC degradation (Spearman $r=0.843$) and outperformed prevalence, internal-performance, and embedding-shift baselines.
-\end{itemize}}
-
 \researchentry{Jun 2026--Present}{A Matched-Control Perturbation Audit Framework for Evaluating Evidence Use in Deep Learning Models: An Application to 12-Lead ECG Classification}{First author; revision in progress at \textbf{IEEE JBHI}}{\begin{itemize}
   \item \textbf{Problem:} Models can achieve strong discrimination while relying on evidence that conflicts with medical knowledge or becomes unstable under dataset shift.
   \item \textbf{Method:} Proposed and led an audit using domain-defined evidence units and matched controls, operator comparisons, and frozen-weight external transfer to test whether target effects exceed the strongest control and remain stable across datasets.
   \item \textbf{Finding:} Matched controls overturned the target-only 1AVB conclusion, operator choice changed AFIB and CRBBB verdicts, and external transfer exposed unstable evidence dependence; claims were classified as credible, limited, or unsupported.
+\end{itemize}}
+
+\researchentry{Jun 2026--Present}{DLEF: Dataset-Label Evidence Fingerprints for Explaining Cross-Dataset Performance in ECG Classification}{First author; Manuscript in Preparation}{\begin{itemize}
+  \item \textbf{Problem:} Nominally identical diagnostic labels can rely on different ECG evidence across centers; standard performance metrics reveal external degradation without explaining its source.
+  \item \textbf{Method:} Proposed and led DLEF, which applies controlled perturbations along rhythm, conduction, QRS morphology, lead-specific QRS, and repolarization axes to form dataset-label fingerprints and directional source-target distances.
+  \item \textbf{Finding:} Across three public datasets and six diagnoses, DLEF distance closely tracked label-level external AUROC degradation (Spearman $r=0.843$) and outperformed prevalence, internal-performance, and embedding-shift baselines.
 \end{itemize}}
 
 \newpage
@@ -94,8 +94,8 @@
 \section{Publications \& Manuscripts}
 \cvitem{Published [1]}{J. He, S. Qin, H. Zou, et al., \textbf{R. Cheng}, H. Zhang, and W. Cheng. ``CodeSafetyBench: Evaluating and Improving Ethical Safety in Large Language Model Code Generation.'' \textbf{\textit{iScience}}, 2026. \href{https://doi.org/10.1016/j.isci.2026.115073}{doi:10.1016/j.isci.2026.115073}.}
 \cvitem{Revised [2]}{``Implicit Medical Ethical Deficits in Large Language Models: A Benchmarking and Alignment Study.'' \textbf{\textit{Nature Communications}}; led the revision-stage experiments for the response to reviewers.}
-\cvitem{In Preparation [3]}{\textbf{R. Cheng et al.} ``DLEF: Dataset-Label Evidence Fingerprints for Explaining Cross-Dataset Performance in ECG Classification.'' \textit{Manuscript in Preparation}. First author.}
-\cvitem{Revision in Progress [4]}{\textbf{R. Cheng et al.} ``A Matched-Control Perturbation Audit Framework for Evaluating Evidence Use in Deep Learning Models: An Application to 12-Lead ECG Classification.'' \textbf{\textit{IEEE JBHI}}. First author.}
+\cvitem{Revision in Progress [3]}{\textbf{R. Cheng et al.} ``A Matched-Control Perturbation Audit Framework for Evaluating Evidence Use in Deep Learning Models: An Application to 12-Lead ECG Classification.'' \textbf{\textit{IEEE JBHI}}. First author.}
+\cvitem{In Preparation [4]}{\textbf{R. Cheng et al.} ``DLEF: Dataset-Label Evidence Fingerprints for Explaining Cross-Dataset Performance in ECG Classification.'' \textit{Manuscript in Preparation}. First author.}
 \cvitem{Ongoing}{\textbf{PathCLIP: Evidence-Aware ECG--Text Representation Learning.} ECG--text alignment and zero-shot recognition with matched-count, permuted-hierarchy, residual-only, and held-out-label controls.}
 
 % Keep the Skills taxonomy aligned with the web CV.
