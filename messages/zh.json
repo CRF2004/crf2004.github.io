@@ -19,7 +19,7 @@
     "currently": "近期工作",
     "current": {
       "revision": { "title": "Nature Communications 大修", "detail": "第六作者，主导大修阶段实验。" },
-      "review": { "title": "两篇第一作者论文在审", "detail": "围绕证据使用审计与 ECG 跨数据集评估。" },
+      "review": { "title": "第一作者论文：返修与准备中", "detail": "证据使用审计论文在 IEEE JBHI 返修中；DLEF 手稿准备中。" },
       "ongoing": { "title": "ECG—语言表征学习", "detail": "研究证据 grounding 与严格对照下的多模态评估。" }
     },
     "work_label": "代表性工作",
@@ -30,7 +30,7 @@
   "about": {
     "title": "关于我",
     "bio_p1": "我是华南理工大学大数据管理与应用专业本科生。目前主要研究可信医疗AI，尤其关注ECG模型如何使用临床证据、模型行为如何随数据集变化，以及生理信号如何与语言进行可靠对齐。",
-    "bio_p2": "自2026年6月起，我围绕ECG开展了一条连续研究线，包括匹配对照证据使用审计、数据集—标签证据指纹，以及知识增强的ECG—文本表征学习。目前一篇第一作者论文在IEEE JBHI返修中，另一篇在BIBM 2026审稿中。",
+    "bio_p2": "自2026年6月起，我围绕ECG开展了一条连续研究线，包括匹配对照证据使用审计、数据集—标签证据指纹，以及知识增强的ECG—文本表征学习。目前一篇第一作者论文在IEEE JBHI返修中，另一篇手稿准备中（Manuscript in Preparation）。",
     "bio_p3": "我也在广东省第二人民医院人工智能研究所参与医学大模型、心血管知识表示、临床问答与医疗AI产品研究。此前工作包括基于约8000份临床病例构建标准化病人问答系统，以及包含可解释机器学习模块的心肌缺血知识图谱。",
     "research_interests": "研究方向",
     "ri_1": "可信与可解释医疗AI",
@@ -69,7 +69,7 @@
       "role": "研究负责人 · 第一作者",
       "period": "2026年6月28日 — 至今",
       "desc_1": "提出数据集—标签证据指纹，用于刻画不同ECG数据集与诊断标签的证据结构差异。",
-      "desc_2": "在CODE-15%、PTB-XL与Chapman-Shaoxing上研究方向性、边界感知指纹能否解释跨数据集AUROC下降；论文在BIBM 2026审稿中。"
+      "desc_2": "在CODE-15%、PTB-XL与Chapman-Shaoxing上研究方向性、边界感知指纹能否解释跨数据集AUROC下降；手稿准备中（Manuscript in Preparation）。"
     },
     "pathclip": {
       "title": "PathCLIP：知识增强ECG—文本表征学习",
@@ -111,6 +111,7 @@
     "first_author": "第一作者工作",
     "selected_coauthored": "部分合作论文",
     "under_review": "审稿中",
+    "in_preparation": "手稿准备中（Manuscript in Preparation）",
     "ongoing": "进行中",
     "first_author_role": "第一作者",
     "ongoing_collaborations": "进行中的合作研究",
@@ -119,7 +120,7 @@
     "jbhi_venue": "IEEE Journal of Biomedical and Health Informatics（JBHI）返修中",
     "jbhi_desc": "通过匹配对照扰动审计深度ECG模型是否依赖临床相关证据，以及这种依赖能否跨数据集保持稳定。",
     "bibm_title": "DLEF: Dataset-Label Evidence Fingerprints for Explaining Cross-Dataset Performance in ECG Classification",
-    "bibm_venue": "IEEE BIBM 2026审稿中",
+    "bibm_venue": "手稿准备中（Manuscript in Preparation）",
     "bibm_desc": "以数据集—标签证据指纹刻画并解释ECG分类中的跨数据集性能下降。",
     "pathclip_title": "PathCLIP: Knowledge-Aware ECG–Text Representation Learning",
     "pathclip_venue": "研究项目，始于2026年7月",
@@ -165,7 +166,7 @@
     "pub_jbhi_venue": "IEEE Journal of Biomedical and Health Informatics（JBHI）返修中",
     "pub_jbhi_desc": "对12导联ECG分类中的临床相关证据使用及其跨数据集稳定性进行匹配对照扰动审计。",
     "pub_bibm_title": "DLEF: Dataset-Label Evidence Fingerprints for Explaining Cross-Dataset Performance in ECG Classification",
-    "pub_bibm_venue": "IEEE BIBM 2026审稿中",
+    "pub_bibm_venue": "手稿准备中（Manuscript in Preparation）",
     "pub_bibm_desc": "通过证据指纹刻画并解释不同ECG数据集和标签之间的性能迁移差异。",
     "coauthored": "部分合作论文",
     "coauth_1": "CodeSafetyBench: Evaluating and Improving Ethical Safety in Large Language Model Code Generation — iScience, 2026",

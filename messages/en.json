@@ -19,7 +19,7 @@
     "currently": "Currently",
     "current": {
       "revision": { "title": "Nature Communications major revision", "detail": "Leading the revision-stage experiments as sixth author." },
-      "review": { "title": "Two first-author manuscripts under review", "detail": "Evidence-use auditing and cross-dataset ECG evaluation." },
+      "review": { "title": "First-author work: revision and preparation", "detail": "Evidence-use audit in revision at IEEE JBHI; DLEF manuscript in preparation." },
       "ongoing": { "title": "ECG–language representation learning", "detail": "Studying evidence grounding and controlled multimodal evaluation." }
     },
     "work_label": "Selected work",
@@ -30,7 +30,7 @@
   "about": {
     "title": "About Me",
     "bio_p1": "I am an undergraduate at South China University of Technology (SCUT), majoring in Big Data Management and Application. My current research focuses on trustworthy medical AI, especially how ECG models use clinical evidence, how their behavior changes across datasets, and how physiological signals can be aligned with language.",
-    "bio_p2": "Since June 2026, I have led a line of ECG research spanning matched-control evidence-use auditing, dataset-label evidence fingerprints, and knowledge-aware ECG–text representation learning. One first-author manuscript is in revision at IEEE JBHI, and another is under review at BIBM 2026.",
+    "bio_p2": "Since June 2026, I have led a line of ECG research spanning matched-control evidence-use auditing, dataset-label evidence fingerprints, and knowledge-aware ECG–text representation learning. One first-author manuscript is in revision at IEEE JBHI, and another is in preparation.",
     "bio_p3": "I also work at the AI Research Institute of Guangdong No. 2 Provincial People's Hospital, where I have contributed to medical LLMs, cardiovascular knowledge representation, clinical question answering, and deployable health-AI prototypes. Earlier projects include a standardized-patient system built from about 8,000 clinical cases and a myocardial-ischemia knowledge graph with interpretable machine-learning components.",
     "research_interests": "Research Interests",
     "ri_1": "Trustworthy and interpretable medical AI",
@@ -69,7 +69,7 @@
       "role": "Research Lead · First Author",
       "period": "Jun 28, 2026 — Present",
       "desc_1": "Proposed dataset-label evidence fingerprints to characterize how ECG evidence structure differs across datasets and diagnostic labels.",
-      "desc_2": "Studied whether directional, boundary-aware fingerprints explain cross-dataset AUROC degradation across CODE-15%, PTB-XL, and Chapman-Shaoxing; manuscript under review at BIBM 2026."
+      "desc_2": "Studied whether directional, boundary-aware fingerprints explain cross-dataset AUROC degradation across CODE-15%, PTB-XL, and Chapman-Shaoxing; Manuscript in Preparation."
     },
     "pathclip": {
       "title": "PathCLIP: Knowledge-Aware ECG–Text Representation Learning",
@@ -111,6 +111,7 @@
     "first_author": "First-Author Work",
     "selected_coauthored": "Selected Co-Authored Publications",
     "under_review": "Under Review",
+    "in_preparation": "Manuscript in Preparation",
     "ongoing": "Ongoing Research",
     "first_author_role": "First Author",
     "ongoing_collaborations": "Ongoing Collaborative Research",
@@ -119,7 +120,7 @@
     "jbhi_venue": "Revision in progress at IEEE Journal of Biomedical and Health Informatics (JBHI)",
     "jbhi_desc": "A matched-control perturbation audit for testing whether deep ECG models depend on clinically relevant evidence and whether that dependence remains stable across datasets.",
     "bibm_title": "DLEF: Dataset-Label Evidence Fingerprints for Explaining Cross-Dataset Performance in ECG Classification",
-    "bibm_venue": "Under review at IEEE BIBM 2026",
+    "bibm_venue": "Manuscript in Preparation",
     "bibm_desc": "A dataset-label evidence fingerprint framework for characterizing and explaining cross-dataset performance degradation in ECG classification.",
     "pathclip_title": "PathCLIP: Knowledge-Aware ECG–Text Representation Learning",
     "pathclip_venue": "Research project, started July 2026",
@@ -165,7 +166,7 @@
     "pub_jbhi_venue": "Revision in progress at IEEE Journal of Biomedical and Health Informatics (JBHI)",
     "pub_jbhi_desc": "Matched-control perturbation audit of clinically relevant evidence use and cross-dataset stability in 12-lead ECG classification.",
     "pub_bibm_title": "DLEF: Dataset-Label Evidence Fingerprints for Explaining Cross-Dataset Performance in ECG Classification",
-    "pub_bibm_venue": "Under review at IEEE BIBM 2026",
+    "pub_bibm_venue": "Manuscript in Preparation",
     "pub_bibm_desc": "Evidence fingerprints for characterizing and explaining cross-dataset performance degradation across ECG datasets and labels.",
     "coauthored": "Selected Co-Authored Publications",
     "coauth_1": "CodeSafetyBench: Evaluating and Improving Ethical Safety in Large Language Model Code Generation — iScience, 2026",
