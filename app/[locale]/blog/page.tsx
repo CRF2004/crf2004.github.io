@@ -17,6 +17,19 @@ interface BlogPost {
 
 const posts: BlogPost[] = [
   {
+    slug: "reviewing-a-rebuttal-with-ai",
+    title: {
+      en: "A Prompt for Reviewing a Rebuttal from the Reviewer's Perspective",
+      zh: "一个返修 Prompt：站在审稿人的位置检查回复",
+    },
+    date: "2026-10-30",
+    excerpt: {
+      en: "A short note on using AI to check whether a response letter answers the real concern, presents evidence in a useful order, and explains corrections with the right emphasis. Includes a reusable prompt.",
+      zh: "让 AI 先理解初稿与审稿意见，再检查回复是否答到问题、证据是否一致，以及信息顺序和解释分寸是否合适。附可复用的 prompt。",
+    },
+    readTime: 4,
+  },
+  {
     slug: "parameters-or-retrieval",
     title: {
       en: "Parameters or Retrieval? When to Compress Data Into a Model vs. Use It as External Memory",

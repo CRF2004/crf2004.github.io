@@ -4,6 +4,7 @@ import Link from "next/link";
 import { routing } from "@/lib/routing";
 import type { Metadata } from "next";
 import GiscusComments from "@/components/GiscusComments";
+import RebuttalNote from "@/components/RebuttalNote";
 
 interface Props {
   params: Promise<{ locale: string; slug: string }>;
@@ -11,6 +12,7 @@ interface Props {
 
 export function generateStaticParams() {
   const slugs = [
+    "reviewing-a-rebuttal-with-ai",
     "medical-ai-beyond-auc",
     "why-interpretable-medical-ai",
     "kg-llm-hospital-lessons",
@@ -34,6 +36,17 @@ const posts: Record<
     content: { en: React.ReactNode; zh: React.ReactNode };
   }
 > = {
+  "reviewing-a-rebuttal-with-ai": {
+    title: {
+      en: "A Prompt for Reviewing a Rebuttal from the Reviewer's Perspective",
+      zh: "一个返修 Prompt：站在审稿人的位置检查回复",
+    },
+    date: "2026-10-30",
+    content: {
+      en: <RebuttalNote locale="en" />,
+      zh: <RebuttalNote locale="zh" />,
+    },
+  },
   "medical-ai-beyond-auc": {
     title: {
       en: "Why Medical AI Can't Just Look at AUC",
