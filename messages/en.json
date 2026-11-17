@@ -138,7 +138,7 @@
     "software_status": "Registered",
     "software_desc": "A web-based collaborative platform for knowledge graph ontology management, developed as part of the SRP student research project.",
     "coauth_lancet": "A multimodal large language model for sexually transmitted disease diagnosis, reasoning, and patient-centred consultation — The Lancet Digital Health; under review; co-author",
-    "coauth_calibration": "PTB-XL-Cal: A Calibration Benchmark for Multi-Label ECG Classification, with a Prevalence-Associated Failure Mode — IEEE JBHI; under review; co-first author (listed second)",
+    "coauth_calibration": "PTB-XL-Cal: A Calibration Benchmark for Multi-Label ECG Classification, with a Prevalence-Associated Failure Mode — IEEE JBHI; under review; co-first author",
     "coauth_phipatch": "PHIPATCH: Localized Spectral Phase and Phase-Coherent Attention for Time-Series Forecasting — ICASSP; submitted; second author",
     "coauth_cag": "Artificial Intelligence Applications in X-ray Coronary Angiography: A Comprehensive Review of Image Analysis Techniques — ACM HNNDL, 2026; published; third author",
     "coauth_echo": "Artificial Intelligence for Echocardiographic Assessment of Pulmonary Hypertension and Right Heart Function: Advances in Intelligent Diagnosis and Risk Stratification — ACM HNNDL, 2026; published; third author",
@@ -196,7 +196,7 @@
     "cet6": "CET-6: 528",
     "ielts": "IELTS: 6.5",
     "coauth_lancet": "A multimodal large language model for sexually transmitted disease diagnosis, reasoning, and patient-centred consultation — The Lancet Digital Health; under review; co-author",
-    "coauth_calibration": "PTB-XL-Cal: A Calibration Benchmark for Multi-Label ECG Classification, with a Prevalence-Associated Failure Mode — IEEE JBHI; under review; co-first author (listed second)",
+    "coauth_calibration": "PTB-XL-Cal: A Calibration Benchmark for Multi-Label ECG Classification, with a Prevalence-Associated Failure Mode — IEEE JBHI; under review; co-first author",
     "coauth_phipatch": "PHIPATCH: Localized Spectral Phase and Phase-Coherent Attention for Time-Series Forecasting — ICASSP; submitted; second author",
     "coauth_cag": "Artificial Intelligence Applications in X-ray Coronary Angiography: A Comprehensive Review of Image Analysis Techniques — ACM HNNDL, 2026; published; third author",
     "coauth_echo": "Artificial Intelligence for Echocardiographic Assessment of Pulmonary Hypertension and Right Heart Function: Advances in Intelligent Diagnosis and Risk Stratification — ACM HNNDL, 2026; published; third author"
