@@ -42,6 +42,7 @@
   \end{minipage}\par
 }
 
+\newcommand{\pub}[2]{\noindent\hangindent=1.3em\hangafter=1 \textbf{#1}\quad #2\par\vspace{0.35em}}
 \begin{document}
 \makecvtitle
 \vspace{-1.2em}
@@ -50,26 +51,19 @@
 \cventry{Sep 2023--Jun 2027}{Bachelor of Management in Big Data Management and Application}{South China University of Technology (SCUT)}{Guangzhou, China}{}{Cumulative GPA: 3.46/4.0; average score: 85.18/100 (through Semester 6).\\Selected AI coursework: Large Models and Generative AI (93/100), Large Language Models and Prompt Engineering (93/100), Machine Learning (92/100), and Deep Learning (88/100).}
 
 \section{Selected Achievements \& Deployed Work}
-\cvitem{Published}{Co-authored a study on ethical safety in LLM code generation, published in \textbf{\textit{iScience}} (2026).}
+\cvitem{Research}{First-author manuscript under second-round review at \textbf{IEEE JBHI}; co-authored work published in \textbf{\textit{iScience}} and ACM HNNDL, with manuscripts undergoing second-round minor revision at \textbf{\textit{Nature Communications}} and under review at \textbf{\textit{The Lancet Digital Health}}.}
 \cvitem{IP}{Two first-inventor patent applications and two software copyrights.}
 \cvitem{Clinical Deployment}{Co-developed Dingbei Xinxin, deployed at Guangdong Second Provincial General Hospital; led the five-person Dingbei Meimei engineering and clinical-workflow team through its hospital launch; led the data-layer development for a health-management product, including a standardized schema, field governance, and medical terminology mapping for multi-source health-examination data.}
 \cvitem{Awards \& Projects}{Campus Gold, Internet+ Competition; Second Prize, Guangzhou Mathematical Modeling University League; Third Prize, CUMCM Guangdong Division; completed the SCUT SRP Student Research Training Project as Project Lead.}
 
 \section{Research Experience}
-\noindent\textit{\hospitalaffiliation}\par
-\researchentry{Jun 2026--Present}{A Matched-Control Perturbation Audit Framework for Evaluating Evidence Use in Deep Learning Models: An Application to 12-Lead ECG Classification}{First author; revision in progress at \textbf{IEEE JBHI}}{\begin{itemize}
-  \item \textbf{Problem:} Models can achieve strong discrimination while relying on evidence that conflicts with medical knowledge or becomes unstable under dataset shift.
-  \item \textbf{Method:} Proposed and led an audit using domain-defined evidence units and matched controls, operator comparisons, and frozen-weight external transfer to test whether target effects exceed the strongest control and remain stable across datasets.
-  \item \textbf{Finding:} Matched controls overturned the target-only 1AVB conclusion, operator choice changed AFIB and CRBBB verdicts, and external transfer exposed unstable evidence dependence; claims were classified as credible, limited, or unsupported.
+\researchentry{Jun 2026--Present}{A Matched-Control Perturbation Audit Framework for Evaluating Evidence Use in Deep Learning Models: An Application to 12-Lead ECG Classification}{First author; under second-round review at \textbf{IEEE JBHI}}{\begin{itemize}
+  \item Led study design, experiments, and manuscript writing; developed matched-control perturbation audits of clinically relevant evidence use in ECG classifiers.
+  \item Cross-dataset validation showed that strong classification performance can coexist with unstable evidence use.
 \end{itemize}}
+\researchentry{Jul 2026--Present}{Cross-Institutional Adaptation of ECG--Report Models: Evaluating Transfer and Retention}{Research Lead; Manuscript in Preparation}{Investigate cross-institutional adaptation of ECG--report models on MIMIC and PTB-XL, evaluating target-institution report generation and source-institution retention to characterize adaptation--forgetting trade-offs.}
+\researchentry{Ongoing}{Virtual Standardized Customers for Safety Auditing of AI Nutritional-Supplement Recommendations}{Pilot Study}{Develop simulated customers with controlled health-information disclosure to audit proactive questioning and recommendation safety. Model-assisted pilot scoring found harmful recommendation rates of 65.0\%--91.7\% across four systems in risk scenarios under standard shopping-assistant instructions.}
 
-\researchentry{Jun 2026--Present}{DLEF: Dataset-Label Evidence Fingerprints for Explaining Cross-Dataset Performance in ECG Classification}{First author; Manuscript in Preparation}{\begin{itemize}
-  \item \textbf{Problem:} Nominally identical diagnostic labels can rely on different ECG evidence across centers; standard performance metrics reveal external degradation without explaining its source.
-  \item \textbf{Method:} Proposed and led DLEF, which applies controlled perturbations along rhythm, conduction, QRS morphology, lead-specific QRS, and repolarization axes to form dataset-label fingerprints and directional source-target distances.
-  \item \textbf{Finding:} Across three public datasets and six diagnoses, DLEF distance closely tracked label-level external AUROC degradation (Spearman $r=0.843$) and outperformed prevalence, internal-performance, and embedding-shift baselines.
-\end{itemize}}
-
-\newpage
 \section{Internship \& Product Leadership}
 \cventry{Nov 2024--Present}{LLM Development Engineer Intern}{AI Research Institute, Guangdong Second Provincial General Hospital}{}{}{\begin{itemize}
   \item Developed a standardized-patient Q\&A pipeline from approximately 8,000 cardiovascular case PDFs, covering LLM-based information extraction, entity disambiguation, Neo4j knowledge representation, and hybrid retrieval.
@@ -92,11 +86,14 @@
 \researchentry{2025}{Myocardial Ischemia Knowledge Graph}{Project Lead, SCUT Student Research Program}{Advisor: Xunde Dong. Led a five-student interdisciplinary team; designed the ontology, annotation schema, guidelines, and quality-control workflow; built a multi-annotator platform with adjudication and agreement checks; and implemented XGBoost-based implicit reasoning with graph-mapped interpretability analysis.}
 
 \section{Publications \& Manuscripts}
-\cvitem{Published [1]}{J. He, S. Qin, H. Zou, et al., \textbf{R. Cheng}, H. Zhang, and W. Cheng. ``CodeSafetyBench: Evaluating and Improving Ethical Safety in Large Language Model Code Generation.'' \textbf{\textit{iScience}}, 2026. \href{https://doi.org/10.1016/j.isci.2026.115073}{doi:10.1016/j.isci.2026.115073}.}
-\cvitem{Revised [2]}{``Implicit Medical Ethical Deficits in Large Language Models: A Benchmarking and Alignment Study.'' \textbf{\textit{Nature Communications}}; led the revision-stage experiments for the response to reviewers.}
-\cvitem{Revision in Progress [3]}{\textbf{R. Cheng et al.} ``A Matched-Control Perturbation Audit Framework for Evaluating Evidence Use in Deep Learning Models: An Application to 12-Lead ECG Classification.'' \textbf{\textit{IEEE JBHI}}. First author.}
-\cvitem{In Preparation [4]}{\textbf{R. Cheng et al.} ``DLEF: Dataset-Label Evidence Fingerprints for Explaining Cross-Dataset Performance in ECG Classification.'' \textit{Manuscript in Preparation}. First author.}
-\cvitem{Ongoing}{\textbf{PathCLIP: Evidence-Aware ECG--Text Representation Learning.} ECG--text alignment and zero-shot recognition with matched-count, permuted-hierarchy, residual-only, and held-out-label controls.}
+\pub{[1] First author; second-round review}{A Matched-Control Perturbation Audit Framework for Evaluating Evidence Use in Deep Learning Models: An Application to 12-Lead ECG Classification. \textbf{\textit{IEEE Journal of Biomedical and Health Informatics}}.}
+\pub{[2] Co-author; second-round minor revision}{Implicit Medical Ethical Deficits in Large Language Models: A Benchmarking and Alignment Study. \mbox{\textbf{\textit{Nature Communications}}}.}
+\pub{[3] Co-author; under review}{A multimodal large language model for sexually transmitted disease diagnosis, reasoning, and patient-centred consultation. \textbf{\textit{The Lancet Digital Health}}.}
+\pub{[4] Co-author; published}{CodeSafetyBench: Evaluating and Improving Ethical Safety in Large Language Model Code Generation. \textbf{\textit{iScience}}, 29(4), 115073, 2026. \href{https://doi.org/10.1016/j.isci.2026.115073}{DOI}.}
+\pub{[5] Co-first author (listed second); under review}{PTB-XL-Cal: A Calibration Benchmark for Multi-Label ECG Classification, with a Prevalence-Associated Failure Mode. \textbf{\textit{IEEE Journal of Biomedical and Health Informatics}}.}
+\pub{[6] Second author; submitted}{PHIPATCH: Localized Spectral Phase and Phase-Coherent Attention for Time-Series Forecasting. \textbf{ICASSP}.}
+\pub{[7] Third author; published}{Artificial Intelligence Applications in X-ray Coronary Angiography: A Comprehensive Review of Image Analysis Techniques. \textbf{ACM HNNDL}, 2026. \href{https://doi.org/10.1145/3795892.3795917}{DOI}.}
+\pub{[8] Third author; published}{Artificial Intelligence for Echocardiographic Assessment of Pulmonary Hypertension and Right Heart Function: Advances in Intelligent Diagnosis and Risk Stratification. \textbf{ACM HNNDL}, 2026. \href{https://doi.org/10.1145/3795892.3795918}{DOI}.}
 
 % Keep the Skills taxonomy aligned with the web CV.
 \section{Skills}

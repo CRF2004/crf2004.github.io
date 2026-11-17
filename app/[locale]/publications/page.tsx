@@ -9,13 +9,13 @@ export const metadata: Metadata = {
 };
 
 const coauthoredPapers = [
-  {
-    key: "coauth_2",
-  },
-  {
-    key: "coauth_1",
-    href: "https://doi.org/10.1016/j.isci.2026.115073",
-  },
+  { key: "coauth_2" },
+  { key: "coauth_lancet" },
+  { key: "coauth_1", href: "https://doi.org/10.1016/j.isci.2026.115073" },
+  { key: "coauth_calibration" },
+  { key: "coauth_phipatch" },
+  { key: "coauth_cag", href: "https://doi.org/10.1145/3795892.3795917" },
+  { key: "coauth_echo", href: "https://doi.org/10.1145/3795892.3795918" },
 ] as const;
 
 export default function PublicationsPage({
@@ -34,21 +34,22 @@ export default function PublicationsPage({
       venue: t("jbhi_venue"),
       description: t("jbhi_desc"),
     },
-    {
-      status: t("in_preparation"),
-      title: t("bibm_title"),
-      venue: t("bibm_venue"),
-      description: t("bibm_desc"),
-    },
   ];
 
   const ongoingCollaborations = [
     {
-      status: t("ongoing"),
+      status: t("in_preparation"),
       role: t("research_lead_role"),
       title: t("pathclip_title"),
       venue: t("pathclip_venue"),
       description: t("pathclip_desc"),
+    },
+    {
+      status: t("ongoing"),
+      role: t("customer_venue"),
+      title: t("customer_title"),
+      venue: t("customer_venue"),
+      description: t("customer_desc"),
     },
   ];
 

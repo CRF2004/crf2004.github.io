@@ -18,9 +18,18 @@
     "cta_cv": "View CV",
     "currently": "Currently",
     "current": {
-      "revision": { "title": "Nature Communications major revision", "detail": "Leading the revision-stage experiments as sixth author." },
-      "review": { "title": "First-author work: revision and preparation", "detail": "Evidence-use audit in revision at IEEE JBHI; DLEF manuscript in preparation." },
-      "ongoing": { "title": "ECG–language representation learning", "detail": "Studying evidence grounding and controlled multimodal evaluation." }
+      "revision": {
+        "title": "Nature Communications minor revision",
+        "detail": "Co-authored manuscript undergoing second-round minor revision."
+      },
+      "review": {
+        "title": "First-author ECG evidence audit",
+        "detail": "Under second-round review at IEEE JBHI"
+      },
+      "ongoing": {
+        "title": "Cross-Institutional Adaptation of ECG–Report Models: Evaluating Transfer and Retention",
+        "detail": "Manuscript in Preparation"
+      }
     },
     "work_label": "Selected work",
     "recent_projects": "Featured Projects",
@@ -30,7 +39,7 @@
   "about": {
     "title": "About Me",
     "bio_p1": "I am an undergraduate at South China University of Technology (SCUT), majoring in Big Data Management and Application. My current research focuses on trustworthy medical AI, especially how ECG models use clinical evidence, how their behavior changes across datasets, and how physiological signals can be aligned with language.",
-    "bio_p2": "Since June 2026, I have led a line of ECG research spanning matched-control evidence-use auditing, dataset-label evidence fingerprints, and knowledge-aware ECG–text representation learning. One first-author manuscript is in revision at IEEE JBHI, and another is in preparation.",
+    "bio_p2": "Since June 2026, I have led research on evidence-use auditing and cross-institutional adaptation of ECG–report models. My first-author audit manuscript is under second-round review at IEEE JBHI, and my adaptation manuscript is in preparation. I also study the safety of AI nutritional-supplement recommendations using virtual standardized customers.",
     "bio_p3": "I also work at the AI Research Institute of Guangdong No. 2 Provincial People's Hospital, where I have contributed to medical LLMs, cardiovascular knowledge representation, clinical question answering, and deployable health-AI prototypes. Earlier projects include a standardized-patient system built from about 8,000 clinical cases and a myocardial-ischemia knowledge graph with interpretable machine-learning components.",
     "research_interests": "Research Interests",
     "ri_1": "Trustworthy and interpretable medical AI",
@@ -58,25 +67,18 @@
     "research_title": "Research Experience",
     "other_title": "Professional & Leadership Experience",
     "ecg_audit": {
-      "title": "Evidence-Use Auditing for Deep ECG Models",
+      "title": "A Matched-Control Perturbation Audit Framework for Evaluating Evidence Use in Deep Learning Models: An Application to 12-Lead ECG Classification",
       "role": "Research Lead · First Author",
       "period": "Jun 2026 — Present",
       "desc_1": "Developed a matched-control perturbation framework to audit whether deep ECG classifiers rely on clinically relevant evidence rather than task-correlated shortcuts.",
-      "desc_2": "Evaluated evidence use across PTB-XL and CODE-15%, multiple architectures, perturbation doses, and clinically defined evidence windows; manuscript in revision at IEEE JBHI."
-    },
-    "dlef": {
-      "title": "DLEF: Dataset-Label Evidence Fingerprints",
-      "role": "Research Lead · First Author",
-      "period": "Jun 28, 2026 — Present",
-      "desc_1": "Proposed dataset-label evidence fingerprints to characterize how ECG evidence structure differs across datasets and diagnostic labels.",
-      "desc_2": "Studied whether directional, boundary-aware fingerprints explain cross-dataset AUROC degradation across CODE-15%, PTB-XL, and Chapman-Shaoxing; Manuscript in Preparation."
+      "desc_2": "Under second-round review at IEEE JBHI."
     },
     "pathclip": {
-      "title": "PathCLIP: Knowledge-Aware ECG–Text Representation Learning",
-      "role": "Research Lead",
+      "title": "Cross-Institutional Adaptation of ECG–Report Models: Evaluating Transfer and Retention",
+      "role": "Research Lead · Manuscript in Preparation",
       "period": "Jul 25, 2026 — Present",
-      "desc_1": "Investigating whether diagnostic hierarchies and ECG findings improve ECG–text alignment, zero-shot recognition, and physiologically grounded representations.",
-      "desc_2": "Designed matched-count, permuted-hierarchy, residual-only, and held-out-label controls; current work shifts from ontology-only supervision toward finding grounding and evidence-aligned learning."
+      "desc_1": "Investigate cross-institutional adaptation of ECG–report models on MIMIC and PTB-XL, evaluating target-institution report generation and source-institution retention to characterize adaptation–forgetting trade-offs.",
+      "desc_2": ""
     },
     "hospital": {
       "title": "AI Research Institute, Guangdong No. 2 Provincial People's Hospital",
@@ -104,6 +106,12 @@
       "role": "Member",
       "period": "Sep 2023 — Sep 2024",
       "desc_1": "Organized academic activities including reading salons, outreach experience sharing sessions, and lectures."
+    },
+    "customer": {
+      "title": "Virtual Standardized Customers for Safety Auditing of AI Nutritional-Supplement Recommendations",
+      "role": "Pilot Study",
+      "period": "Ongoing",
+      "desc_1": "Develop simulated customers with controlled health-information disclosure to audit proactive questioning and recommendation safety. Model-assisted pilot scoring found harmful recommendation rates of 65.0%–91.7% across four systems in risk scenarios under standard shopping-assistant instructions."
     }
   },
   "publications": {
@@ -114,24 +122,29 @@
     "in_preparation": "Manuscript in Preparation",
     "ongoing": "Ongoing Research",
     "first_author_role": "First Author",
-    "ongoing_collaborations": "Ongoing Collaborative Research",
+    "ongoing_collaborations": "Ongoing Research",
     "research_lead_role": "Research Lead",
     "jbhi_title": "A Matched-Control Perturbation Audit Framework for Evaluating Evidence Use in Deep Learning Models: An Application to 12-Lead ECG Classification",
-    "jbhi_venue": "Revision in progress at IEEE Journal of Biomedical and Health Informatics (JBHI)",
+    "jbhi_venue": "Under second-round review at IEEE JBHI",
     "jbhi_desc": "A matched-control perturbation audit for testing whether deep ECG models depend on clinically relevant evidence and whether that dependence remains stable across datasets.",
-    "bibm_title": "DLEF: Dataset-Label Evidence Fingerprints for Explaining Cross-Dataset Performance in ECG Classification",
-    "bibm_venue": "Manuscript in Preparation",
-    "bibm_desc": "A dataset-label evidence fingerprint framework for characterizing and explaining cross-dataset performance degradation in ECG classification.",
-    "pathclip_title": "PathCLIP: Knowledge-Aware ECG–Text Representation Learning",
-    "pathclip_venue": "Research project, started July 2026",
-    "pathclip_desc": "Controlled study of diagnostic hierarchies, ECG findings, and evidence grounding for ECG–text alignment and zero-shot recognition.",
+    "pathclip_title": "Cross-Institutional Adaptation of ECG–Report Models: Evaluating Transfer and Retention",
+    "pathclip_venue": "Manuscript in Preparation",
+    "pathclip_desc": "Investigate cross-institutional adaptation of ECG–report models on MIMIC and PTB-XL, evaluating target-institution report generation and source-institution retention to characterize adaptation–forgetting trade-offs.",
     "coauth_1": "CodeSafetyBench: Evaluating and Improving Ethical Safety in Large Language Model Code Generation — iScience, 2026",
-    "coauth_2": "Implicit Medical Ethical Deficits in Large Language Models: A Benchmarking and Alignment Study — major revision at Nature Communications; sixth author, leading the revision-stage experiments",
+    "coauth_2": "Implicit Medical Ethical Deficits in Large Language Models: A Benchmarking and Alignment Study — Nature Communications; second-round minor revision in progress; co-author (listed eighth)",
     "orcid_label": "Complete publication record on ORCID",
     "software_label": "Software Copyright",
     "software_title": "Knowledge Graph Ontology Intelligent Management System",
     "software_status": "Registered",
-    "software_desc": "A web-based collaborative platform for knowledge graph ontology management, developed as part of the SRP student research project."
+    "software_desc": "A web-based collaborative platform for knowledge graph ontology management, developed as part of the SRP student research project.",
+    "coauth_lancet": "A multimodal large language model for sexually transmitted disease diagnosis, reasoning, and patient-centred consultation — The Lancet Digital Health; under review; co-author",
+    "coauth_calibration": "PTB-XL-Cal: A Calibration Benchmark for Multi-Label ECG Classification, with a Prevalence-Associated Failure Mode — IEEE JBHI; under review; co-first author (listed second)",
+    "coauth_phipatch": "PHIPATCH: Localized Spectral Phase and Phase-Coherent Attention for Time-Series Forecasting — ICASSP; submitted; second author",
+    "coauth_cag": "Artificial Intelligence Applications in X-ray Coronary Angiography: A Comprehensive Review of Image Analysis Techniques — ACM HNNDL, 2026; published; third author",
+    "coauth_echo": "Artificial Intelligence for Echocardiographic Assessment of Pulmonary Hypertension and Right Heart Function: Advances in Intelligent Diagnosis and Risk Stratification — ACM HNNDL, 2026; published; third author",
+    "customer_title": "Virtual Standardized Customers for Safety Auditing of AI Nutritional-Supplement Recommendations",
+    "customer_venue": "Pilot Study",
+    "customer_desc": "Develop simulated customers with controlled health-information disclosure to audit proactive questioning and recommendation safety. Model-assisted pilot scoring found harmful recommendation rates of 65.0%–91.7% across four systems in risk scenarios under standard shopping-assistant instructions."
   },
   "blog": {
     "title": "Blog",
@@ -145,32 +158,26 @@
     "title": "Curriculum Vitae",
     "download": "Download PDF",
     "education": "Education",
-    "education_detail": "B.S. in Big Data Management and Application, South China University of Technology (2023–2027)",
+    "education_detail": "Bachelor of Management in Big Data Management and Application, South China University of Technology (2023–2027)",
     "education_gpa": "Cumulative GPA: 3.46/4.0 | Average score: 85.18/100 (through Semester 6)",
     "core_courses": "Core Courses",
     "courses_list": "Python Data Analysis, Data Structures & Algorithms, Deep Learning, Optimization Methods, Mathematical Modeling, Big Data System Planning, Data Governance",
     "research_experience": "Research Experience",
-    "re_ecg_title": "Evidence-Use Auditing for Deep ECG Models",
+    "re_ecg_title": "A Matched-Control Perturbation Audit Framework for Evaluating Evidence Use in Deep Learning Models: An Application to 12-Lead ECG Classification",
     "re_ecg_meta": "Research Lead · Jun 2026 — Present",
     "re_ecg_desc": "Designed a matched-control perturbation audit for clinically grounded evidence use across ECG datasets and model architectures.",
-    "re_dlef_title": "DLEF: Dataset-Label Evidence Fingerprints",
-    "re_dlef_meta": "Research Lead · Jun 2026 — Present",
-    "re_dlef_desc": "Developed directional and boundary-aware fingerprints to explain cross-dataset degradation in ECG classification.",
-    "re_pathclip_title": "PathCLIP: Knowledge-Aware ECG–Text Learning",
-    "re_pathclip_meta": "Research Lead · Jul 2026 — Present",
-    "re_pathclip_desc": "Evaluating diagnostic hierarchy, finding-level supervision, and evidence grounding through matched controls and zero-shot experiments.",
+    "re_pathclip_title": "Cross-Institutional Adaptation of ECG–Report Models: Evaluating Transfer and Retention",
+    "re_pathclip_meta": "Research Lead · Manuscript in Preparation",
+    "re_pathclip_desc": "Investigate cross-institutional adaptation of ECG–report models on MIMIC and PTB-XL, evaluating target-institution report generation and source-institution retention to characterize adaptation–forgetting trade-offs.",
     "research": "Research Publications",
     "pub_under_review": "Under Review",
     "pub_first_author": "First Author",
     "pub_jbhi_title": "A Matched-Control Perturbation Audit Framework for Evaluating Evidence Use in Deep Learning Models: An Application to 12-Lead ECG Classification",
-    "pub_jbhi_venue": "Revision in progress at IEEE Journal of Biomedical and Health Informatics (JBHI)",
+    "pub_jbhi_venue": "Under second-round review at IEEE JBHI",
     "pub_jbhi_desc": "Matched-control perturbation audit of clinically relevant evidence use and cross-dataset stability in 12-lead ECG classification.",
-    "pub_bibm_title": "DLEF: Dataset-Label Evidence Fingerprints for Explaining Cross-Dataset Performance in ECG Classification",
-    "pub_bibm_venue": "Manuscript in Preparation",
-    "pub_bibm_desc": "Evidence fingerprints for characterizing and explaining cross-dataset performance degradation across ECG datasets and labels.",
     "coauthored": "Selected Co-Authored Publications",
     "coauth_1": "CodeSafetyBench: Evaluating and Improving Ethical Safety in Large Language Model Code Generation — iScience, 2026",
-    "coauth_2": "Implicit Medical Ethical Deficits in Large Language Models: A Benchmarking and Alignment Study — major revision at Nature Communications; sixth author, leading the revision-stage experiments",
+    "coauth_2": "Implicit Medical Ethical Deficits in Large Language Models: A Benchmarking and Alignment Study — Nature Communications; second-round minor revision in progress; co-author (listed eighth)",
     "orcid": "ORCID: 0009-0002-3021-9647",
     "patents": "Patents & Intellectual Property",
     "patent_label": "Patent",
@@ -187,7 +194,12 @@
     "award_5": "Excellent Staff, 2023-2024 E-commerce Department Student Union",
     "certificates": "Language Proficiency",
     "cet6": "CET-6: 528",
-    "ielts": "IELTS: 6.5"
+    "ielts": "IELTS: 6.5",
+    "coauth_lancet": "A multimodal large language model for sexually transmitted disease diagnosis, reasoning, and patient-centred consultation — The Lancet Digital Health; under review; co-author",
+    "coauth_calibration": "PTB-XL-Cal: A Calibration Benchmark for Multi-Label ECG Classification, with a Prevalence-Associated Failure Mode — IEEE JBHI; under review; co-first author (listed second)",
+    "coauth_phipatch": "PHIPATCH: Localized Spectral Phase and Phase-Coherent Attention for Time-Series Forecasting — ICASSP; submitted; second author",
+    "coauth_cag": "Artificial Intelligence Applications in X-ray Coronary Angiography: A Comprehensive Review of Image Analysis Techniques — ACM HNNDL, 2026; published; third author",
+    "coauth_echo": "Artificial Intelligence for Echocardiographic Assessment of Pulmonary Hypertension and Right Heart Function: Advances in Intelligent Diagnosis and Risk Stratification — ACM HNNDL, 2026; published; third author"
   },
   "contact": {
     "title": "Get in Touch",

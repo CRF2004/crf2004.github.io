@@ -25,10 +25,16 @@ export default function ExperiencePage({
       descriptions: [t("ecg_audit.desc_1"), t("ecg_audit.desc_2")],
     },
     {
-      title: t("dlef.title"),
-      role: t("dlef.role"),
-      period: t("dlef.period"),
-      descriptions: [t("dlef.desc_1"), t("dlef.desc_2")],
+      title: t("pathclip.title"),
+      role: t("pathclip.role"),
+      period: t("pathclip.period"),
+      descriptions: [t("pathclip.desc_1")],
+    },
+    {
+      title: t("customer.title"),
+      role: t("customer.role"),
+      period: t("customer.period"),
+      descriptions: [t("customer.desc_1")],
     },
   ];
 

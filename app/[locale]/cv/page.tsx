@@ -10,7 +10,12 @@ export const metadata: Metadata = {
 
 const coauthoredPapers = [
   { key: "coauth_2" },
+  { key: "coauth_lancet" },
   { key: "coauth_1", doi: "https://doi.org/10.1016/j.isci.2026.115073" },
+  { key: "coauth_calibration" },
+  { key: "coauth_phipatch" },
+  { key: "coauth_cag", doi: "https://doi.org/10.1145/3795892.3795917" },
+  { key: "coauth_echo", doi: "https://doi.org/10.1145/3795892.3795918" },
 ] as const;
 
 export default function CVPage({
@@ -32,7 +37,7 @@ export default function CVPage({
         educationDetail: "华南理工大学 · 大数据管理与应用 · 管理学学士（2023–2027）",
         currentResearch: "当前研究",
         currentResearchIntro:
-          "我的近期工作围绕一个连续问题展开：医疗 AI 模型是否使用了正确证据，这种证据依赖能否跨数据集保持，以及如何把这种约束带入多模态表征学习。",
+          "当前研究涵盖 ECG 模型证据审计、ECG–报告模型跨机构适配与营养品 AI 导购安全审计。",
         manuscripts: "论文与手稿",
         manuscriptsNote: "完整成果记录见 Publications 页面与 ORCID。",
         clinicalSystems: "从研究到临床系统",
@@ -60,28 +65,28 @@ export default function CVPage({
           },
           {
             title: "ECG–文本表征学习",
-            desc: "探索诊断层级、ECG findings 与 evidence grounding 如何影响多模态对齐。",
+            desc: "研究 ECG–报告模型的跨机构适配，在 MIMIC 与 PTB-XL 上评估新机构报告生成表现与原机构能力保持，分析适配收益与遗忘之间的取舍。",
           },
         ],
         researchItems: [
           {
-            title: "深度 ECG 模型证据使用审计",
-            meta: "研究负责人 · 2026年6月 — 至今",
-            label: "核心问题",
-            desc: "高性能 ECG 分类器是否真的依赖临床上正确的证据？我使用匹配对照扰动与冻结权重外部迁移，将目标证据敏感性与一般性脆弱区分开。",
+            title: "A Matched-Control Perturbation Audit Framework for Evaluating Evidence Use in Deep Learning Models: An Application to 12-Lead ECG Classification",
+            meta: "第一作者 · 2026年6月 — 至今",
+            label: "IEEE JBHI 二审中",
+            desc: "对12导联ECG分类中的临床相关证据使用及其跨数据集稳定性进行匹配对照扰动审计。"
           },
           {
-            title: "DLEF：数据集—标签证据指纹",
-            meta: "研究负责人 · 2026年6月 — 至今",
-            label: "核心问题",
-            desc: "跨数据集性能下降能否由更细粒度的证据结构差异解释？DLEF 从 source–target–label 层面刻画方向性与边界差异，保留单一全局统计量无法表达的迁移信息。",
-          },
-          {
-            title: "PathCLIP: Evidence-Aware ECG–Text Representation Learning",
+            title: "Cross-Institutional Adaptation of ECG–Report Models: Evaluating Transfer and Retention",
             meta: "研究负责人 · 2026年7月 — 至今",
-            label: "探索中",
-            desc: "目前仍处于方法构想阶段。我在用计数匹配、随机层级、仅残差和留出标签等对照，先判断诊断层级、ECG findings 与 evidence grounding 各自真正贡献了什么，再确定最终方法。",
+            label: "手稿准备中",
+            desc: "研究 ECG–报告模型的跨机构适配，在 MIMIC 与 PTB-XL 上评估新机构报告生成表现与原机构能力保持，分析适配收益与遗忘之间的取舍。"
           },
+          {
+            title: "虚拟标准化顾客与营养品AI导购推荐安全审计",
+            meta: "进行中",
+            label: "预实验阶段",
+            desc: "构建具有受控健康信息披露规则的模拟顾客，审计 AI 导购的主动询问与推荐安全性。预实验的模型辅助评分显示，普通导购条件下，四个系统在风险场景中的有害推荐率为 65.0%–91.7%。"
+          }
         ],
         clinicalItems: [
           {
@@ -131,7 +136,7 @@ export default function CVPage({
           "South China University of Technology · Big Data Management and Application · Bachelor of Management (2023–2027)",
         currentResearch: "Current Research",
         currentResearchIntro:
-          "My recent work follows one connected question: whether medical AI models use the right evidence, whether that evidence dependence remains stable across datasets, and how such constraints can inform multimodal representation learning.",
+          "My current research covers ECG evidence-use auditing, cross-institutional adaptation of ECG–report models, and safety auditing of AI nutritional-supplement recommendations.",
         manuscripts: "Manuscripts & Publications",
         manuscriptsNote:
           "See the Publications page and ORCID for the complete record.",
@@ -160,28 +165,28 @@ export default function CVPage({
           },
           {
             title: "ECG–Text Representation Learning",
-            desc: "Exploring how diagnostic hierarchies, ECG findings, and evidence grounding affect multimodal alignment.",
+            desc: "Investigate cross-institutional adaptation of ECG–report models on MIMIC and PTB-XL, evaluating target-institution report generation and source-institution retention to characterize adaptation–forgetting trade-offs.",
           },
         ],
         researchItems: [
           {
             title: "A Matched-Control Perturbation Audit Framework for Evaluating Evidence Use in Deep Learning Models: An Application to 12-Lead ECG Classification",
-            meta: "Research Lead · Jun 2026 — Present",
-            label: "Question",
-            desc: "Do high-performing ECG classifiers actually depend on clinically correct evidence? I use matched-control perturbations and frozen-weight external transfer to separate target-evidence sensitivity from generic model fragility.",
+            meta: "First author · Jun 2026 — Present",
+            label: "Under second-round review at IEEE JBHI",
+            desc: "Matched-control perturbation audit of clinically relevant evidence use and cross-dataset stability in 12-lead ECG classification."
           },
           {
-            title: "DLEF: Dataset-Label Evidence Fingerprints for Explaining Cross-Dataset Performance in ECG Classification",
-            meta: "Research Lead · Jun 2026 — Present",
-            label: "Question",
-            desc: "Can cross-dataset performance degradation be explained by finer-grained differences in evidence structure? DLEF characterizes directional and boundary-aware source–target–label shifts that a single global statistic cannot capture.",
-          },
-          {
-            title: "PathCLIP: Evidence-Aware ECG–Text Representation Learning",
+            title: "Cross-Institutional Adaptation of ECG–Report Models: Evaluating Transfer and Retention",
             meta: "Research Lead · Jul 2026 — Present",
-            label: "Exploratory",
-            desc: "This project is still at the method-formulation stage. I am using matched-count, permuted-hierarchy, residual-only, and held-out-label controls to identify what diagnostic hierarchies, ECG findings, and evidence grounding actually contribute before fixing the final method.",
+            label: "Manuscript in Preparation",
+            desc: "Investigate cross-institutional adaptation of ECG–report models on MIMIC and PTB-XL, evaluating target-institution report generation and source-institution retention to characterize adaptation–forgetting trade-offs."
           },
+          {
+            title: "Virtual Standardized Customers for Safety Auditing of AI Nutritional-Supplement Recommendations",
+            meta: "Ongoing",
+            label: "Pilot Study",
+            desc: "Develop simulated customers with controlled health-information disclosure to audit proactive questioning and recommendation safety. Model-assisted pilot scoring found harmful recommendation rates of 65.0%–91.7% across four systems in risk scenarios under standard shopping-assistant instructions."
+          }
         ],
         clinicalItems: [
           {
@@ -228,11 +233,6 @@ export default function CVPage({
       title: t("pub_jbhi_title"),
       venue: t("pub_jbhi_venue"),
       desc: t("pub_jbhi_desc"),
-    },
-    {
-      title: t("pub_bibm_title"),
-      venue: t("pub_bibm_venue"),
-      desc: t("pub_bibm_desc"),
     },
   ];
 
