@@ -10,7 +10,6 @@ export const metadata: Metadata = {
 
 const coauthoredPapers = [
   { key: "coauth_2" },
-  { key: "coauth_lancet" },
   { key: "coauth_1", doi: "https://doi.org/10.1016/j.isci.2026.115073" },
   { key: "coauth_calibration" },
   { key: "coauth_phipatch" },
